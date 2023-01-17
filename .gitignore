@@ -39,3 +39,4 @@ transformers/__pycache__/IndexBasedTransformer.cpython-38.pyc
 transformers/__pycache__/LastStateTransformer.cpython-38.pyc
 transformers/__pycache__/StaticTransformer.cpython-38.pyc
 .ipynb_checkpoints/test_stability-checkpoint.ipynb
+*/.ipynb_checkpoints/*
