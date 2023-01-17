@@ -1,0 +1,7 @@
+iter;dataset;cls;method;param;value;score
+2;production;logit;single_agg;C;-10.766467890965874;0.8031700973340715
+2;production;logit;single_agg;processing_time;0.9955761432647705;0
+3;production;logit;single_agg;C;0.07811053037692162;0.9269047591966748
+3;production;logit;single_agg;processing_time;1.049701452255249;0
+4;production;logit;single_agg;C;-13.126731915956626;0.6747886056687932
+4;production;logit;single_agg;processing_time;0.8849203586578369;0

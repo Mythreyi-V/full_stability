@@ -1,0 +1,7 @@
+iter;dataset;cls;method;nr_events;param;value;score
+2;production;logit;prefix_agg;C;-9.270978129189066;0.5416666666666666
+2;production;logit;prefix_agg;processing_time;0.5783147811889648;0
+3;production;logit;prefix_agg;C;-11.589029726354628;0.5
+3;production;logit;prefix_agg;processing_time;0.5808799266815186;0
+4;production;logit;prefix_agg;C;13.74604523776102;1.0
+4;production;logit;prefix_agg;processing_time;0.5932879447937012;0

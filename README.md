@@ -1,0 +1,4 @@
+# Evaluating Explanation Stability for Business Processes
+This repository is associated with the paper <a href="https://link.springer.com/chapter/10.1007/978-3-030-91431-8_4">Evaluating Stability of Post-hoc Explanations for Business Process Predictions</a>.
+
+The code used in this repository is adapted from <a href="https://github.com/irhete/predictive-monitoring-benchmark">the outcome-oriented predictive process monitoring benchmark</a> and <a href="https://github.com/renuka98/interpretable_predictive_processmodel/tree/master/BPIC_Data">a previous work on interpreting this benchmark</a>. We thank the authors of the benchmark on outcome oriented predictions, for providing the source code which enabled further study on the interpretability of the models. In addition to this, <a href="https://github.com/nogueirs/JMLR2018">a module developed to measure stability of feature subsets is used</a>.

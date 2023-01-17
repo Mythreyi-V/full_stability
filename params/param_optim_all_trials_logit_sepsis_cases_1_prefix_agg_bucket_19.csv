@@ -1,0 +1,7 @@
+iter;dataset;cls;method;nr_events;param;value;score
+2;sepsis_cases_1;logit;prefix_agg;C;-13.82243319707208;0.8133673903788846
+2;sepsis_cases_1;logit;prefix_agg;processing_time;0.6456859111785889;0
+3;sepsis_cases_1;logit;prefix_agg;C;3.682452879445151;0.9885057471264368
+3;sepsis_cases_1;logit;prefix_agg;processing_time;0.6626594066619873;0
+4;sepsis_cases_1;logit;prefix_agg;C;6.763584104169741;0.9885057471264368
+4;sepsis_cases_1;logit;prefix_agg;processing_time;0.6610958576202393;0
