@@ -1,0 +1,73 @@
+
+net {
+  name = unnamedBN;
+  software = "aGrUM 0.20.2";
+  node_size = (50 50);
+}
+
+node sepal_length {
+   states = ("(0.079, 0.38]" "(0.38, 0.58]" );
+   label = "sepal_length";
+   ID = "sepal_length";
+}
+
+node sepal_width {
+   states = ("(-0.0094, 0.21]" "(0.21, 0.38]" "(0.38, 0.46]" );
+   label = "sepal_width";
+   ID = "sepal_width";
+}
+
+node petal_length {
+   states = ("(0.27999999999999997, 0.54]" "(0.54, 0.75]" "(0.75, 0.77]" );
+   label = "petal_length";
+   ID = "petal_length";
+}
+
+node petal_width {
+   states = ("(0.24, 0.5]" "(0.5, 0.74]" );
+   label = "petal_width";
+   ID = "petal_width";
+}
+
+node Result {
+   states = (Negative );
+   label = "Result";
+   ID = "Result";
+}
+
+potential ( sepal_length | sepal_width   ) {
+   data = 
+   ((   0.631661   0.368339)   % sepal_width="(-0.0094, 0.21]"   
+   (   0.999065   0.000934579)   % sepal_width="(0.21, 0.38]"   
+   (   0.990385   0.00961538));   % sepal_width="(0.38, 0.46]"   
+}
+
+potential (sepal_width) {
+   data = (  0.352097 0.590508 0.0573951);
+}
+
+potential ( petal_length | sepal_width   ) {
+   data = 
+   ((   0.99791   0.00104493   0.00104493)   % sepal_width="(-0.0094, 0.21]"   
+   (   0.370717   0.623053   0.00623053)   % sepal_width="(0.21, 0.38]"   
+   (   0.987179   0.00641026   0.00641026));   % sepal_width="(0.38, 0.46]"   
+}
+
+potential ( petal_width | petal_length   ) {
+   data = 
+   ((   0.99912   0.000880282)   % petal_length="(0.27999999999999997, 0.54]"   
+   (   0.702096   0.297904)   % petal_length="(0.54, 0.75]"   
+   (   0.875   0.125));   % petal_length="(0.75, 0.77]"   
+}
+
+potential ( Result | petal_length   sepal_length   ) {
+   data = 
+   (((   1)   % sepal_length="(0.079, 0.38]"   petal_length="(0.27999999999999997, 0.54]"   
+   (   1))   % sepal_length="(0.38, 0.58]"   petal_length="(0.27999999999999997, 0.54]"   
+   ((   1)   % sepal_length="(0.079, 0.38]"   petal_length="(0.54, 0.75]"   
+   (   1))   % sepal_length="(0.38, 0.58]"   petal_length="(0.54, 0.75]"   
+   ((   1)   % sepal_length="(0.079, 0.38]"   petal_length="(0.75, 0.77]"   
+   (   1)));   % sepal_length="(0.38, 0.58]"   petal_length="(0.75, 0.77]"   
+}
+
+

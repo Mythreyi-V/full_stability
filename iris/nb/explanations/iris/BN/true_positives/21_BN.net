@@ -1,0 +1,70 @@
+
+net {
+  name = unnamedBN;
+  software = "aGrUM 0.20.2";
+  node_size = (50 50);
+}
+
+node sepal_length {
+   states = ("(-0.0061, 0.2]" "(0.2, 0.33]" );
+   label = "sepal_length";
+   ID = "sepal_length";
+}
+
+node sepal_width {
+   states = ("(0.41, 0.67]" "(0.67, 0.83]" "(0.83, 0.91]" );
+   label = "sepal_width";
+   ID = "sepal_width";
+}
+
+node petal_length {
+   states = ("(-0.01, 0.23]" "(0.23, 0.24]" );
+   label = "petal_length";
+   ID = "petal_length";
+}
+
+node petal_width {
+   states = ("(-0.0075, 0.042]" "(0.042, 0.29]" );
+   label = "petal_width";
+   ID = "petal_width";
+}
+
+node Result {
+   states = (Positive );
+   label = "Result";
+   ID = "Result";
+}
+
+potential ( sepal_length | sepal_width   ) {
+   data = 
+   ((   0.638462   0.361538)   % sepal_width="(0.41, 0.67]"   
+   (   0.999055   0.00094518)   % sepal_width="(0.67, 0.83]"   
+   (   0.990385   0.00961538));   % sepal_width="(0.83, 0.91]"   
+}
+
+potential ( sepal_width | petal_width   ) {
+   data = 
+   ((   0.453529   0.474493   0.0719776)   % petal_width="(-0.0075, 0.042]"   
+   (   0.00262467   0.994751   0.00262467));   % petal_width="(0.042, 0.29]"   
+}
+
+potential ( petal_length | Result   ) {
+   data = 
+   ((   0.995033   0.00496689));   % Result=Positive   
+}
+
+potential (petal_width) {
+   data = (  0.789735 0.210265);
+}
+
+potential ( Result | sepal_width   sepal_length   ) {
+   data = 
+   (((   1)   % sepal_length="(-0.0061, 0.2]"   sepal_width="(0.41, 0.67]"   
+   (   1))   % sepal_length="(0.2, 0.33]"   sepal_width="(0.41, 0.67]"   
+   ((   1)   % sepal_length="(-0.0061, 0.2]"   sepal_width="(0.67, 0.83]"   
+   (   1))   % sepal_length="(0.2, 0.33]"   sepal_width="(0.67, 0.83]"   
+   ((   1)   % sepal_length="(-0.0061, 0.2]"   sepal_width="(0.83, 0.91]"   
+   (   1)));   % sepal_length="(0.2, 0.33]"   sepal_width="(0.83, 0.91]"   
+}
+
+
