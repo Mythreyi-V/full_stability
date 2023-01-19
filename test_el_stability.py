@@ -358,7 +358,7 @@ if xai_method=="SHAP":
                     
                 #explain the chosen instances and find the stability score
                 instance_no = 0
-                for instance in sample_instances[:10]:
+                for instance in sample_instances:
                     instance_no += 1    
                     print("Testing", instance_no, "of", len(sample_instances), ".")
                     
@@ -454,7 +454,7 @@ if xai_method=="LIME":
             instance_no = 0
             print(len(sample_instances))
             #explain the chosen instances and find the stability score
-            for instance in sample_instances[:10]:
+            for instance in sample_instances:
                 instance_no += 1
 
                 print("Testing", instance_no, "of", len(sample_instances), ".")
