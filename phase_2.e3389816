@@ -1,0 +1,17 @@
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:00<00:05,  3.75it/s] 10%|█         | 2/20 [00:00<00:06,  2.95it/s] 15%|█▌        | 3/20 [00:01<00:07,  2.33it/s] 20%|██        | 4/20 [00:01<00:06,  2.48it/s] 25%|██▌       | 5/20 [00:01<00:05,  2.66it/s] 30%|███       | 6/20 [00:02<00:05,  2.61it/s] 35%|███▌      | 7/20 [00:02<00:05,  2.34it/s] 40%|████      | 8/20 [00:03<00:06,  1.94it/s] 45%|████▌     | 9/20 [00:03<00:05,  2.11it/s] 50%|█████     | 10/20 [00:04<00:05,  1.98it/s] 55%|█████▌    | 11/20 [00:05<00:04,  1.88it/s] 60%|██████    | 12/20 [00:05<00:04,  1.94it/s] 65%|██████▌   | 13/20 [00:06<00:03,  1.92it/s] 70%|███████   | 14/20 [00:06<00:02,  2.05it/s] 75%|███████▌  | 15/20 [00:06<00:02,  2.10it/s] 80%|████████  | 16/20 [00:07<00:01,  2.10it/s] 85%|████████▌ | 17/20 [00:07<00:01,  2.15it/s] 90%|█████████ | 18/20 [00:08<00:00,  2.18it/s] 95%|█████████▌| 19/20 [00:09<00:00,  1.68it/s]100%|██████████| 20/20 [00:09<00:00,  1.65it/s]100%|██████████| 20/20 [00:09<00:00,  2.03it/s]
+  0%|          | 0/20 [00:00<?, ?it/s]  0%|          | 0/20 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "test_el_stability.py", line 335, in <module>
+    
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/shap/explainers/_explainer.py", line 168, in __init__
+    raise Exception("The passed model is not callable and cannot be analyzed directly with the given masker! Model: " + str(model))
+Exception: The passed model is not callable and cannot be analyzed directly with the given masker! Model: XGBClassifier(base_score=0.5, booster=None, colsample_bylevel=1,
+              colsample_bynode=1, colsample_bytree=0.17322065902080552, gamma=0,
+              gpu_id=-1, importance_type='gain', interaction_constraints=None,
+              learning_rate=2.0864144694643914, max_delta_step=0, max_depth=4,
+              min_child_weight=0, missing=nan, monotone_constraints=None,
+              n_estimators=500, n_jobs=0, num_parallel_tree=1, random_state=22,
+              reg_alpha=0, reg_lambda=1, scale_pos_weight=1, seed=22,
+              subsample=0.970483834465334, tree_method=None,
+              validate_parameters=False, verbosity=None)

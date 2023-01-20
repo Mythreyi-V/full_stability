@@ -1,0 +1,10 @@
+queue started
+modules purged
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+test ended
+production logit SHAP prefix agg
+PBS Job 3389809.pbs
+CPU time  : 00:00:09
+Wall time : 00:01:33
+Mem usage : 229592kb

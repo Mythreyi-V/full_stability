@@ -1,0 +1,17 @@
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00,  1.32it/s]100%|██████████| 1/1 [00:00<00:00,  1.32it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "test_el_stability.py", line 335, in <module>
+    shap_explainer = shap.Explainer(cls)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/shap/explainers/_explainer.py", line 168, in __init__
+    raise Exception("The passed model is not callable and cannot be analyzed directly with the given masker! Model: " + str(model))
+Exception: The passed model is not callable and cannot be analyzed directly with the given masker! Model: XGBClassifier(base_score=0.5, booster=None, colsample_bylevel=1,
+              colsample_bynode=1, colsample_bytree=0.07116217306026384, gamma=0,
+              gpu_id=-1, importance_type='gain', interaction_constraints=None,
+              learning_rate=1.327393825075811, max_delta_step=0, max_depth=28,
+              min_child_weight=5, missing=nan, monotone_constraints=None,
+              n_estimators=500, n_jobs=0, num_parallel_tree=1, random_state=22,
+              reg_alpha=0, reg_lambda=1, scale_pos_weight=1, seed=22,
+              subsample=0.5690763082660093, tree_method=None,
+              validate_parameters=False, verbosity=None)

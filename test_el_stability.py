@@ -42,10 +42,12 @@ import lime
 import lime.lime_tabular
 from lime import submodular_pick
 
-from anchor import anchor_tabular
+#from anchor import anchor_tabular
 #from alibi.utils.data import gen_category_map
 
 import shap
+
+from tqdm import tqdm
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -255,6 +257,9 @@ for dataset_name in datasets:
     dataset_manager = DatasetManager(dataset_name)
     data = dataset_manager.read_dataset()
 
+    print("reading dataset")
+
+    all_pipelines = []
     all_cls = []
     all_encoders = []
     all_scalers = []
@@ -262,15 +267,10 @@ for dataset_name in datasets:
     all_samples = []
     all_results = []
     
-    sample = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample.csv" % 
-                                      (dataset_ref, cls_method, method_name)))
-    results_template = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results.csv" % 
-                                      (dataset_ref, cls_method, method_name)))
-    
     for ii in range(n_iter):
         num_buckets = len([name for name in os.listdir(os.path.join(PATH,'%s/%s/%s/pipelines'% (dataset_ref, cls_method, method_name)))])
 
-        for bucket in range(num_buckets):
+        for bucket in tqdm(range(num_buckets)):
             bucketID = bucket+1
             print ('Bucket', bucketID)
 
@@ -288,38 +288,29 @@ for dataset_name in datasets:
             all_cls.append(cls)
             all_encoders.append(feature_combiner)
             all_scalers.append(scaler)
+            all_pipelines.append(pipeline)
 
             #find relevant samples for bucket
-            if bucket_method == "prefix":
-                bucket_sample = sample[sample["prefix_nr"] == bucket]
-                bucket_results = results_template[results_template["Prefix Length"] == bucket]
-            else:
-                bucket_sample = sample
-                bucket_results = results_template
+            bucket_sample = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
+                                      (dataset_ref, cls_method, method_name, bucketID))).values
+            results_template = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
+                                      (dataset_ref, cls_method, method_name, bucketID)))
+    
+            if scaler != None:
+                bucket_sample = scaler.transform(bucket_sample)
+            bucket_results = results_template
             
             feat_names = feature_combiner.get_feature_names()
             feat_list = [feat.replace(" ", "_") for feat in feat_names]
             
-            encoded_sample = pd.DataFrame(columns = feat_list)
-            
-            for _,group in bucket_sample.groupby(dataset_manager.case_id_col):
-                row = feature_combiner.transform(group).reshape(-1)
-                
-                row_data = {}
-                for col in range(len(encoded_sample.columns)):
-                    row_data[encoded_sample.columns[col]] = row[col]
-                
-                encoded_sample = encoded_sample.append(row_data, ignore_index = True)
-                
-            all_samples.append(encoded_sample)
+            all_samples.append(bucket_sample)
             all_results.append(bucket_results)
             
             #import training data for bucket
-            dt_training_bucket = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/train_data_bucket_%s.csv" % 
-                                                          (dataset_ref, cls_method, method_name, bucketID)))
-            train_data = feature_combiner.transform(dt_training_bucket)
+            train_data = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/train_data_bucket_%s.csv" % 
+                                                          (dataset_ref, cls_method, method_name, bucketID))).values
             if scaler != None:
-                train_data = scaler.fit_transform(train_data)
+                train_data = scaler.transform(train_data)
             
             all_train.append(train_data)
 
@@ -331,7 +322,7 @@ if xai_method=="SHAP":
             num_buckets = len([name for name in os.listdir(os.path.join(PATH,'%s/%s/%s/pipelines'% 
                                                                         (dataset_ref, cls_method, method_name)))])
             
-            for bucket in range(num_buckets):
+            for bucket in tqdm(range(num_buckets)):
                 bucketID = bucket+1
                 print ('Bucket', bucketID)
 
@@ -358,7 +349,7 @@ if xai_method=="SHAP":
                     
                 #explain the chosen instances and find the stability score
                 instance_no = 0
-                for instance in sample_instances:
+                for instance in tqdm(sample_instances):
                     instance_no += 1    
                     print("Testing", instance_no, "of", len(sample_instances), ".")
                     
@@ -425,7 +416,7 @@ if xai_method=="LIME":
                                                                     (dataset_ref, cls_method, method_name)))])
         dataset_manager = DatasetManager(dataset_name)
 
-        for bucket in range(num_buckets):
+        for bucket in tqdm(range(num_buckets)):
             bucketID = bucket+1
             print ('Bucket', bucketID)
             
@@ -454,7 +445,7 @@ if xai_method=="LIME":
             instance_no = 0
             print(len(sample_instances))
             #explain the chosen instances and find the stability score
-            for instance in sample_instances:
+            for instance in tqdm(sample_instances):
                 instance_no += 1
 
                 print("Testing", instance_no, "of", len(sample_instances), ".")
