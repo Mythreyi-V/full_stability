@@ -26,6 +26,7 @@ echo "modules purged"
 
 module load anaconda3
 conda activate conda_test
+python -m pip show joblib
 
 #source hpc_venv/bin/activate
 python -c "import sys; print('Executable path', sys.executable)"
