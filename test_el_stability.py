@@ -180,7 +180,7 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
         
         if scaler != None:
             #print(shap_values)
-            shap_values = scaler.inverse_transform(shap_values.reshape(1, -1))
+            shap_values = scaler.inverse_transform(shap_values.reshape(1, -1))[0]
             print(shap_values.shape)
         
         #Map SHAP values to feature names
@@ -190,8 +190,8 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
     
         for i in range(length):
             feat = features[i]
-            shap_val = shap_values[0][i]
-            abs_val = abs(shap_values[0][i])
+            shap_val = shap_values[i]
+            abs_val = abs(shap_values[i])
             entry = (feat, shap_val, abs_val)
             importances.append(entry)
             abs_values.append(abs_val)
