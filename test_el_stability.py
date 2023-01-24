@@ -234,7 +234,7 @@ method_name = "%s_%s"%(bucket_method, cls_encoding)
 xai_method = sys.argv[5]
 
 sample_size = 2
-exp_iter = 10
+exp_iter = 5
 max_feat = 10
 max_prefix = 20
 

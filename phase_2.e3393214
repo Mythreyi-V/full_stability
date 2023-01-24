@@ -1,0 +1,12 @@
+WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:01<00:00,  1.00s/it]100%|██████████| 1/1 [00:01<00:00,  1.00s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]
+  0%|          | 0/750 [00:00<?, ?it/s][A
+  0%|          | 1/750 [01:56<24:12:45, 116.38s/it][A
+  0%|          | 2/750 [03:52<24:12:16, 116.49s/it][A
+  0%|          | 3/750 [05:49<24:09:53, 116.46s/it][A
+  1%|          | 4/750 [07:45<24:05:32, 116.26s/it][A
+  1%|          | 5/750 [09:40<24:00:02, 115.98s/it][A
+  1%|          | 6/750 [11:35<23:54:31, 115.69s/it][A
