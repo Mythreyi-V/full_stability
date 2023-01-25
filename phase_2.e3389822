@@ -1,12 +1,0 @@
-RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
-  0%|          | 0/20 [00:00<?, ?it/s]  0%|          | 0/20 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "test_el_stability.py", line 280, in <module>
-    pipeline = joblib.load(pipeline_path)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/joblib/numpy_pickle.py", line 587, in load
-    obj = _unpickle(fobj, filename, mmap_mode)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/joblib/numpy_pickle.py", line 506, in _unpickle
-    obj = unpickler.load()
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/pickle.py", line 1212, in load
-    dispatch[key[0]](self)
-KeyError: 6
