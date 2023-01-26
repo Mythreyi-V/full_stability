@@ -229,7 +229,7 @@ if xai_method=="SHAP":
 
     #explain the chosen instances and find the stability score
     instance_no = 0
-    for instance in tqdm_notebook(sample_instances.values):
+    for instance in tqdm(sample_instances.values):
         instance_no += 1    
         print("Testing", instance_no, "of", len(sample_instances), ".")
 
@@ -287,7 +287,7 @@ if xai_method=="SHAP":
     results["SHAP Weight Stability"] = weight_stability
     results["SHAP Adjusted Weight Stability"] = adjusted_weight_stability
     
-    if xai_method=="LIME":
+if xai_method=="LIME":
         
     feat_list = trainingdata.columns.tolist()
     class_names = ["Negative", "Positive"]
@@ -305,7 +305,7 @@ if xai_method=="SHAP":
     instance_no = 0
     print(len(sample_instances))
     #explain the chosen instances and find the stability score
-    for instance in tqdm_notebook(sample_instances.values):
+    for instance in tqdm(sample_instances.values):
         instance_no += 1
 
         print("Testing", instance_no, "of", len(sample_instances), ".")
