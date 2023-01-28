@@ -1,17 +1,0 @@
-WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
-  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:01<00:00,  1.95s/it]100%|██████████| 1/1 [00:01<00:00,  1.95s/it]
-  0%|          | 0/1 [00:00<?, ?it/s]
-  0%|          | 0/1000 [00:00<?, ?it/s][A  0%|          | 0/1000 [00:00<?, ?it/s]
-  0%|          | 0/1 [00:04<?, ?it/s]
-Traceback (most recent call last):
-  File "test_el_stability.py", line 459, in <module>
-    lime_exp = generate_lime_explanations(lime_explainer, instance, cls,
-  File "test_el_stability.py", line 85, in generate_lime_explanations
-    exp = explainer.explain_instance(test_xi, 
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/lime/lime_tabular.py", line 340, in explain_instance
-    data, inverse = self.__data_inverse(data_row, num_samples)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/lime/lime_tabular.py", line 540, in __data_inverse
-    values = self.feature_values[column]
-KeyError: 122

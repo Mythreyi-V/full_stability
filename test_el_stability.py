@@ -496,3 +496,4 @@ if xai_method=="LIME":
             all_results[bucket] = results
 
 pd.concat(all_results).to_csv(os.path.join(PATH,"%s/%s/%s/samples/results.csv") % (dataset_ref, cls_method, method_name))
+print("Results saved")

@@ -1,95 +1,0 @@
-queue started
-modules purged
-Name: joblib
-Version: 1.2.0
-Summary: Lightweight pipelining with Python functions
-Home-page: https://joblib.readthedocs.io
-Author: Gael Varoquaux
-Author-email: gael.varoquaux@normalesup.org
-License: BSD
-Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
-Requires: 
-Required-by: scikit-learn
-Executable path /home/n9455647/.conda/envs/conda_test/bin/python
-starting test
-['bpic2012_accepted']
-splitting data
-single
-Optimising 1 of 1 buckets
-  0%|          | 0/10 [00:00<?, ?trial/s, best loss=?]                                                      {'colsample_bytree': 0.11956604114224301, 'learning_rate': 2.9954641626910727, 'max_depth': 24, 'min_child_weight': 4, 'n_estimators': 125, 'subsample': 0.980033911896719}
-  0%|          | 0/10 [00:00<?, ?trial/s, best loss=?]                                                      Accuracy:
-  0%|          | 0/10 [00:15<?, ?trial/s, best loss=?]                                                      0.6599293004162152
-  0%|          | 0/10 [00:15<?, ?trial/s, best loss=?]                                                      Accuracy:
-  0%|          | 0/10 [00:30<?, ?trial/s, best loss=?]                                                      0.6599293004162152
-  0%|          | 0/10 [00:30<?, ?trial/s, best loss=?]                                                      Accuracy:
-  0%|          | 0/10 [00:45<?, ?trial/s, best loss=?]                                                      0.6599389948402178
-  0%|          | 0/10 [00:45<?, ?trial/s, best loss=?] 10%|█         | 1/10 [00:45<06:48, 45.39s/trial, best loss: -0.6599325318908827]                                                                                 {'colsample_bytree': 0.37498927801240334, 'learning_rate': 4.424918667425509, 'max_depth': 11, 'min_child_weight': 1, 'n_estimators': 130, 'subsample': 0.5316900940900685}
- 10%|█         | 1/10 [00:45<06:48, 45.39s/trial, best loss: -0.6599325318908827]                                                                                 Accuracy:
- 10%|█         | 1/10 [01:00<06:48, 45.39s/trial, best loss: -0.6599325318908827]                                                                                 0.6599293004162152
- 10%|█         | 1/10 [01:00<06:48, 45.39s/trial, best loss: -0.6599325318908827]                                                                                 Accuracy:
- 10%|█         | 1/10 [01:15<06:48, 45.39s/trial, best loss: -0.6599325318908827]                                                                                 0.0
- 10%|█         | 1/10 [01:15<06:48, 45.39s/trial, best loss: -0.6599325318908827]                                                                                 Accuracy:
- 10%|█         | 1/10 [01:31<06:48, 45.39s/trial, best loss: -0.6599325318908827]                                                                                 0.0
- 10%|█         | 1/10 [01:31<06:48, 45.39s/trial, best loss: -0.6599325318908827] 20%|██        | 2/10 [01:31<06:05, 45.69s/trial, best loss: -0.6599325318908827]                                                                                 {'colsample_bytree': 0.9843625717819806, 'learning_rate': 0.5918140501299596, 'max_depth': 26, 'min_child_weight': 4, 'n_estimators': 165, 'subsample': 0.9937584712449317}
- 20%|██        | 2/10 [01:31<06:05, 45.69s/trial, best loss: -0.6599325318908827]                                                                                 Accuracy:
- 20%|██        | 2/10 [02:21<06:05, 45.69s/trial, best loss: -0.6599325318908827]                                                                                 0.999870421561852
- 20%|██        | 2/10 [02:21<06:05, 45.69s/trial, best loss: -0.6599325318908827]                                                                                 Accuracy:
- 20%|██        | 2/10 [03:12<06:05, 45.69s/trial, best loss: -0.6599325318908827]                                                                                 0.9999784012613664
- 20%|██        | 2/10 [03:12<06:05, 45.69s/trial, best loss: -0.6599325318908827]                                                                                 Accuracy:
- 20%|██        | 2/10 [04:02<06:05, 45.69s/trial, best loss: -0.6599325318908827]                                                                                 0.9998920156361358
- 20%|██        | 2/10 [04:02<06:05, 45.69s/trial, best loss: -0.6599325318908827] 30%|███       | 3/10 [04:02<10:57, 93.99s/trial, best loss: -0.9999136128197849]                                                                                 {'colsample_bytree': 0.09490870589808365, 'learning_rate': 2.2244293202341368, 'max_depth': 15, 'min_child_weight': 2, 'n_estimators': 40, 'subsample': 0.9663350261256645}
- 30%|███       | 3/10 [04:02<10:57, 93.99s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 30%|███       | 3/10 [04:18<10:57, 93.99s/trial, best loss: -0.9999136128197849]                                                                                 0.933213550111749
- 30%|███       | 3/10 [04:18<10:57, 93.99s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 30%|███       | 3/10 [04:33<10:57, 93.99s/trial, best loss: -0.9999136128197849]                                                                                 0.7452877048966039
- 30%|███       | 3/10 [04:33<10:57, 93.99s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 30%|███       | 3/10 [04:48<10:57, 93.99s/trial, best loss: -0.9999136128197849]                                                                                 0.8929511084673637
- 30%|███       | 3/10 [04:48<10:57, 93.99s/trial, best loss: -0.9999136128197849] 40%|████      | 4/10 [04:48<07:30, 75.14s/trial, best loss: -0.9999136128197849]                                                                                 {'colsample_bytree': 0.49993189480784594, 'learning_rate': 3.0888390250826294, 'max_depth': 19, 'min_child_weight': 5, 'n_estimators': 85, 'subsample': 0.9406124931060287}
- 40%|████      | 4/10 [04:48<07:30, 75.14s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 40%|████      | 4/10 [05:04<07:30, 75.14s/trial, best loss: -0.9999136128197849]                                                                                 0.6599293004162152
- 40%|████      | 4/10 [05:04<07:30, 75.14s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 40%|████      | 4/10 [05:19<07:30, 75.14s/trial, best loss: -0.9999136128197849]                                                                                 0.6599293004162152
- 40%|████      | 4/10 [05:19<07:30, 75.14s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 40%|████      | 4/10 [05:34<07:30, 75.14s/trial, best loss: -0.9999136128197849]                                                                                 0.6599389948402178
- 40%|████      | 4/10 [05:34<07:30, 75.14s/trial, best loss: -0.9999136128197849] 50%|█████     | 5/10 [05:34<05:22, 64.49s/trial, best loss: -0.9999136128197849]                                                                                 {'colsample_bytree': 0.971523910189689, 'learning_rate': 4.806347656397774, 'max_depth': 3, 'min_child_weight': 2, 'n_estimators': 50, 'subsample': 0.9217515881311379}
- 50%|█████     | 5/10 [05:34<05:22, 64.49s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 50%|█████     | 5/10 [05:48<05:22, 64.49s/trial, best loss: -0.9999136128197849]                                                                                 0.6599293004162152
- 50%|█████     | 5/10 [05:48<05:22, 64.49s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 50%|█████     | 5/10 [06:02<05:22, 64.49s/trial, best loss: -0.9999136128197849]                                                                                 0.6599293004162152
- 50%|█████     | 5/10 [06:02<05:22, 64.49s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 50%|█████     | 5/10 [06:16<05:22, 64.49s/trial, best loss: -0.9999136128197849]                                                                                 0.6599389948402178
- 50%|█████     | 5/10 [06:16<05:22, 64.49s/trial, best loss: -0.9999136128197849] 60%|██████    | 6/10 [06:16<03:47, 56.81s/trial, best loss: -0.9999136128197849]                                                                                 {'colsample_bytree': 0.33913138641568774, 'learning_rate': 4.244093229909999, 'max_depth': 20, 'min_child_weight': 2, 'n_estimators': 80, 'subsample': 0.9135297690494415}
- 60%|██████    | 6/10 [06:16<03:47, 56.81s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 60%|██████    | 6/10 [06:31<03:47, 56.81s/trial, best loss: -0.9999136128197849]                                                                                 0.0
- 60%|██████    | 6/10 [06:31<03:47, 56.81s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 60%|██████    | 6/10 [06:46<03:47, 56.81s/trial, best loss: -0.9999136128197849]                                                                                 0.0
- 60%|██████    | 6/10 [06:46<03:47, 56.81s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 60%|██████    | 6/10 [07:01<03:47, 56.81s/trial, best loss: -0.9999136128197849]                                                                                 0.0
- 60%|██████    | 6/10 [07:01<03:47, 56.81s/trial, best loss: -0.9999136128197849] 70%|███████   | 7/10 [07:01<02:38, 52.83s/trial, best loss: -0.9999136128197849]                                                                                 {'colsample_bytree': 0.39883047896958823, 'learning_rate': 0.10104226468188093, 'max_depth': 18, 'min_child_weight': 3, 'n_estimators': 25, 'subsample': 0.8571089842030758}
- 70%|███████   | 7/10 [07:01<02:38, 52.83s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 70%|███████   | 7/10 [07:17<02:38, 52.83s/trial, best loss: -0.9999136128197849]                                                                                 0.9676770701863221
- 70%|███████   | 7/10 [07:17<02:38, 52.83s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 70%|███████   | 7/10 [07:34<02:38, 52.83s/trial, best loss: -0.9999136128197849]                                                                                 0.9714592505100398
- 70%|███████   | 7/10 [07:34<02:38, 52.83s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 70%|███████   | 7/10 [07:51<02:38, 52.83s/trial, best loss: -0.9999136128197849]                                                                                 0.9715010861850171
- 70%|███████   | 7/10 [07:51<02:38, 52.83s/trial, best loss: -0.9999136128197849] 80%|████████  | 8/10 [07:51<01:43, 51.90s/trial, best loss: -0.9999136128197849]                                                                                 {'colsample_bytree': 0.015755434542293334, 'learning_rate': 4.878502036030077, 'max_depth': 8, 'min_child_weight': 2, 'n_estimators': 125, 'subsample': 0.7021567084469027}
- 80%|████████  | 8/10 [07:51<01:43, 51.90s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 80%|████████  | 8/10 [08:05<01:43, 51.90s/trial, best loss: -0.9999136128197849]                                                                                 0.0
- 80%|████████  | 8/10 [08:05<01:43, 51.90s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 80%|████████  | 8/10 [08:20<01:43, 51.90s/trial, best loss: -0.9999136128197849]                                                                                 0.0
- 80%|████████  | 8/10 [08:20<01:43, 51.90s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 80%|████████  | 8/10 [08:34<01:43, 51.90s/trial, best loss: -0.9999136128197849]                                                                                 0.0
- 80%|████████  | 8/10 [08:34<01:43, 51.90s/trial, best loss: -0.9999136128197849] 90%|█████████ | 9/10 [08:34<00:49, 49.26s/trial, best loss: -0.9999136128197849]                                                                                 {'colsample_bytree': 0.7740589601316581, 'learning_rate': 4.377008630568612, 'max_depth': 8, 'min_child_weight': 1, 'n_estimators': 155, 'subsample': 0.9236628095064787}
- 90%|█████████ | 9/10 [08:34<00:49, 49.26s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 90%|█████████ | 9/10 [08:50<00:49, 49.26s/trial, best loss: -0.9999136128197849]                                                                                 0.0
- 90%|█████████ | 9/10 [08:50<00:49, 49.26s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 90%|█████████ | 9/10 [09:05<00:49, 49.26s/trial, best loss: -0.9999136128197849]                                                                                 0.0
- 90%|█████████ | 9/10 [09:05<00:49, 49.26s/trial, best loss: -0.9999136128197849]                                                                                 Accuracy:
- 90%|█████████ | 9/10 [09:21<00:49, 49.26s/trial, best loss: -0.9999136128197849]                                                                                 0.0
- 90%|█████████ | 9/10 [09:21<00:49, 49.26s/trial, best loss: -0.9999136128197849]100%|██████████| 10/10 [09:21<00:00, 48.58s/trial, best loss: -0.9999136128197849]100%|██████████| 10/10 [09:21<00:00, 56.16s/trial, best loss: -0.9999136128197849]
-test ended
-bpic2012 xgboost single agg
-PBS Job 3407965.pbs
-CPU time  : 00:35:43
-Wall time : 00:09:53
-Mem usage : 3971568kb

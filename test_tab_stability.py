@@ -189,6 +189,47 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
         
     return exp, rel_exp
 
+def get_acv_features(explainer, instance, cls, X_train, y_train, exp_iter):
+    instance = instance.reshape(1, -1)
+    y = cls.predict(instance)
+    
+    t=np.var(y_train)
+
+    feats = []
+    feat_imp = []
+
+    for i in range(exp_iter):
+        sufficient_expl, sdp_expl, sdp_global = explainer.sufficient_expl_rf(instance, y, X_train, y_train,
+                                                                                 t=t, pi_level=0.8)
+        clean_expl = sufficient_expl.copy()
+        clean_expl = clean_expl[0]
+        clean_expl = [sublist for sublist in clean_expl if sum(n<0 for n in sublist)==0 ]
+
+        clean_sdp = sdp_expl[0].copy()
+        clean_sdp = [sdp for sdp in clean_sdp if sdp > 0]
+        
+        lximp = explainer.compute_local_sdp(X_train.shape[1], clean_expl)
+        feat_imp.append(lximp)
+        
+        if len(clean_expl)==0 or len(clean_expl[0])==0:
+            print("No explamation meets pi level")
+        else:
+            lens = [len(i) for i in clean_expl]
+            me_loc = [i for i in range(len(lens)) if lens[i]==min(lens)]
+            mse_loc = np.argmax(np.array(clean_sdp)[me_loc])
+            mse = np.array(clean_expl)[me_loc][mse_loc]
+            feats.extend(mse)
+
+    if len(feats)==0:
+        feat_pos = []
+    else:
+        feat_pos = set(feats)
+    
+      
+    feat_imp = np.mean(feat_imp, axis=0)
+    
+    return feat_imp, feat_pos
+
 dataset_ref = sys.argv[1]
 cls_method = sys.argv[2]
 
@@ -353,6 +394,57 @@ if xai_method=="LIME":
     results["LIME Subset Stability"] = subset_stability
     results["LIME Weight Stability"] = weight_stability
     results["LIME Adjusted Weight Stability"] = adjusted_weight_stability
+
+if xai_method=="ACV":
+            
+    acv_explainer = joblib.load(os.path.join(PATH, dataset_ref, cls_method,'acv_explainer.joblib'))
+
+    feat_list = trainingdata.columns.tolist()
+    
+    subset_stability = []
+    weight_stability = []
+    adjusted_weight_stability = []
+
+
+    instance_no = 0
+    print(len(sample_instances))
+    #explain the chosen instances and find the stability score
+    for instance in tqdm(sample_instances.values):
+        instance_no += 1
+
+        print("Testing", instance_no, "of", len(sample_instances), ".")
+
+        #Get acv explanations for instance
+        feat_pres = []
+        feat_weights = []
+
+        for iteration in list(range(exp_iter)):
+            weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, y_train, 1)
+            print(weights)
+            print(feat_pos)
+
+            presence_list = np.array([0]*len(feat_list))                    
+            presence_list[feat_pos] = 1
+
+            feat_pres.append(presence_list)
+            feat_weights.append(weights)
+
+        stability = st.getStability(feat_pres)
+        print ("Stability:", round(stability,2))
+        subset_stability.append(stability)
+
+        rel_var, second_var = dispersal(feat_weights, feat_list)
+        avg_dispersal = 1-np.mean(rel_var)
+        print ("Dispersal of feature importance:", round(avg_dispersal, 2))
+        weight_stability.append(avg_dispersal)
+        adj_dispersal = 1-np.mean(second_var)
+        print ("Dispersal with no outliers:", round(adj_dispersal, 2))
+        adjusted_weight_stability.append(adj_dispersal)
+
+    results["ACV Subset Stability"] = subset_stability
+    results["ACV Weight Stability"] = weight_stability
+    results["ACV Adjusted Weight Stability"] = adjusted_weight_stability
+    
 
 results.to_csv(os.path.join(dataset_path, cls_method, "results.csv"))
 print("Results saved")
