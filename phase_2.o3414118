@@ -1,0 +1,61 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+setting up data...
+Creating logs...
+bucketing prefixes...
+single
+Bucket 1
+sorting bucket...
+Setting up parameters...
+{'colsample_bytree': 0.9843625717819806, 'learning_rate': 0.5918140501299596, 'max_depth': 26, 'min_child_weight': 4, 'n_estimators': 165, 'subsample': 0.9937584712449317}
+choosing classifier...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+Accuracy Scores: [0.5274983478963213, 0.5169987408340122, 0.5147758397001585, 0.5370840383530738, 0.5176961478280306, 0.4989078858175793, 0.5330736492822621, 0.5361312038960109, 0.5407236557589736, 0.5119181893375442]
+Highest accuracy: 0.5407236557589736
+Index: 8
+              precision    recall  f1-score   support
+
+           0       0.53      0.58      0.55      6825
+           1       0.56      0.52      0.54      7230
+
+    accuracy                           0.55     14055
+   macro avg       0.55      0.55      0.55     14055
+weighted avg       0.55      0.55      0.55     14055
+
+All buckets
+               precision    recall  f1-score   support
+
+           0       0.53      0.58      0.55      6825
+           1       0.56      0.52      0.54      7230
+
+    accuracy                           0.55     14055
+   macro avg       0.55      0.55      0.55     14055
+weighted avg       0.55      0.55      0.55     14055
+
+test ended
+bpic2012 xgboost single agg
+PBS Job 3414118.pbs
+CPU time  : 01:41:20
+Wall time : 00:18:13
+Mem usage : 2190348kb

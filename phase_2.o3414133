@@ -1,0 +1,61 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+setting up data...
+Creating logs...
+bucketing prefixes...
+single
+Bucket 1
+sorting bucket...
+Setting up parameters...
+{'var_smoothing': 8.111308307896873e-08}
+choosing classifier...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+fitting pipeline...
+Accuracy Scores: [0.2620689655172414, 0.25531914893617025, 0.26666666666666666, 0.2620689655172414, 0.2535211267605634, 0.25531914893617025, 0.25531914893617025, 0.27397260273972607, 0.25, 0.24657534246575347]
+Highest accuracy: 0.27397260273972607
+Index: 7
+              precision    recall  f1-score   support
+
+           0       0.65      0.87      0.75       180
+           1       0.47      0.19      0.27       103
+
+    accuracy                           0.63       283
+   macro avg       0.56      0.53      0.51       283
+weighted avg       0.59      0.63      0.58       283
+
+All buckets
+               precision    recall  f1-score   support
+
+           0       0.65      0.87      0.75       180
+           1       0.47      0.19      0.27       103
+
+    accuracy                           0.63       283
+   macro avg       0.56      0.53      0.51       283
+weighted avg       0.59      0.63      0.58       283
+
+test ended
+production nb single agg
+PBS Job 3414133.pbs
+CPU time  : 00:00:27
+Wall time : 00:01:36
+Mem usage : 515124kb
