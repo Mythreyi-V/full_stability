@@ -230,6 +230,73 @@ def get_acv_features(explainer, instance, cls, X_train, y_train, exp_iter):
     
     return feat_imp, feat_pos
 
+def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, percentile):
+    label_lst = ["Negative", "Positive"]
+    
+    feat_pos = []
+    lkhoods = []
+    
+    save_to = os.path.join(PATH, dataset, cls_method)
+    
+    for i in range(exp_iter):
+        [bn, inference, infoBN] = generate_BN_explanations(instance, label_lst, feat_list, "Result", 
+                                                                       None, scaler, cls, save_to, dataset, show_in_notebook = False)
+        
+        ie = pyAgrum.LazyPropagation(bn)
+        result_posterior = ie.posterior(bn.idFromName("Result")).topandas()
+        result_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]
+        row = instance['original_vector']
+        #print(row)
+
+        likelihood = [0]*len(feat_list)
+
+        for j in range(len(feat_list)):
+            var_labels = bn.variable(feat_list[j]).labels()
+            str_bins = list(var_labels)
+            bins = []
+
+            for disc_bin in str_bins:
+                disc_bin = disc_bin.strip('"(]')
+                cat = [float(val) for val in disc_bin.split(',')]
+                bins.append(cat)
+
+            for k in range(len(bins)):
+                if k == 0 and row[j] <= bins[k][0]:
+                    feat_bin = str_bins[k]
+                elif k == len(bins)-1 and row[j] >= bins[k][1]:
+                    feat_bin = str_bins[k]
+                elif row[j] > bins[k][0] and row[j] <= bins[k][1]:
+                    feat_bin = str_bins[k]
+
+            ie = pyAgrum.LazyPropagation(bn)
+            ie.setEvidence({feat_list[j]: feat_bin})
+            ie.makeInference()
+            
+            result_posterior = ie.posterior(bn.idFromName("Result")).topandas()
+            new_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]
+            #print(result_proba, new_proba)
+            proba_change = result_proba-new_proba
+            likelihood[j] = abs(proba_change)
+
+        lkhoods.append(likelihood)
+        
+    min_coef = min( np.mean(lkhoods, axis=0))
+    max_coef = max( np.mean(lkhoods, axis=0))
+    
+    k = (max_coef-min_coef)*percentile
+    q1_min = max_coef - k
+
+    #If fixing all features produces the same result for the class,
+    #return all features
+    if len(set(np.mean(lkhoods, axis=0)))==1:
+        feat_pos.extend(range(len(feat_list)))
+    else:
+        feat_pos.extend(list(np.where(np.mean(lkhoods, axis=0) >= q1_min)[0]))
+
+    feat_pos = set(feat_pos)
+    
+    return np.mean(lkhoods, axis=0), feat_pos
+
 dataset_ref = sys.argv[1]
 cls_method = sys.argv[2]
 
@@ -245,12 +312,15 @@ cls = joblib.load(os.path.join(dataset_path, cls_method, "cls.joblib"))
 scaler = joblib.load(os.path.join(dataset_path, "scaler.joblib"))
 
 trainingdata = pd.read_csv(os.path.join(dataset_path, "datasets", dataset_ref+"_Xtrain.csv"), sep=";")
+y_train = pd.read_csv(os.path.join(dataset_path, "datasets", dataset_ref+"_Ytrain.csv"), sep=";")
+
 with open(os.path.join(dataset_path, "datasets",'col_dict.json')) as file:
     col_dict = json.load(file)
 file.close()
 
-sample_instances = pd.read_csv((os.path.join(dataset_path, cls_method, "test_sample.csv")), sep=";") 
-results = pd.read_csv((os.path.join(dataset_path, cls_method, "results.csv")), sep=";")
+sample_instances = pd.read_csv((os.path.join(dataset_path, cls_method, "test_sample.csv")), sep=";", index_col = False) 
+results = pd.read_csv((os.path.join(dataset_path, cls_method, "results.csv")), sep=";", index_col = False) 
+targets = results["Actual"]
 
 if xai_method=="SHAP":
     
@@ -444,7 +514,66 @@ if xai_method=="ACV":
     results["ACV Subset Stability"] = subset_stability
     results["ACV Weight Stability"] = weight_stability
     results["ACV Adjusted Weight Stability"] = adjusted_weight_stability
-    
+
+if xai_method=="LINDA":
+    test_dict = generate_local_predictions( sample_instances.values, results["Actual"].values, cls, scaler, None )
+
+    feat_list = sample_instances.columns.tolist()
+
+    subset_stability = []
+    weight_stability = []
+    adjusted_weight_stability = []
+
+    instance_no = 0
+    print(len(sample_instances))
+    for instance in tqdm_notebook(test_dict[:1]):
+        instance_no += 1
+
+        print("Testing", instance_no, "of", len(sample_instances), ".")
+
+        #Get lime explanations for instance
+        feat_pres = []
+        feat_weights = []
+
+
+
+        for iteration in list(range(exp_iter)):
+            weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
+            #print(weights)
+            #print(feat_pos)
+
+            feat_pos = list(feat_pos)
+
+            bins = pd.cut(weights, 4, duplicates = "drop", retbins = True)[-1]
+            q1_min = bins[-2]
+
+            presence_list = np.array([0]*len(feat_list))                    
+
+            for n in range(len(feat_list)):
+                if weights[n] >= q1_min:
+                    presence_list[n] = 1
+
+            feat_pres.append(presence_list)
+            feat_weights.append(weights)
+
+        print(feat_pres)
+        print(feat_weights)
+
+        stability = st.getStability(feat_pres)
+        print ("Stability:", round(stability,2))
+        subset_stability.append(stability)
+
+        rel_var, second_var = dispersal(feat_weights, feat_list)
+        avg_dispersal = 1-np.mean(rel_var)
+        print ("Dispersal of feature importance:", round(avg_dispersal, 2))
+        weight_stability.append(avg_dispersal)
+        adj_dispersal = 1-np.mean(second_var)
+        print ("Dispersal with no outliers:", round(adj_dispersal, 2))
+        adjusted_weight_stability.append(adj_dispersal)
+
+    results["LINDA Subset Stability"] = subset_stability
+    results["LINDA Weight Stability"] = weight_stability
+    results["LINDA Adjusted Weight Stability"] = adjusted_weight_stability    
 
 results.to_csv(os.path.join(dataset_path, cls_method, "results.csv"), index=False, sep = ";")
 print("Results saved")
