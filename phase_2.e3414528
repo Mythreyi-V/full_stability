@@ -1,0 +1,24 @@
+WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+  0%|          | 0/100 [00:00<?, ?it/s]
+  0%|          | 0/18 [00:00<?, ?it/s][A
+ 22%|██▏       | 4/18 [00:00<00:00, 34.59it/s][A
+ 50%|█████     | 9/18 [00:00<00:00, 39.97it/s][A
+ 78%|███████▊  | 14/18 [00:00<00:00, 43.56it/s][A100%|██████████| 18/18 [00:00<00:00, 40.08it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s][A
+ 10%|█         | 1/10 [00:00<00:08,  1.04it/s][A
+ 20%|██        | 2/10 [00:05<00:25,  3.22s/it][A
+ 30%|███       | 3/10 [00:19<00:56,  8.14s/it][A
+ 40%|████      | 4/10 [00:45<01:29, 14.94s/it][A
+ 50%|█████     | 5/10 [01:16<01:43, 20.78s/it][A
+ 60%|██████    | 6/10 [01:36<01:22, 20.61s/it][A
+ 70%|███████   | 7/10 [01:47<00:51, 17.29s/it][A
+ 80%|████████  | 8/10 [01:51<00:26, 13.07s/it][A
+ 90%|█████████ | 9/10 [01:51<00:09,  9.27s/it][A100%|██████████| 10/10 [01:52<00:00, 11.20s/it]
+  0%|          | 0/100 [01:52<?, ?it/s]
+Traceback (most recent call last):
+  File "test_tab_stability.py", line 497, in <module>
+    presence_list[feat_pos] = 1
+IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices

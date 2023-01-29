@@ -1,0 +1,62 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+100
+Testing 1 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 100 .
+[0. 0. 0. 0. 0. 1. 0. 1.]
+{5, 7}
+test ended
+diabetes logit ACV
+PBS Job 3414532.pbs
+CPU time  : 00:00:25
+Wall time : 00:01:00
+Mem usage : 221904kb

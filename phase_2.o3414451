@@ -1,0 +1,22 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+26
+Testing 1 of 26 .
+test ended
+iris logit ACV
+PBS Job 3414451.pbs
+CPU time  : 00:00:00
+Wall time : 00:00:46
+Mem usage : 17024kb

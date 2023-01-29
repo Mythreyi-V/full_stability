@@ -1,0 +1,765 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+100
+Testing 1 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 4 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 5 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 6 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 7 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 8 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 9 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 10 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 11 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 12 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 13 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 14 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 15 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 16 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 17 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 18 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 19 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 20 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 21 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 22 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 23 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 24 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 25 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 26 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 27 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 28 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 29 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 30 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 31 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 32 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 33 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 34 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 35 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 36 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 37 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 38 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 39 of 100 .
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+No explamation meets pi level
+[0. 0. 0. 0. 0. 0. 0. 0.]
+[]
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 40 of 100 .
+[0.8 0.  0.6 0.4 0.6 1.  1.  0.8]
+{0, 2, 5, 6, 7}
+test ended
+diabetes nb ACV
+PBS Job 3414539.pbs
+CPU time  : 00:21:29
+Wall time : 00:04:47
+Mem usage : 236504kb

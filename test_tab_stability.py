@@ -35,6 +35,9 @@ from lime import submodular_pick
 
 from tqdm import tqdm
 
+from learning import *
+import pyagrum
+
 import shap
 
 import warnings
@@ -223,7 +226,7 @@ def get_acv_features(explainer, instance, cls, X_train, y_train, exp_iter):
     if len(feats)==0:
         feat_pos = []
     else:
-        feat_pos = set(feats)
+        feat_pos = list(set(feats))
     
       
     feat_imp = np.mean(feat_imp, axis=0)
