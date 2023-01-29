@@ -446,5 +446,5 @@ if xai_method=="ACV":
     results["ACV Adjusted Weight Stability"] = adjusted_weight_stability
     
 
-results.to_csv(os.path.join(dataset_path, cls_method, "results.csv"))
+results.to_csv(os.path.join(dataset_path, cls_method, "results.csv"), index=False, sep = ";")
 print("Results saved")
