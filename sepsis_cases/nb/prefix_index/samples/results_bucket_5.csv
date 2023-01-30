@@ -1,9 +1,7 @@
 Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-AF_5,1,5,1,1.0
-D_5,1,5,1,1.0
-KO_5,0,5,1,1.0
-LT_5,0,5,0,1.0
-TG_5,0,5,1,1.0
-TR_5,0,5,0,1.0
-YL_5,1,5,1,1.0
-YT_5,1,5,1,1.0
+GE_5,0,5,1,1.0
+GX_5,0,5,0,1.0
+QIA_5,1,5,1,1.0
+UGA_5,0,5,1,1.0
+YIA_5,1,5,1,1.0
+ZEA_5,1,5,1,1.0

@@ -1,9 +1,7 @@
 Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-IZ,0,1,0,1.0
-NO,0,1,1,1.0
-OR,0,1,1,1.0
-PG,1,1,1,1.0
-PLA,1,1,1,1.0
-TN,0,1,1,1.0
-YIA,1,1,1,1.0
-YT,1,1,1,1.0
+DZ,0,1,1,1.0
+ECA,0,1,1,1.0
+EQ,1,1,1,1.0
+ES,1,1,1,1.0
+HNA,0,1,1,1.0
+SO,1,1,1,1.0
