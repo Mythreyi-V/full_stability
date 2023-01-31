@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-GG_16,1,16,1,0.9906827
-LV_16,0,16,1,0.6273256
-QBA_16,0,16,0,0.99977
-TCA_16,1,16,1,0.9996432
-UE_16,0,16,1,0.9727797
-WW_16,1,16,1,0.99980134

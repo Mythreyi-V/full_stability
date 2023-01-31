@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-EQ_20,1,20,1,0.9462315
-MP_20,1,20,1,0.94860727
-NF_20,0,20,0,0.7014567
-QE_20,0,20,0,0.7098348
-RLA_20,1,20,1,0.987379
-VIA_20,0,20,1,0.78961605

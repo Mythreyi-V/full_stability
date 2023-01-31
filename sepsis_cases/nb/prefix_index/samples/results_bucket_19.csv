@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-ADA_19,1,19,1,1.0
-EW_19,0,19,0,1.0
-GT_19,1,19,1,1.0
-MN_19,1,19,1,1.0
-QX_19,0,19,1,1.0
-TC_19,0,19,0,1.0

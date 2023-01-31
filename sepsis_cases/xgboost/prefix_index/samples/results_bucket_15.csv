@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-FZ_15,1,15,1,0.9419652
-GT_15,1,15,1,0.9964379
-GX_15,0,15,0,0.76344126
-KNA_15,0,15,0,0.8326243
-LH_15,0,15,0,0.8289954
-WM_15,1,15,0,0.95323783

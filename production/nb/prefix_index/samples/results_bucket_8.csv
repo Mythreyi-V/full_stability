@@ -1,7 +1,9 @@
 Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-Case124_8,0,8,1,1.0
+Case115_8,1,8,1,1.0
+Case119_8,0,8,1,1.0
 Case127_8,1,8,1,1.0
-Case192_8,0,8,0,1.0
-Case273_8,0,8,0,1.0
-Case59_8,1,8,0,1.0
-Case95_8,1,8,1,1.0
+Case251_8,0,8,0,1.0
+Case27_8,0,8,0,1.0
+Case28_8,1,8,1,1.0
+Case61_8,1,8,1,1.0
+Case9_8,0,8,0,1.0

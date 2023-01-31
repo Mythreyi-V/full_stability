@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-KX_19,1,19,0,0.94608486
-LV_19,0,19,1,0.9985638
-PJ_19,0,19,0,0.99725616
-PLA_19,1,19,1,0.99999905
-SM_19,1,19,1,0.99999964
-TU_19,0,19,1,0.99930894

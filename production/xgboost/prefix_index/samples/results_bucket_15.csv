@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-Case127_15,1,15,1,1.0
-Case21_15,1,15,1,1.0
-Case223_15,0,15,0,0.99894536
-Case245_15,1,15,0,0.930617
-Case269_15,0,15,0,1.0
-Case273_15,0,15,0,1.0

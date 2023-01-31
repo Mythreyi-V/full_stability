@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-GF_18,1,18,0,1.0
-HKA_18,0,18,0,1.0
-KM_18,1,18,1,1.0
-LL_18,0,18,0,1.0
-PLA_18,1,18,1,1.0
-missing_caseid_18,0,18,0,1.0

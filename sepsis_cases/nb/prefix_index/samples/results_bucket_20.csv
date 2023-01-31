@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-GF_20,1,20,1,1.0
-GNA_20,0,20,0,1.0
-LM_20,0,20,0,1.0
-MP_20,1,20,0,1.0
-OJ_20,0,20,0,1.0
-VO_20,1,20,0,1.0

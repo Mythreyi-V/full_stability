@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-ADA_18,1,18,1,1.0
-LM_18,0,18,0,1.0
-MP_18,1,18,1,1.0
-SLA_18,0,18,0,1.0
-TS_18,0,18,0,1.0
-XCA_18,1,18,1,1.0

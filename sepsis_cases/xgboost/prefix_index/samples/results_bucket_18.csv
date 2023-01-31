@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-BN_18,0,18,1,0.9963529
-FT_18,0,18,1,0.95259124
-LBA_18,0,18,1,0.98499805
-LC_18,1,18,1,0.9998934
-SK_18,1,18,1,0.9996811
-TCA_18,1,18,1,0.9998857

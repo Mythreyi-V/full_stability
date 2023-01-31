@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-DJ_17,0,17,0,0.6081053
-FDA_17,1,17,1,0.8747293
-KM_17,1,17,1,0.95622796
-NR_17,0,17,0,0.9315431
-RAA_17,0,17,1,0.50614935
-ZQ_17,1,17,1,0.94423914

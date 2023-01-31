@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-EM_16,0,16,0,0.5555432
-ES_16,1,16,0,0.95558786
-FZ_16,1,16,0,0.6221677
-ODA_16,0,16,0,0.9663761
-YIA_16,1,16,1,0.8829147
-ZJ_16,0,16,0,0.9613893

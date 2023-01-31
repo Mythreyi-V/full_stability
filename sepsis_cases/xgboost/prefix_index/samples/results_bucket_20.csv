@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-ES_20,1,20,1,1.0
-KX_20,1,20,1,1.0
-LJ_20,0,20,1,0.99999976
-RLA_20,1,20,1,1.0
-SLA_20,0,20,1,0.99999976
-TJA_20,0,20,1,1.0

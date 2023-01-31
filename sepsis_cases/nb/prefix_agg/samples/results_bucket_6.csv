@@ -1,7 +1,9 @@
 Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-CHA_6,1,6,1,1.0
-HEA_6,1,6,1,1.0
-MA_6,0,6,1,1.0
-OW_6,0,6,1,1.0
-VR_6,0,6,0,1.0
-XN_6,1,6,1,1.0
+AAA_6,1,6,1,1.0
+FE_6,1,6,1,1.0
+IE_6,0,6,1,1.0
+RG_6,0,6,0,1.0
+RR_6,1,6,1,1.0
+YL_6,1,6,1,1.0
+ZDA_6,0,6,1,1.0
+ZH_6,0,6,1,1.0

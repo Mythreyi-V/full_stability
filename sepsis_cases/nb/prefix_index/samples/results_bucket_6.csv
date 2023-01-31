@@ -1,7 +1,9 @@
 Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-CE_6,0,6,1,1.0
-NCA_6,0,6,0,1.0
-WA_6,1,6,1,1.0
-WQ_6,0,6,1,1.0
-XN_6,1,6,0,1.0
-ZEA_6,1,6,1,1.0
+HEA_6,1,6,1,1.0
+JMA_6,0,6,0,1.0
+OX_6,1,6,1,1.0
+PLA_6,1,6,1,1.0
+UC_6,0,6,1,1.0
+VB_6,0,6,0,1.0
+WHA_6,0,6,1,1.0
+YT_6,1,6,1,1.0

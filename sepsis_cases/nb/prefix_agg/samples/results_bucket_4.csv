@@ -1,7 +1,9 @@
 Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-FC_4,0,4,1,1.0
-JO_4,1,4,1,1.0
-LQ_4,1,4,1,1.0
-OGA_4,0,4,1,1.0
-RR_4,1,4,0,1.0
-YZ_4,0,4,1,1.0
+CF_4,1,4,0,1.0
+IEA_4,0,4,0,1.0
+NW_4,0,4,0,1.0
+PR_4,0,4,1,1.0
+RLA_4,1,4,0,1.0
+TQ_4,1,4,0,1.0
+VIA_4,0,4,0,1.0
+ZQ_4,1,4,1,1.0

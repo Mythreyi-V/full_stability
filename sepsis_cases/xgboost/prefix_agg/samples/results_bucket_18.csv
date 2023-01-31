@@ -1,7 +1,0 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-CF_18,1,18,1,0.95536387
-GT_18,1,18,1,0.9999635
-OD_18,0,18,0,0.9157248
-VO_18,1,18,1,0.88780874
-YP_18,0,18,0,0.8654525
-ZGA_18,0,18,0,0.571971
