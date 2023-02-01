@@ -1,9 +1,9 @@
-Case ID,Actual,Prefix Length,Prediction,Prediction Probability
-Case119_3,0,3,0,0.7533742
-Case12_3,0,3,0,0.9814388
-Case21_3,1,3,1,0.97532403
-Case264_3,1,3,1,0.5978544
-Case32_3,1,3,1,0.99400973
-Case62_3,0,3,0,0.9627969
-Case68_3,0,3,0,0.99290615
-Case78_3,1,3,1,0.9676555
+Case ID;Actual;Prefix Length;Prediction;Prediction Probability;SHAP Subset Stability;SHAP Weight Stability;SHAP Adjusted Weight Stability
+Case121_3;0;3;0;0.98000205;1.0;1.0;1.0
+Case123_3;1;3;1;0.9103042;1.0;1.0;1.0
+Case138_3;1;3;1;0.99162173;1.0;1.0;1.0
+Case178_3;0;3;0;0.96399343;1.0;1.0;1.0
+Case17_3;1;3;1;0.9843263;1.0;1.0;1.0
+Case19_3;1;3;1;0.9940513;1.0;1.0;1.0
+Case252_3;0;3;0;0.9703451;1.0;1.0;1.0
+Case255_3;0;3;0;0.98516834;1.0;1.0;1.0

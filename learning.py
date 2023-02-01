@@ -653,7 +653,7 @@ def generate_permutations( instance, labels_lst, feature_names, class_var, encod
     
 # GEBERATE_BN_EXPLANATIONS ------------------------------------------------------------
 #
-def generate_BN_explanations(instance, label_lst, feature_names, class_var, encoder, scaler, model, path, dataset_name, show_in_notebook = True ):
+def generate_BN_explanations(instance, label_lst, feature_names, class_var, encoder, scaler, model, path, dataset_name, show_in_notebook = True, samples = 300 ):
 
     # necessary for starting Numpy generated random numbers in an initial state
     np.random.seed(515)
@@ -666,7 +666,7 @@ def generate_BN_explanations(instance, label_lst, feature_names, class_var, enco
     prediction_type = prediction_type.replace(" ", "_")
     
     # generate permutations
-    df = generate_permutations( instance, label_lst, feature_names, class_var, encoder, scaler, model)
+    df = generate_permutations( instance, label_lst, feature_names, class_var, encoder, scaler, model, samples)
 
     # discretize data
     df_discr = discretize_dataframe( df, class_var, num_bins=4 )

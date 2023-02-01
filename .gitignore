@@ -41,3 +41,4 @@ transformers/__pycache__/StaticTransformer.cpython-38.pyc
 .ipynb_checkpoints/test_stability-checkpoint.ipynb
 */.ipynb_checkpoints/*
 *-checkpoint.ipynb
+*.pyc
