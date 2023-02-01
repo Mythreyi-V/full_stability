@@ -157,7 +157,7 @@ methods = encoding_dict[cls_encoding]
     
 train_ratio = 0.8
 random_state = 22
-max_prefix = 15
+max_prefix = 20
 
 # create results directory
 if not os.path.exists(os.path.join(params_dir)):

@@ -36,7 +36,7 @@ from lime import submodular_pick
 from tqdm import tqdm
 
 from learning import *
-import pyagrum
+import pyAgrum
 
 import shap
 
@@ -493,8 +493,8 @@ if xai_method=="ACV":
 
         for iteration in list(range(exp_iter)):
             weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, y_train, 1)
-            print(weights)
-            print(feat_pos)
+    #        print(weights)
+    #        print(feat_pos)
 
             presence_list = np.array([0]*len(feat_list))                    
             presence_list[feat_pos] = 1
