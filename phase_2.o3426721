@@ -1,0 +1,511 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+  0%|          | 0/14 [00:00<?, ?it/s]
+Bucket 1
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 2 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 3 of 8 .
+Stability: 0.88
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 4 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 5 of 8 .
+Stability: 0.84
+Dispersal of feature importance: 0.68
+Dispersal with no outliers: 0.68
+Testing 6 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.45
+Dispersal with no outliers: 0.45
+Testing 7 of 8 .
+Stability: 0.88
+Dispersal of feature importance: 0.86
+Dispersal with no outliers: 0.86
+Testing 8 of 8 .
+Stability: 0.85
+Dispersal of feature importance: 0.78
+Dispersal with no outliers: 0.78
+Bucket 2
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.84
+Dispersal with no outliers: 0.84
+Testing 2 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.61
+Dispersal with no outliers: 0.61
+Testing 3 of 8 .
+Stability: 0.83
+Dispersal of feature importance: 0.89
+Dispersal with no outliers: 0.89
+Testing 4 of 8 .
+Stability: 0.37
+Dispersal of feature importance: 0.88
+Dispersal with no outliers: 0.88
+Testing 5 of 8 .
+Stability: 0.49
+Dispersal of feature importance: 0.84
+Dispersal with no outliers: 0.84
+Testing 6 of 8 .
+Stability: 0.39
+Dispersal of feature importance: 0.77
+Dispersal with no outliers: 0.77
+Testing 7 of 8 .
+Stability: 0.44
+Dispersal of feature importance: 0.68
+Dispersal with no outliers: 0.68
+Testing 8 of 8 .
+Stability: 0.72
+Dispersal of feature importance: 0.86
+Dispersal with no outliers: 0.86
+Bucket 3
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 0.68
+Dispersal of feature importance: 0.92
+Dispersal with no outliers: 0.92
+Testing 2 of 8 .
+Stability: 0.38
+Dispersal of feature importance: 0.14
+Dispersal with no outliers: 0.14
+Testing 3 of 8 .
+Stability: 0.42
+Dispersal of feature importance: 0.8
+Dispersal with no outliers: 0.8
+Testing 4 of 8 .
+Stability: 0.06
+Dispersal of feature importance: 0.81
+Dispersal with no outliers: 0.81
+Testing 5 of 8 .
+Stability: 0.63
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 6 of 8 .
+Stability: 0.36
+Dispersal of feature importance: 0.88
+Dispersal with no outliers: 0.88
+Testing 7 of 8 .
+Stability: 0.39
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 8 of 8 .
+Stability: 0.42
+Dispersal of feature importance: 0.89
+Dispersal with no outliers: 0.89
+Bucket 4
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 0.54
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 2 of 8 .
+Stability: 0.28
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 3 of 8 .
+Stability: 0.45
+Dispersal of feature importance: 0.46
+Dispersal with no outliers: 0.46
+Testing 4 of 8 .
+Stability: 0.71
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 5 of 8 .
+Stability: 0.61
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 6 of 8 .
+Stability: 0.83
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 7 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 8 of 8 .
+Stability: 0.56
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Bucket 5
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.83
+Dispersal with no outliers: 0.83
+Testing 2 of 8 .
+Stability: 0.71
+Dispersal of feature importance: 0.62
+Dispersal with no outliers: 0.62
+Testing 3 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.84
+Dispersal with no outliers: 0.84
+Testing 4 of 8 .
+Stability: 0.71
+Dispersal of feature importance: 0.86
+Dispersal with no outliers: 0.86
+Testing 5 of 8 .
+Stability: 0.71
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 6 of 8 .
+Stability: 0.71
+Dispersal of feature importance: 0.8
+Dispersal with no outliers: 0.8
+Testing 7 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.14
+Dispersal with no outliers: 0.14
+Testing 8 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.83
+Dispersal with no outliers: 0.83
+Bucket 6
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 0.32
+Dispersal of feature importance: 0.71
+Dispersal with no outliers: 0.71
+Testing 2 of 8 .
+Stability: 0.89
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 3 of 8 .
+Stability: 0.77
+Dispersal of feature importance: 0.83
+Dispersal with no outliers: 0.83
+Testing 4 of 8 .
+Stability: 0.58
+Dispersal of feature importance: 0.87
+Dispersal with no outliers: 0.87
+Testing 5 of 8 .
+Stability: 0.71
+Dispersal of feature importance: 0.82
+Dispersal with no outliers: 0.82
+Testing 6 of 8 .
+Stability: 0.4
+Dispersal of feature importance: 0.8
+Dispersal with no outliers: 0.8
+Testing 7 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.88
+Dispersal with no outliers: 0.88
+Testing 8 of 8 .
+Stability: 0.56
+Dispersal of feature importance: 0.88
+Dispersal with no outliers: 0.88
+Bucket 7
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 0.57
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 2 of 8 .
+Stability: 0.83
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 3 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 4 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.84
+Dispersal with no outliers: 0.84
+Testing 5 of 8 .
+Stability: 0.62
+Dispersal of feature importance: 0.83
+Dispersal with no outliers: 0.83
+Testing 6 of 8 .
+Stability: 0.54
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 7 of 8 .
+Stability: 0.32
+Dispersal of feature importance: 0.87
+Dispersal with no outliers: 0.87
+Testing 8 of 8 .
+Stability: 0.36
+Dispersal of feature importance: 0.89
+Dispersal with no outliers: 0.89
+Bucket 8
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: -0.07
+Dispersal of feature importance: 0.83
+Dispersal with no outliers: 0.83
+Testing 2 of 8 .
+Stability: 1.0
+Dispersal of feature importance: -6.51
+Dispersal with no outliers: -6.51
+Testing 3 of 8 .
+Stability: -0.05
+Dispersal of feature importance: 0.84
+Dispersal with no outliers: 0.84
+Testing 4 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.78
+Dispersal with no outliers: 0.78
+Testing 5 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.81
+Dispersal with no outliers: 0.81
+Testing 6 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.68
+Dispersal with no outliers: 0.68
+Testing 7 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.84
+Dispersal with no outliers: 0.84
+Testing 8 of 8 .
+Stability: 0.0
+Dispersal of feature importance: 0.82
+Dispersal with no outliers: 0.82
+Bucket 9
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 2 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 3 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.77
+Dispersal with no outliers: 0.77
+Testing 4 of 8 .
+Stability: 0.88
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 5 of 8 .
+Stability: 0.88
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 6 of 8 .
+Stability: 0.83
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 7 of 8 .
+Stability: 0.91
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 8 of 8 .
+Stability: 0.81
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Bucket 10
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 2 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 3 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 4 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 5 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 6 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.88
+Dispersal with no outliers: 0.88
+Testing 7 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.92
+Dispersal with no outliers: 0.92
+Testing 8 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Bucket 11
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: -0.11
+Dispersal of feature importance: 0.99
+Dispersal with no outliers: 0.99
+Testing 2 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.99
+Dispersal with no outliers: 0.99
+Testing 3 of 8 .
+Stability: 0.83
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 4 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.99
+Dispersal with no outliers: 0.99
+Testing 5 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.99
+Dispersal with no outliers: 0.99
+Testing 6 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 7 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 8 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Bucket 12
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 0.2
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 2 of 8 .
+Stability: 0.26
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 3 of 8 .
+Stability: -0.05
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 4 of 8 .
+Stability: 0.45
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 5 of 8 .
+Stability: -0.17
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 6 of 8 .
+Stability: 0.34
+Dispersal of feature importance: 0.83
+Dispersal with no outliers: 0.83
+Testing 7 of 8 .
+Stability: -0.1
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 8 of 8 .
+Stability: 0.23
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Bucket 13
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 2 of 8 .
+Stability: 0.88
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 3 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 4 of 8 .
+Stability: 0.89
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 5 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 6 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.88
+Dispersal with no outliers: 0.88
+Testing 7 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 8 of 8 .
+Stability: 0.85
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Bucket 14
+8
+  0%|          | 0/8 [00:00<?, ?it/s]
+Testing 1 of 8 .
+Stability: 0.81
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 2 of 8 .
+Stability: 0.81
+Dispersal of feature importance: 0.98
+Dispersal with no outliers: 0.98
+Testing 3 of 8 .
+Stability: 0.83
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 4 of 8 .
+Stability: 0.79
+Dispersal of feature importance: 0.86
+Dispersal with no outliers: 0.86
+Testing 5 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 6 of 8 .
+Stability: 0.81
+Dispersal of feature importance: 0.78
+Dispersal with no outliers: 0.78
+Testing 7 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 8 of 8 .
+Stability: 1.0
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+test ended
+sepsis_cases xgboost LIME prefix index
+PBS Job 3426721.pbs
+CPU time  : 07:30:31
+Wall time : 07:02:40
+Mem usage : 521080kb

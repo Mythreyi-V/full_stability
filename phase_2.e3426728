@@ -1,0 +1,27 @@
+WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
+  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
+  
+  warnings.warn("""
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+Traceback (most recent call last):
+  File "test_el_stability.py", line 543, in <module>
+    bins = pd.cut(all_weights, 4, duplicates = "drop", retbins = True)[-1]
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/reshape/tile.py", line 275, in cut
+    fac, bins = _bins_to_cuts(
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/reshape/tile.py", line 425, in _bins_to_cuts
+    labels = _format_labels(
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/reshape/tile.py", line 565, in _format_labels
+    return IntervalIndex.from_breaks(breaks, closed=closed)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexes/interval.py", line 270, in from_breaks
+    array = IntervalArray.from_breaks(
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/arrays/interval.py", line 314, in from_breaks
+    return cls.from_arrays(breaks[:-1], breaks[1:], closed, copy=copy, dtype=dtype)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/arrays/interval.py", line 386, in from_arrays
+    return cls._simple_new(
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/arrays/interval.py", line 246, in _simple_new
+    result._validate()
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/arrays/interval.py", line 491, in _validate
+    raise ValueError(msg)
+ValueError: missing values must be missing in the same location both left and right sides
