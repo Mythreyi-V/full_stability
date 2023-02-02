@@ -1,0 +1,472 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+  0%|          | 0/1 [00:00<?, ?it/s]
+Bucket 1
+112
+  0%|          | 0/112 [00:00<?, ?it/s]
+Testing 1 of 112 .
+Stability: 0.97
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 2 of 112 .
+Stability: 0.19
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 3 of 112 .
+Stability: 0.9
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 4 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 5 of 112 .
+Stability: 0.18
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 6 of 112 .
+Stability: 0.97
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 7 of 112 .
+Stability: 0.78
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 8 of 112 .
+Stability: 0.94
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 9 of 112 .
+Stability: 0.02
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 10 of 112 .
+Stability: 0.75
+Dispersal of feature importance: 0.71
+Dispersal with no outliers: 0.71
+Testing 11 of 112 .
+Stability: 0.19
+Dispersal of feature importance: 0.92
+Dispersal with no outliers: 0.92
+Testing 12 of 112 .
+Stability: 0.77
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 13 of 112 .
+Stability: 0.25
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 14 of 112 .
+Stability: 0.01
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 15 of 112 .
+Stability: 0.22
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 16 of 112 .
+Stability: 0.94
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 17 of 112 .
+Stability: 0.84
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 18 of 112 .
+Stability: -0.0
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 19 of 112 .
+Stability: 0.16
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 20 of 112 .
+Stability: 0.97
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 21 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 22 of 112 .
+Stability: 0.65
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 23 of 112 .
+Stability: 0.83
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 24 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 25 of 112 .
+Stability: 0.96
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 26 of 112 .
+Stability: -0.02
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 27 of 112 .
+Stability: 0.97
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 28 of 112 .
+Stability: 0.83
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 29 of 112 .
+Stability: 0.17
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 30 of 112 .
+Stability: 0.18
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 31 of 112 .
+Stability: 0.03
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 32 of 112 .
+Stability: 0.18
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 33 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 34 of 112 .
+Stability: 0.07
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 35 of 112 .
+Stability: 0.17
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 36 of 112 .
+Stability: 0.94
+Dispersal of feature importance: 0.72
+Dispersal with no outliers: 0.72
+Testing 37 of 112 .
+Stability: 0.83
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 38 of 112 .
+Stability: 0.01
+Dispersal of feature importance: 0.87
+Dispersal with no outliers: 0.87
+Testing 39 of 112 .
+Stability: -0.05
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 40 of 112 .
+Stability: 0.19
+Dispersal of feature importance: 0.92
+Dispersal with no outliers: 0.92
+Testing 41 of 112 .
+Stability: 0.96
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 42 of 112 .
+Stability: 0.96
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 43 of 112 .
+Stability: 0.02
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 44 of 112 .
+Stability: 0.17
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 45 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 46 of 112 .
+Stability: 0.04
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 47 of 112 .
+Stability: 0.2
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 48 of 112 .
+Stability: 0.81
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 49 of 112 .
+Stability: 0.19
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 50 of 112 .
+Stability: 0.2
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 51 of 112 .
+Stability: 0.87
+Dispersal of feature importance: 0.89
+Dispersal with no outliers: 0.89
+Testing 52 of 112 .
+Stability: 0.85
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 53 of 112 .
+Stability: 0.96
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 54 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 55 of 112 .
+Stability: 0.0
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 56 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 57 of 112 .
+Stability: 0.02
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 58 of 112 .
+Stability: 0.16
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 59 of 112 .
+Stability: 0.34
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 60 of 112 .
+Stability: 0.22
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 61 of 112 .
+Stability: 0.93
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 62 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 63 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 64 of 112 .
+Stability: 0.16
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 65 of 112 .
+Stability: 0.19
+Dispersal of feature importance: 0.86
+Dispersal with no outliers: 0.86
+Testing 66 of 112 .
+Stability: 0.92
+Dispersal of feature importance: 0.89
+Dispersal with no outliers: 0.89
+Testing 67 of 112 .
+Stability: 0.19
+Dispersal of feature importance: 0.89
+Dispersal with no outliers: 0.89
+Testing 68 of 112 .
+Stability: 0.73
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 69 of 112 .
+Stability: 0.73
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 70 of 112 .
+Stability: 0.0
+Dispersal of feature importance: 0.89
+Dispersal with no outliers: 0.89
+Testing 71 of 112 .
+Stability: 0.18
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 72 of 112 .
+Stability: 0.19
+Dispersal of feature importance: 0.89
+Dispersal with no outliers: 0.89
+Testing 73 of 112 .
+Stability: 0.86
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 74 of 112 .
+Stability: -0.01
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 75 of 112 .
+Stability: 0.06
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 76 of 112 .
+Stability: 0.01
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 77 of 112 .
+Stability: 0.28
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 78 of 112 .
+Stability: 0.2
+Dispersal of feature importance: 0.89
+Dispersal with no outliers: 0.89
+Testing 79 of 112 .
+Stability: 0.97
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 80 of 112 .
+Stability: 0.31
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 81 of 112 .
+Stability: 0.99
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 82 of 112 .
+Stability: 0.18
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 83 of 112 .
+Stability: 0.91
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 84 of 112 .
+Stability: 0.68
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 85 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 86 of 112 .
+Stability: 0.96
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 87 of 112 .
+Stability: 0.97
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 88 of 112 .
+Stability: 0.83
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 89 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 90 of 112 .
+Stability: 0.01
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 91 of 112 .
+Stability: 0.9
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 92 of 112 .
+Stability: 0.03
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 93 of 112 .
+Stability: 0.97
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 94 of 112 .
+Stability: 0.22
+Dispersal of feature importance: 0.86
+Dispersal with no outliers: 0.86
+Testing 95 of 112 .
+Stability: 0.26
+Dispersal of feature importance: 0.63
+Dispersal with no outliers: 0.63
+Testing 96 of 112 .
+Stability: 0.18
+Dispersal of feature importance: 0.92
+Dispersal with no outliers: 0.92
+Testing 97 of 112 .
+Stability: -0.04
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 98 of 112 .
+Stability: 0.84
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 99 of 112 .
+Stability: 0.21
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+Testing 100 of 112 .
+Stability: 0.83
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 101 of 112 .
+Stability: 0.17
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 102 of 112 .
+Stability: 0.2
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 103 of 112 .
+Stability: 0.01
+Dispersal of feature importance: 0.9
+Dispersal with no outliers: 0.9
+Testing 104 of 112 .
+Stability: 0.79
+Dispersal of feature importance: 0.97
+Dispersal with no outliers: 0.97
+Testing 105 of 112 .
+Stability: -0.03
+Dispersal of feature importance: 0.96
+Dispersal with no outliers: 0.96
+Testing 106 of 112 .
+Stability: 0.97
+Dispersal of feature importance: 0.92
+Dispersal with no outliers: 0.92
+Testing 107 of 112 .
+Stability: 0.15
+Dispersal of feature importance: 0.95
+Dispersal with no outliers: 0.95
+Testing 108 of 112 .
+Stability: -0.0
+Dispersal of feature importance: 0.94
+Dispersal with no outliers: 0.94
+Testing 109 of 112 .
+Stability: 0.17
+Dispersal of feature importance: 0.74
+Dispersal with no outliers: 0.74
+Testing 110 of 112 .
+Stability: 1.0
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 111 of 112 .
+Stability: 0.02
+Dispersal of feature importance: 0.91
+Dispersal with no outliers: 0.91
+Testing 112 of 112 .
+Stability: 0.19
+Dispersal of feature importance: 0.93
+Dispersal with no outliers: 0.93
+test ended
+production nb LIME single agg
+PBS Job 3426715.pbs
+CPU time  : 04:49:19
+Wall time : 04:34:41
+Mem usage : 345048kb
