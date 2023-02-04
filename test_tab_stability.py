@@ -529,7 +529,7 @@ if xai_method=="LINDA":
 
     instance_no = 0
     print(len(sample_instances))
-    for instance in tqdm_notebook(test_dict[:1]):
+    for instance in tqdm(test_dict):
         instance_no += 1
 
         print("Testing", instance_no, "of", len(sample_instances), ".")

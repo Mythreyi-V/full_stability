@@ -1,0 +1,35 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+  0%|          | 0/1 [00:00<?, ?it/s]
+Bucket 1
+112
+  0%|          | 0/1 [00:00<?, ?it/s]
+Testing 1 of 112 .
+[1.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+ 0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+ 0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+ 0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+ 0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+ 0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+ 0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.75 0.25 0.25
+ 0.   0.   0.   0.   0.   0.25 0.   0.   0.25 0.   0.   0.   0.   0.
+ 0.   0.   0.   0.   0.   0.   0.   0.  ]
+{0, 97}
+test ended
+bpic2012 xgboost ACV single agg
+PBS Job 3447232.pbs
+CPU time  : 01:13:17
+Wall time : 01:08:32
+Mem usage : 1232344kb

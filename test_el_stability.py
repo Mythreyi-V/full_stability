@@ -383,7 +383,7 @@ if xai_method=="SHAP":
                 sample_instances = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
                                           (dataset_ref, cls_method, method_name, bucketID))).values
                 results = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
-                                          (dataset_ref, cls_method, method_name, bucketID)))
+                                          (dataset_ref, cls_method, method_name, bucketID)), sep=";")
                 
                 if scaler != None:
                     sample_instances = scaler.transform(sample_instances)
@@ -503,7 +503,7 @@ if xai_method=="LIME":
             sample_instances = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
                                       (dataset_ref, cls_method, method_name, bucketID))).values
             results = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
-                                      (dataset_ref, cls_method, method_name, bucketID)))
+                                      (dataset_ref, cls_method, method_name, bucketID)), sep=";")
             
             if scaler != None:
                 sample_instances = scaler.transform(sample_instances)
@@ -613,7 +613,7 @@ if xai_method=="ACV":
             sample_instances = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
                                       (dataset_ref, cls_method, method_name, bucketID))).values
             results = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
-                                      (dataset_ref, cls_method, method_name, bucketID)))
+                                      (dataset_ref, cls_method, method_name, bucketID)), sep=";")
             
             if scaler != None:
                 sample_instances = scaler.transform(sample_instances)
@@ -638,7 +638,7 @@ if xai_method=="ACV":
             instance_no = 0
             print(len(sample_instances))
             #explain the chosen instances and find the stability score
-            for instance in tqdm_notebook(sample_instances[:1]):
+            for instance in tqdm_notebook(sample_instances):
                 instance_no += 1
 
                 print("Testing", instance_no, "of", len(sample_instances), ".")
@@ -653,6 +653,8 @@ if xai_method=="ACV":
                     weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, targets, 1)
                     print(weights)
                     print(feat_pos)
+
+                    feat_pos = list(feat_pos)
 
                     presence_list = np.array([0]*len(feat_list))                    
                     presence_list[feat_pos] = 1
@@ -714,7 +716,7 @@ if xai_method=="LINDA":
             sample_instances = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
                                       (dataset_ref, cls_method, method_name, bucketID))).values
             results = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
-                                      (dataset_ref, cls_method, method_name, bucketID)))
+                                      (dataset_ref, cls_method, method_name, bucketID)), sep=";")
             
             if scaler != None:
                 sample_instances = scaler.transform(sample_instances)
