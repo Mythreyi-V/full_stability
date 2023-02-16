@@ -132,8 +132,8 @@ for bucket in tqdm_notebook(range(num_buckets)):
     #Set up hyperparameter optimisation
     kf = KFold(n_splits=5, shuffle = True, random_state=random_state)
 
-    space = {"n_estimators": scope.int(hp.quniform('n_estimators', 1, 300, q=1)),
-            "max_depth": scope.int(hp.quniform('max_depth', 1, 300, q=1)),
+    space = {"n_estimators": scope.int(hp.quniform('n_estimators', 1, 100, q=1)),
+            "max_depth": scope.int(hp.quniform('max_depth', 1, 100, q=1)),
             "sample_fraction": (hp.quniform('sample_fraction', 0.0001, 1, q=0.4))}
 
     trials = Trials()

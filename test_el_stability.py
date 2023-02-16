@@ -651,8 +651,8 @@ if xai_method=="ACV":
                 
                 for iteration in list(range(exp_iter)):
                     weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, targets, 1)
-                    print(weights)
-                    print(feat_pos)
+            #        print(weights)
+            #        print(feat_pos)
 
                     feat_pos = list(feat_pos)
 
