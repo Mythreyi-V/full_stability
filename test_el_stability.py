@@ -251,7 +251,7 @@ def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, perc
     feat_pos = []
     lkhoods = []
     
-    save_to = os.path.join(PATH, dataset, cls_method, method_name, "/")
+    save_to = os.path.join(PATH, dataset, cls_method, method_name)+"/"
     
     for i in range(exp_iter):
         [bn, inference, infoBN] = generate_BN_explanations(instance, label_lst, feat_list, "Result", 

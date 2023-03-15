@@ -42,3 +42,5 @@ transformers/__pycache__/StaticTransformer.cpython-38.pyc
 */.ipynb_checkpoints/*
 *-checkpoint.ipynb
 *.pyc
+sepsis_cases/xgboost/single_agg/feature_permutations/sepsis_cases/true_positives/0_permutations.csv
+*_permutations.csv
