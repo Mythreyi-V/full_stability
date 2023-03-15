@@ -673,14 +673,16 @@ def generate_BN_explanations(instance, label_lst, feature_names, class_var, enco
 
     # save discretised dataframe (for debugging and reproduceability purposes)
     folder_path_permutations = path + "feature_permutations/" + dataset_name.replace(".csv","") + "/" + prediction_type  + "/"
+    print(folder_path_permutations)
 
     try:
         original_umask = os.umask(0)
         if not os.path.isdir(folder_path_permutations):
-            os.makedirs(folder_path_permutations, mode=0o777)
+            os.makedirs(folder_path_permutations, mode=0o755)
     finally:
         os.umask(original_umask)
     path_to_permutations = folder_path_permutations + str(indx) + "_permutations.csv"
+    print(path_to_permutations)
     df_discr.to_csv( path_to_permutations, index=False)
     
     # normalise dataframe
@@ -700,11 +702,12 @@ def generate_BN_explanations(instance, label_lst, feature_names, class_var, enco
 
     # save to file
     path_to_explanation = path + "explanations/" + dataset_name.replace(".csv", "") + "/BN/" + prediction_type + "/"
+    print(path_to_explanation)
 
     try:
         original_umask = os.umask(0)
         if not os.path.isdir(path_to_explanation):
-            os.makedirs(path_to_explanation, mode=0o777)
+            os.makedirs(path_to_explanation, mode=0o755)
     finally:
         os.umask(original_umask)
 #    gum.lib.bn2graph.dotize( bn , path_to_explanation + str(indx) + "_BN" )
@@ -739,7 +742,7 @@ def generate_BN_explanationsMB(instance, label_lst, feature_names, class_var, en
     try:
         original_umask = os.umask(0)
         if not os.path.isdir(folder_path_permutations):
-            os.makedirs(folder_path_permutations, mode=0o777)
+            os.makedirs(folder_path_permutations, mode=0o755)
     finally:
         os.umask(original_umask)
     path_to_permutations = folder_path_permutations + str(indx) + "_permutations.csv"
@@ -765,11 +768,12 @@ def generate_BN_explanationsMB(instance, label_lst, feature_names, class_var, en
 
     # save to file
     path_to_explanation = path + "explanations/" + dataset_name.replace(".csv", "") + "/BN/" + prediction_type + "/"
-
+    print(path_to_explanation)
+    
     try:
         original_umask = os.umask(0)
         if not os.path.isdir(path_to_explanation):
-            os.makedirs(path_to_explanation, mode=0o777)
+            os.makedirs(path_to_explanation, mode=0o755)
     finally:
         os.umask(original_umask)
 

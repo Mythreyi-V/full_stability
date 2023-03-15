@@ -689,7 +689,7 @@ if xai_method=="LINDA":
                                                                     (dataset_ref, cls_method, method_name)))])
         dataset_manager = DatasetManager(dataset_name)
 
-        for bucket in tqdm_notebook(range(14, 17)):
+        for bucket in tqdm_notebook(range(num_buckets)):
             bucketID = bucket+1
             print ('Bucket', bucketID)
             

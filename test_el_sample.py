@@ -271,6 +271,7 @@ for dataset_name in datasets:
     
     for ii in range(n_iter):
         num_buckets = len([name for name in os.listdir(os.path.join(PATH,'%s/%s/%s/pipelines'% (dataset_ref, cls_method, method_name)))])
+        print(num_buckets)
 
         for bucket in tqdm(range(num_buckets)):
             bucketID = bucket+1

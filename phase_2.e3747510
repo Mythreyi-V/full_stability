@@ -1,0 +1,21 @@
+WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
+  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
+  
+  warnings.warn("""
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+Traceback (most recent call last):
+  File "test_el_stability.py", line 755, in <module>
+    weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
+  File "test_el_stability.py", line 257, in get_linda_features
+    [bn, inference, infoBN] = generate_BN_explanations(instance, label_lst, feat_list, "Result", 
+  File "/mnt/home/n9455647/full_stability/learning.py", line 680, in generate_BN_explanations
+    os.makedirs(folder_path_permutations, mode=0o777)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/os.py", line 213, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/os.py", line 213, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/os.py", line 223, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/feature_permutations'

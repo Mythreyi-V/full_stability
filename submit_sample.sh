@@ -1,10 +1,10 @@
 #!/bin/bash -l
 #PBS -N phase_2
-#PBS -l ncpus=30
+#PBS -l ncpus=10
 #PBS -l ngpus=0
-#PBS -l mem=160gb
+#PBS -l mem=30gb
 #PBS -l cpuarch=avx512
-#PBS -l walltime=500:00:00
+#PBS -l walltime=24:00:00
 
 cd $PBS_O_WORKDIR
 echo "queue started"

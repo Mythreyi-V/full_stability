@@ -1,0 +1,15 @@
+WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
+  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
+  
+  warnings.warn("""
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+Traceback (most recent call last):
+  File "test_el_stability.py", line 692, in <module>
+    for bucket in tqdm_notebook(num_buckets):
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/tqdm/notebook.py", line 257, in __iter__
+    for obj in super(tqdm_notebook, self).__iter__():
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+TypeError: 'int' object is not iterable
