@@ -44,7 +44,7 @@ from lime import submodular_pick
 
 #from alibi.utils.data import gen_category_map
 
-from tqdm import tqdm_notebook
+from tqdm import tqdm_notebook, tqdm
 
 from acv_explainers import ACXplainer
 from learning import *
@@ -638,7 +638,7 @@ if xai_method=="ACV":
             instance_no = 0
             print(len(sample_instances))
             #explain the chosen instances and find the stability score
-            for instance in tqdm_notebook(sample_instances):
+            for instance in tqdm(sample_instances):
                 instance_no += 1
 
                 print("Testing", instance_no, "of", len(sample_instances), ".")
@@ -689,7 +689,7 @@ if xai_method=="LINDA":
                                                                     (dataset_ref, cls_method, method_name)))])
         dataset_manager = DatasetManager(dataset_name)
 
-        for bucket in tqdm_notebook(range(num_buckets)):
+        for bucket in tqdm(range(num_buckets)):
             bucketID = bucket+1
             print ('Bucket', bucketID)
             
@@ -740,7 +740,7 @@ if xai_method=="LINDA":
             instance_no = 0
             print(len(sample_instances))
             #explain the chosen instances and find the stability score
-            for instance in tqdm_notebook(test_dict[:1]):
+            for instance in tqdm(test_dict):
                 instance_no += 1
 
                 print("Testing", instance_no, "of", len(sample_instances), ".")
@@ -770,8 +770,8 @@ if xai_method=="LINDA":
                     feat_pres.append(presence_list)
                     feat_weights.append(weights)
                 
-                print(feat_pres)
-                print(feat_weights)
+                #print(feat_pres)
+                #print(feat_weights)
                 
                 stability = st.getStability(feat_pres)
                 print ("Stability:", round(stability,2))

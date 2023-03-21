@@ -1,0 +1,56 @@
+WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
+  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
+  
+  warnings.warn("""
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+Traceback (most recent call last):
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 2891, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1675, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1683, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Positive'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "pandas/_libs/index.pyx", line 705, in pandas._libs.index.BaseMultiIndexCodesEngine.get_loc
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 2893, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Positive'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexes/multi.py", line 2850, in get_loc_level
+    return (self._engine.get_loc(key), None)
+  File "pandas/_libs/index.pyx", line 708, in pandas._libs.index.BaseMultiIndexCodesEngine.get_loc
+KeyError: ('Result', 'Positive')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "test_el_stability.py", line 755, in <module>
+    weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
+  File "test_el_stability.py", line 263, in get_linda_features
+    result_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 873, in __getitem__
+    return self._getitem_tuple(key)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 1044, in _getitem_tuple
+    return self._getitem_lowerdim(tup)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 774, in _getitem_lowerdim
+    result = self._handle_lowerdim_multi_index_axis0(tup)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 1074, in _handle_lowerdim_multi_index_axis0
+    raise ek
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 1066, in _handle_lowerdim_multi_index_axis0
+    return self._get_label(tup, axis=axis)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 1059, in _get_label
+    return self.obj.xs(label, axis=axis)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/generic.py", line 3486, in xs
+    loc, new_index = self.index.get_loc_level(key, drop_level=drop_level)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexes/multi.py", line 2852, in get_loc_level
+    raise KeyError(key) from e
+KeyError: ('Result', 'Positive')
