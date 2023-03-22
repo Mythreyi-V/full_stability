@@ -1,0 +1,23 @@
+WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
+  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
+  
+  warnings.warn("""
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+  0%|          | 0/14 [00:00<?, ?it/s]
+  0%|          | 0/8 [00:00<?, ?it/s][A
+ 12%|█▎        | 1/8 [00:21<02:32, 21.79s/it][A
+ 25%|██▌       | 2/8 [00:31<01:27, 14.60s/it][A
+ 38%|███▊      | 3/8 [00:41<01:02, 12.45s/it][A
+ 50%|█████     | 4/8 [00:51<00:45, 11.40s/it][A
+ 62%|██████▎   | 5/8 [01:00<00:31, 10.63s/it][A 62%|██████▎   | 5/8 [01:02<00:37, 12.47s/it]
+  0%|          | 0/14 [01:02<?, ?it/s]
+Traceback (most recent call last):
+  File "test_el_stability.py", line 755, in <module>
+    weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
+  File "test_el_stability.py", line 276, in get_linda_features
+    cat = [float(val) for val in disc_bin.split(',')]
+  File "test_el_stability.py", line 276, in <listcomp>
+    cat = [float(val) for val in disc_bin.split(',')]
+ValueError: could not convert string to float: ''
