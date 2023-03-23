@@ -260,7 +260,10 @@ def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, perc
         
         ie = pyAgrum.LazyPropagation(bn)
         result_posterior = ie.posterior(bn.idFromName("Result")).topandas()
-        result_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]
+        if len(result_posterior.shape)==1:
+            result_proba = result_posterior.values[0]
+        else:
+            result_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]        
         row = instance['original_vector']
         #print(row)
 
@@ -289,7 +292,10 @@ def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, perc
             ie.makeInference()
             
             result_posterior = ie.posterior(bn.idFromName("Result")).topandas()
-            new_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]
+            if len(result_posterior.shape)==1:
+                new_proba = result_posterior.values[0]
+            else:
+                new_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]        
             #print(result_proba, new_proba)
             proba_change = result_proba-new_proba
             likelihood[j] = abs(proba_change)
