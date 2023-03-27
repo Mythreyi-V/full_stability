@@ -1,0 +1,596 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+Bucket 1
+8
+Testing 1 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 4 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 5 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 6 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 7 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 8 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Bucket 2
+8
+Testing 1 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 4 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 5 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 6 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 7 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 8 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Bucket 3
+8
+Testing 1 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 4 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 5 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 6 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 7 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 8 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Bucket 4
+8
+Testing 1 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 4 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 5 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 6 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 7 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 8 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Bucket 5
+8
+Testing 1 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 4 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 5 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 6 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 7 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 8 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Bucket 6
+8
+Testing 1 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 4 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 5 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 6 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 7 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 8 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Bucket 7
+8
+Testing 1 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: 1.0
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 4 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 5 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 6 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 7 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 8 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Bucket 8
+8
+Testing 1 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 2 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 3 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 4 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 5 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 6 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Selecting Greedy Hill Climbing Algorithm
+Stability: nan
+Dispersal of feature importance: 1.0
+Dispersal with no outliers: 1.0
+Testing 7 of 8 .
+Selecting Greedy Hill Climbing Algorithm
+test ended
+sepsis_cases nb LINDA prefix agg
+PBS Job 3868295.pbs
+CPU time  : 12:59:32
+Wall time : 04:45:15
+Mem usage : 1893440kb

@@ -256,7 +256,7 @@ def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, perc
     for i in range(exp_iter):
         [bn, inference, infoBN] = generate_BN_explanations(instance, label_lst, feat_list, "Result", 
                                                            None, scaler, cls, save_to, dataset, show_in_notebook = False,
-                                                           samples=round(len(feat_list)*1.5))
+                                                           samples=round(len(feat_list)*2))
         
         ie = pyAgrum.LazyPropagation(bn)
         result_posterior = ie.posterior(bn.idFromName("Result")).topandas()
