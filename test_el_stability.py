@@ -279,23 +279,32 @@ def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, perc
                 cat = [float(val) for val in disc_bin.split(',')]
                 bins.append(cat)
 
+            feat_bin = None
+            val = row[j]
+            
+            #Find appropriate bin, if higher or lower than bins,
+            #use first or last bin
             for k in range(len(bins)):
-                if k == 0 and row[j] <= bins[k][0]:
+                if k == 0 and val <= bins[k][0]:
                     feat_bin = str_bins[k]
-                elif k == len(bins)-1 and row[j] >= bins[k][1]:
+                elif k == len(bins)-1 and val >= bins[k][1]:
                     feat_bin = str_bins[k]
-                elif row[j] > bins[k][0] and row[j] <= bins[k][1]:
+                elif val > bins[k][0] and val <= bins[k][1]:
                     feat_bin = str_bins[k]
 
-            ie = pyAgrum.LazyPropagation(bn)
-            ie.setEvidence({feat_list[j]: feat_bin})
-            ie.makeInference()
+            #If the value doesn't fit into any bin,
+            #pick the nearest
+            if feat_bin == None: 
+                bins_diff = np.array(bins) - val
+                inds = np.unravel_index(np.abs(bins_diff).argmin(axis=None), bins_diff.shape)
+                k = inds[0]
+                feat_bin = str_bins[k]
             
             result_posterior = ie.posterior(bn.idFromName("Result")).topandas()
             if len(result_posterior.shape)==1:
                 new_proba = result_posterior.values[0]
             else:
-                new_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]        
+                new_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]
             #print(result_proba, new_proba)
             proba_change = result_proba-new_proba
             likelihood[j] = abs(proba_change)
@@ -316,7 +325,7 @@ def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, perc
         feat_pos.extend(list(np.where(np.mean(lkhoods, axis=0) >= q1_min)[0]))
 
     feat_pos = set(feat_pos)
-    
+        
     return np.mean(lkhoods, axis=0), feat_pos
 
 dataset_ref = sys.argv[1]
