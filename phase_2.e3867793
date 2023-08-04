@@ -1,130 +1,0 @@
-WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
-  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
-  
-  warnings.warn("""
-RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
-  0%|          | 0/14 [00:00<?, ?it/s]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [00:41<04:49, 41.35s/it][A
- 25%|██▌       | 2/8 [01:19<03:57, 39.57s/it][A
- 38%|███▊      | 3/8 [02:01<03:23, 40.73s/it][A
- 50%|█████     | 4/8 [02:40<02:40, 40.07s/it][A
- 62%|██████▎   | 5/8 [03:22<02:02, 40.71s/it][A
- 75%|███████▌  | 6/8 [04:06<01:23, 41.87s/it][A
- 88%|████████▊ | 7/8 [04:45<00:40, 40.96s/it][A
-100%|██████████| 8/8 [05:23<00:00, 40.04s/it][A100%|██████████| 8/8 [05:23<00:00, 40.49s/it]
-  7%|▋         | 1/14 [05:29<1:11:25, 329.67s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [00:40<04:40, 40.09s/it][A
- 25%|██▌       | 2/8 [01:24<04:16, 42.79s/it][A
- 38%|███▊      | 3/8 [02:03<03:23, 40.77s/it][A
- 50%|█████     | 4/8 [02:50<02:53, 43.42s/it][A
- 62%|██████▎   | 5/8 [03:33<02:09, 43.20s/it][A
- 75%|███████▌  | 6/8 [04:11<01:22, 41.49s/it][A
- 88%|████████▊ | 7/8 [05:01<00:44, 44.16s/it][A
-100%|██████████| 8/8 [05:43<00:00, 43.49s/it][A100%|██████████| 8/8 [05:43<00:00, 42.92s/it]
- 14%|█▍        | 2/14 [11:20<1:08:22, 341.85s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [00:37<04:25, 37.96s/it][A
- 25%|██▌       | 2/8 [01:17<03:52, 38.67s/it][A
- 38%|███▊      | 3/8 [01:52<03:05, 37.20s/it][A
- 50%|█████     | 4/8 [02:26<02:23, 35.87s/it][A
- 62%|██████▎   | 5/8 [02:59<01:44, 34.70s/it][A
- 75%|███████▌  | 6/8 [03:42<01:15, 37.67s/it][A
- 88%|████████▊ | 7/8 [04:17<00:36, 36.78s/it][A
-100%|██████████| 8/8 [04:49<00:00, 35.40s/it][A100%|██████████| 8/8 [04:49<00:00, 36.23s/it]
- 21%|██▏       | 3/14 [16:11<58:26, 318.80s/it]  
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [02:00<14:01, 120.22s/it][A
- 25%|██▌       | 2/8 [04:28<13:42, 137.02s/it][A
- 38%|███▊      | 3/8 [06:53<11:41, 140.37s/it][A
- 50%|█████     | 4/8 [09:01<09:02, 135.63s/it][A
- 62%|██████▎   | 5/8 [11:05<06:33, 131.31s/it][A
- 75%|███████▌  | 6/8 [13:09<04:17, 128.75s/it][A
- 88%|████████▊ | 7/8 [15:09<02:05, 125.96s/it][A
-100%|██████████| 8/8 [16:48<00:00, 117.51s/it][A100%|██████████| 8/8 [16:48<00:00, 126.10s/it]
- 29%|██▊       | 4/14 [33:05<1:38:52, 593.21s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [01:57<13:44, 117.82s/it][A
- 25%|██▌       | 2/8 [04:01<12:07, 121.23s/it][A
- 38%|███▊      | 3/8 [06:09<10:22, 124.53s/it][A
- 50%|█████     | 4/8 [08:10<08:11, 122.81s/it][A
- 62%|██████▎   | 5/8 [10:35<06:32, 130.84s/it][A
- 75%|███████▌  | 6/8 [12:45<04:21, 130.58s/it][A
- 88%|████████▊ | 7/8 [14:53<02:09, 129.78s/it][A
-100%|██████████| 8/8 [16:50<00:00, 125.64s/it][A100%|██████████| 8/8 [16:50<00:00, 126.27s/it]
- 36%|███▌      | 5/14 [50:05<1:52:04, 747.22s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [02:04<14:33, 124.84s/it][A
- 25%|██▌       | 2/8 [04:11<12:34, 125.76s/it][A
- 38%|███▊      | 3/8 [06:19<10:34, 126.90s/it][A
- 50%|█████     | 4/8 [08:30<08:34, 128.67s/it][A
- 62%|██████▎   | 5/8 [10:38<06:25, 128.36s/it][A
- 75%|███████▌  | 6/8 [12:35<04:08, 124.43s/it][A
- 88%|████████▊ | 7/8 [14:41<02:04, 124.93s/it][A
-100%|██████████| 8/8 [16:43<00:00, 124.00s/it][A100%|██████████| 8/8 [16:43<00:00, 125.44s/it]
- 43%|████▎     | 6/14 [1:06:53<1:51:27, 835.92s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [01:56<13:34, 116.41s/it][A
- 25%|██▌       | 2/8 [04:03<12:17, 122.93s/it][A
- 38%|███▊      | 3/8 [07:02<12:22, 148.52s/it][A
- 50%|█████     | 4/8 [09:09<09:19, 139.99s/it][A
- 62%|██████▎   | 5/8 [11:22<06:52, 137.50s/it][A
- 75%|███████▌  | 6/8 [13:40<04:34, 137.47s/it][A
- 88%|████████▊ | 7/8 [15:53<02:16, 136.02s/it][A
-100%|██████████| 8/8 [18:08<00:00, 135.70s/it][A100%|██████████| 8/8 [18:08<00:00, 136.04s/it]
- 50%|█████     | 7/14 [1:25:06<1:47:19, 919.91s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [01:49<12:48, 109.72s/it][A 12%|█▎        | 1/8 [02:21<16:31, 141.62s/it]
- 50%|█████     | 7/14 [1:27:28<1:27:28, 749.82s/it]
-Traceback (most recent call last):
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 2891, in get_loc
-    return self._engine.get_loc(casted_key)
-  File "pandas/_libs/index.pyx", line 70, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas/_libs/index.pyx", line 101, in pandas._libs.index.IndexEngine.get_loc
-  File "pandas/_libs/hashtable_class_helper.pxi", line 1675, in pandas._libs.hashtable.PyObjectHashTable.get_item
-  File "pandas/_libs/hashtable_class_helper.pxi", line 1683, in pandas._libs.hashtable.PyObjectHashTable.get_item
-KeyError: 'Positive'
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "pandas/_libs/index.pyx", line 705, in pandas._libs.index.BaseMultiIndexCodesEngine.get_loc
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 2893, in get_loc
-    raise KeyError(key) from err
-KeyError: 'Positive'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexes/multi.py", line 2850, in get_loc_level
-    return (self._engine.get_loc(key), None)
-  File "pandas/_libs/index.pyx", line 708, in pandas._libs.index.BaseMultiIndexCodesEngine.get_loc
-KeyError: ('Result', 'Positive')
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "test_el_stability.py", line 755, in <module>
-    weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
-  File "test_el_stability.py", line 263, in get_linda_features
-    result_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 873, in __getitem__
-    return self._getitem_tuple(key)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 1044, in _getitem_tuple
-    return self._getitem_lowerdim(tup)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 774, in _getitem_lowerdim
-    result = self._handle_lowerdim_multi_index_axis0(tup)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 1074, in _handle_lowerdim_multi_index_axis0
-    raise ek
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 1066, in _handle_lowerdim_multi_index_axis0
-    return self._get_label(tup, axis=axis)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexing.py", line 1059, in _get_label
-    return self.obj.xs(label, axis=axis)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/generic.py", line 3486, in xs
-    loc, new_index = self.index.get_loc_level(key, drop_level=drop_level)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/indexes/multi.py", line 2852, in get_loc_level
-    raise KeyError(key) from e
-KeyError: ('Result', 'Positive')

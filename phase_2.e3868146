@@ -1,76 +1,0 @@
-WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
-  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
-  
-  warnings.warn("""
-RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
-  0%|          | 0/14 [00:00<?, ?it/s]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [02:20<16:22, 140.37s/it][A
- 25%|██▌       | 2/8 [04:33<13:36, 136.07s/it][A
- 38%|███▊      | 3/8 [06:47<11:16, 135.31s/it][A
- 50%|█████     | 4/8 [09:02<08:59, 134.96s/it][A
- 62%|██████▎   | 5/8 [11:13<06:41, 133.75s/it][A
- 75%|███████▌  | 6/8 [13:25<04:26, 133.15s/it][A
- 88%|████████▊ | 7/8 [15:58<02:19, 139.45s/it][A
-100%|██████████| 8/8 [18:10<00:00, 137.02s/it][A100%|██████████| 8/8 [18:10<00:00, 136.26s/it]
-  7%|▋         | 1/14 [18:14<3:57:07, 1094.42s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [04:02<28:14, 242.05s/it][A
- 25%|██▌       | 2/8 [07:58<23:54, 239.04s/it][A
- 38%|███▊      | 3/8 [11:55<19:49, 237.82s/it][A
- 50%|█████     | 4/8 [15:27<15:09, 227.50s/it][A
- 62%|██████▎   | 5/8 [19:22<11:31, 230.55s/it][A
- 75%|███████▌  | 6/8 [23:17<07:43, 231.92s/it][A
- 88%|████████▊ | 7/8 [27:27<03:57, 237.78s/it][A
-100%|██████████| 8/8 [31:15<00:00, 234.70s/it][A100%|██████████| 8/8 [31:15<00:00, 234.44s/it]
- 14%|█▍        | 2/14 [49:37<5:11:42, 1558.53s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [08:30<59:30, 510.13s/it][A
- 25%|██▌       | 2/8 [13:15<37:49, 378.21s/it][A
- 38%|███▊      | 3/8 [21:39<36:16, 435.34s/it][A
- 50%|█████     | 4/8 [30:45<31:56, 479.03s/it][A
- 62%|██████▎   | 5/8 [37:51<23:00, 460.06s/it][A
- 75%|███████▌  | 6/8 [45:56<15:36, 468.29s/it][A
- 88%|████████▊ | 7/8 [50:49<06:51, 411.18s/it][A
-100%|██████████| 8/8 [59:25<00:00, 444.64s/it][A100%|██████████| 8/8 [59:25<00:00, 445.74s/it]
- 21%|██▏       | 3/14 [1:49:11<7:34:26, 2478.77s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [11:58<1:23:48, 718.36s/it][A
- 25%|██▌       | 2/8 [35:36<1:52:58, 1129.72s/it][A
- 38%|███▊      | 3/8 [49:21<1:22:33, 990.70s/it] [A
- 50%|█████     | 4/8 [56:53<51:52, 778.22s/it]  [A
- 62%|██████▎   | 5/8 [1:10:41<39:48, 796.05s/it][A
- 75%|███████▌  | 6/8 [1:21:02<24:32, 736.43s/it][A
- 88%|████████▊ | 7/8 [1:28:35<10:43, 643.88s/it][A
-100%|██████████| 8/8 [1:41:39<00:00, 688.56s/it][A100%|██████████| 8/8 [1:41:39<00:00, 762.46s/it]
- 29%|██▊       | 4/14 [3:30:56<10:51:43, 3910.40s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A
- 12%|█▎        | 1/8 [17:23<2:01:45, 1043.59s/it][A
- 25%|██▌       | 2/8 [34:23<1:42:58, 1029.76s/it][A
- 38%|███▊      | 3/8 [52:21<1:27:39, 1051.90s/it][A
- 50%|█████     | 4/8 [1:11:55<1:13:19, 1099.84s/it][A
- 62%|██████▎   | 5/8 [1:32:44<57:41, 1153.85s/it]  [A
- 75%|███████▌  | 6/8 [1:50:48<37:39, 1129.85s/it][A
- 88%|████████▊ | 7/8 [2:00:31<15:51, 951.23s/it] [A
-100%|██████████| 8/8 [2:18:49<00:00, 997.90s/it][A100%|██████████| 8/8 [2:18:49<00:00, 1041.18s/it]
- 36%|███▌      | 5/14 [5:49:49<13:45:44, 5504.99s/it]
-  0%|          | 0/8 [00:00<?, ?it/s][A  0%|          | 0/8 [03:21<?, ?it/s]
- 36%|███▌      | 5/14 [5:53:10<10:35:43, 4238.18s/it]
-Traceback (most recent call last):
-  File "test_el_stability.py", line 761, in <module>
-    weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
-  File "test_el_stability.py", line 257, in get_linda_features
-    [bn, inference, infoBN] = generate_BN_explanations(instance, label_lst, feat_list, "Result", 
-  File "/mnt/home/n9455647/full_stability/learning.py", line 692, in generate_BN_explanations
-    bn, infoBN, essencGraph = learnBN( path_to_permutations )
-  File "/mnt/home/n9455647/full_stability/learning.py", line 542, in learnBN
-    infoBN = gnb.getInformation( bn )  
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py", line 698, in getInformation
-    return _reprInformation(bn, evs, size, cmap, asString=True)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py", line 640, in _reprInformation
-    ie.makeInference()
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/pyAgrum.py", line 13476, in makeInference
-    return _pyAgrum.LazyPropagation_makeInference(self)
-Exception: std::bad_alloc

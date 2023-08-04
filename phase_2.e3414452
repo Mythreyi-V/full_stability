@@ -1,8 +1,0 @@
-WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
-  0%|          | 0/100 [00:00<?, ?it/s]  0%|          | 0/100 [00:00<?, ?it/s]
-Traceback (most recent call last):
-  File "test_tab_stability.py", line 422, in <module>
-    weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, y_train, 1)
-NameError: name 'y_train' is not defined

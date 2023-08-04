@@ -1,16 +1,0 @@
-WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
-  0%|          | 0/100 [00:00<?, ?it/s]
-  0%|          | 0/10 [00:00<?, ?it/s][A100%|██████████| 10/10 [00:00<00:00, 403.34it/s]
-
-  0%|          | 0/10 [00:00<?, ?it/s][A
- 30%|███       | 3/10 [00:00<00:00, 12.36it/s][A
- 50%|█████     | 5/10 [00:00<00:00,  5.10it/s][A
- 60%|██████    | 6/10 [00:01<00:00,  4.50it/s][A
- 70%|███████   | 7/10 [00:01<00:00,  4.79it/s][A100%|██████████| 10/10 [00:01<00:00,  7.00it/s]
-  0%|          | 0/100 [00:01<?, ?it/s]
-Traceback (most recent call last):
-  File "test_tab_stability.py", line 497, in <module>
-    presence_list[feat_pos] = 1
-IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices
