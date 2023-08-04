@@ -1,61 +1,0 @@
-WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
-  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
-  
-  warnings.warn("""
-RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
-
-
-  0%|          | 0/46 [00:00<?, ?it/s][A[A
-
-  9%|▊         | 4/46 [00:00<00:01, 33.53it/s][A[A
-
- 17%|█▋        | 8/46 [00:00<00:01, 29.35it/s][A[A
-
- 24%|██▍       | 11/46 [00:00<00:01, 27.96it/s][A[A
-
- 30%|███       | 14/46 [00:00<00:01, 26.78it/s][A[A
-
- 37%|███▋      | 17/46 [00:00<00:01, 27.17it/s][A[A
-
- 46%|████▌     | 21/46 [00:00<00:00, 28.11it/s][A[A
-
- 54%|█████▍    | 25/46 [00:00<00:00, 28.45it/s][A[A
-
- 63%|██████▎   | 29/46 [00:01<00:00, 29.72it/s][A[A
-
- 70%|██████▉   | 32/46 [00:01<00:00, 29.58it/s][A[A
-
- 76%|███████▌  | 35/46 [00:01<00:00, 28.29it/s][A[A
-
- 83%|████████▎ | 38/46 [00:01<00:00, 28.10it/s][A[A
-
- 89%|████████▉ | 41/46 [00:01<00:00, 28.02it/s][A[A
-
- 96%|█████████▌| 44/46 [00:01<00:00, 28.54it/s][A[A100%|██████████| 46/46 [00:01<00:00, 28.49it/s]
-
-
-  0%|          | 0/10 [00:00<?, ?it/s][A[A
-
- 10%|█         | 1/10 [00:00<00:01,  4.95it/s][A[A
-
- 20%|██        | 2/10 [00:01<00:05,  1.36it/s][A[A
-
- 30%|███       | 3/10 [00:04<00:13,  1.95s/it][A[A
-
- 40%|████      | 4/10 [00:11<00:22,  3.77s/it][A[A
-
- 50%|█████     | 5/10 [00:19<00:27,  5.46s/it][A[A
-
- 60%|██████    | 6/10 [00:27<00:24,  6.13s/it][A[A
-
- 70%|███████   | 7/10 [00:31<00:16,  5.57s/it][A[A
-
- 80%|████████  | 8/10 [00:33<00:08,  4.33s/it][A[A
-
- 90%|█████████ | 9/10 [00:33<00:03,  3.10s/it][A[A100%|██████████| 10/10 [00:33<00:00,  3.37s/it]
-Traceback (most recent call last):
-  File "test_el_stability.py", line 658, in <module>
-    presence_list[feat_pos] = 1
-IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices

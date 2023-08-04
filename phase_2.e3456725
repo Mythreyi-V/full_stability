@@ -1,87 +1,0 @@
-WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
-  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
-  
-  warnings.warn("""
-RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
-
-
-  0%|          | 0/7 [00:00<?, ?it/s][A[A100%|██████████| 7/7 [00:00<00:00, 90.01it/s]
-
-
-  0%|          | 0/10 [00:00<?, ?it/s][A[A
-
- 10%|█         | 1/10 [00:00<00:05,  1.80it/s][A[A
-
- 20%|██        | 2/10 [00:03<00:13,  1.71s/it][A[A
-
- 30%|███       | 3/10 [00:09<00:27,  3.99s/it][A[A
-
- 40%|████      | 4/10 [00:20<00:40,  6.82s/it][A[A
-
- 50%|█████     | 5/10 [00:28<00:34,  6.93s/it][A[A
-
- 60%|██████    | 6/10 [00:28<00:18,  4.64s/it][A[A
-
- 70%|███████   | 7/10 [00:28<00:09,  3.16s/it][A[A100%|██████████| 10/10 [00:28<00:00,  2.84s/it]
-
-
-  0%|          | 0/10 [00:00<?, ?it/s][A[A
-
- 10%|█         | 1/10 [00:00<00:04,  1.83it/s][A[A
-
- 20%|██        | 2/10 [00:00<00:03,  2.06it/s][A[A
-
- 40%|████      | 4/10 [00:01<00:01,  3.72it/s][A[A
-
- 50%|█████     | 5/10 [00:01<00:01,  3.95it/s][A[A
-
- 60%|██████    | 6/10 [00:01<00:00,  4.30it/s][A[A
-
- 70%|███████   | 7/10 [00:01<00:00,  5.17it/s][A[A100%|██████████| 10/10 [00:01<00:00,  5.48it/s]
-
-
-  0%|          | 0/10 [00:00<?, ?it/s][A[A
-
- 30%|███       | 3/10 [00:00<00:00, 18.45it/s][A[A
-
- 50%|█████     | 5/10 [00:00<00:00,  8.01it/s][A[A
-
- 70%|███████   | 7/10 [00:00<00:00,  7.55it/s][A[A100%|██████████| 10/10 [00:00<00:00, 11.17it/s]
-
-
-  0%|          | 0/10 [00:00<?, ?it/s][A[A
-
- 10%|█         | 1/10 [00:00<00:04,  1.90it/s][A[A
-
- 20%|██        | 2/10 [00:00<00:02,  3.59it/s][A[A
-
- 40%|████      | 4/10 [00:00<00:01,  5.23it/s][A[A
-
- 50%|█████     | 5/10 [00:01<00:00,  5.00it/s][A[A
-
- 60%|██████    | 6/10 [00:01<00:00,  5.14it/s][A[A
-
- 70%|███████   | 7/10 [00:01<00:00,  5.99it/s][A[A100%|██████████| 10/10 [00:01<00:00,  6.83it/s]
-
-
-  0%|          | 0/10 [00:00<?, ?it/s][A[A
-
- 30%|███       | 3/10 [00:00<00:00, 18.55it/s][A[A
-
- 50%|█████     | 5/10 [00:00<00:00,  8.03it/s][A[A
-
- 70%|███████   | 7/10 [00:00<00:00,  7.56it/s][A[A100%|██████████| 10/10 [00:00<00:00, 11.18it/s]
-Traceback (most recent call last):
-  File "test_el_stability.py", line 675, in <module>
-    results["ACV Subset Stability"] = subset_stability
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/frame.py", line 3040, in __setitem__
-    self._set_item(key, value)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/frame.py", line 3116, in _set_item
-    value = self._sanitize_column(key, value)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/frame.py", line 3763, in _sanitize_column
-    value = sanitize_index(value, self.index)
-  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 747, in sanitize_index
-    raise ValueError(
-ValueError: Length of values (1) does not match length of index (8)
