@@ -157,12 +157,15 @@ else:
 method_name = "%s_%s"%(bucket_method, cls_encoding)
 
 dataset_ref_to_datasets = {
-    "bpic2011": ["bpic2011_f%s"%formula for formula in range(1,5)],
+    "bpic2011": ["bpic2011_f1"],
     "bpic2015": ["bpic2015_%s_f2"%(municipality) for municipality in range(5,6)],
-    "insurance": ["insurance_activity", "insurance_followup"],
+    "bpic2017" : ["bpic2017_accepted"],
     "bpic2012" : ["bpic2012_accepted"],
-    "sepsis_cases": ["sepsis_cases_1"],#, "sepsis_cases_2", "sepsis_cases_4"],
-    "production": ["production"]
+    #"insurance": ["insurance_activity", "insurance_followup"],
+    "sepsis_cases": ["sepsis_cases_1"],# "sepsis_cases_2", "sepsis_cases_4"]
+    "production" : ["production"],
+    "hospital": ["hospital_billing_2"],
+    "traffic": ["traffic_fines_1"]
 }
 
 encoding_dict = {
