@@ -44,3 +44,4 @@ transformers/__pycache__/StaticTransformer.cpython-38.pyc
 *.pyc
 sepsis_cases/xgboost/single_agg/feature_permutations/sepsis_cases/true_positives/0_permutations.csv
 *_permutations.csv
+hospital/*/train_data_bucket_*.csv
