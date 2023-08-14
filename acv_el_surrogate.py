@@ -47,8 +47,12 @@ print(dataset_folder)
 dataset_ref_to_datasets = {
     "bpic2012" : ["bpic2012_accepted"],
     "sepsis_cases": ["sepsis_cases_1"],
-    "production" : ["production"]
+    "production" : ["production"],
+    "bpic2011": ["bpic2011_f1"],
+    "hospital": ["hospital_billing_2"],
+    "traffic": ["traffic_fines_1"]
 }
+
 
 datasets = [dataset] if dataset not in dataset_ref_to_datasets else dataset_ref_to_datasets[dataset]
 
