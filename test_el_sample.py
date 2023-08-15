@@ -33,6 +33,8 @@ from collections import defaultdict
 import random
 import joblib
 
+import multiprocessing as mp
+
 from sklearn.ensemble import RandomForestClassifier
 import xgboost as xgb
 from sklearn.linear_model import LogisticRegression
@@ -42,59 +44,42 @@ import lime
 import lime.lime_tabular
 from lime import submodular_pick
 
-#from anchor import anchor_tabular
 #from alibi.utils.data import gen_category_map
+
+from tqdm import tqdm_notebook, tqdm
+
+from acv_explainers import ACXplainer
+from learning import *
+import pyAgrum
 
 import shap
 
-from tqdm import tqdm
-
 import warnings
 warnings.filterwarnings('ignore')
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-def imp_df(column_names, importances):
-        df = pd.DataFrame({'feature': column_names,
-                       'feature_importance': importances}) \
-           .sort_values('feature_importance', ascending = False) \
-           .reset_index(drop = True)
-        return df
-
-# plotting a feature importance dataframe (horizontal barchart)
-def var_imp_plot(imp_df, title, num_feat):
-        imp_df.columns = ['feature', 'feature_importance']
-        b= sns.barplot(x = 'feature_importance', y = 'feature', data = imp_df.head(num_feat), orient = 'h', palette="Blues_r")
 
 from lime import submodular_pick
 
 def generate_lime_explanations(explainer,test_xi, cls, submod=False, test_all_data=None, max_feat = 10, scaler=None):
     
-    #print("Actual value ", test_y)
-    
-   # print(type(test_xi))
-   # print(type(cls.predict_proba))
-   # print(type(max_feat))
     def scale_predict_fn(X):
         scaled_data = scaler.transform(X)
         pred = cls.predict_proba(scaled_data)
         return pred
-            
+
+    def predict_fn(X):
+        #X = X.reshape(1, -1)
+        pred = cls.predict_proba(X)
+        return pred
+
     if scaler == None:
         exp = explainer.explain_instance(test_xi, 
-                                 cls.predict_proba, num_features=max_feat, labels=[0,1])
+                                 predict_fn, num_features=max_feat, labels=[0,1])
     else:
         exp = explainer.explain_instance(test_xi, 
                                  scale_predict_fn, num_features=max_feat, labels=[0,1])
         
     return exp
         
-    if submod==True:
-        sp_obj=submodular_pick.SubmodularPick(explainer, test_all_data, cls.predict_proba, 
-                                      sample_size=20, num_features=num_features,num_exps_desired=4)
-        [exp.as_pyplot_figure(label=exp.available_labels()[0]) for exp in sp_obj.sp_explanations];
-
 def dispersal(weights, features):
     
     feat_len = len(features)
@@ -176,14 +161,12 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
         elif shap_values.shape == (1, len(row)) or shap_values.shape == (len(features), 1):
             shap_values = shap_values.reshape(len(features))
             
-        print(np.array(shap_values).shape)
+        #print(np.array(exp).shape)
         
         if scaler != None:
             #print(shap_values)
-            shap_values = scaler.inverse_transform(shap_values.reshape(1, -1))
-            print(shap_values.shape)
-
-        print(shap_values)
+            shap_values = scaler.inverse_transform(shap_values.reshape(1, -1))[0]
+            #print(shap_values.shape)
         
         #Map SHAP values to feature names
         importances = []
@@ -192,8 +175,8 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
     
         for i in range(length):
             feat = features[i]
-            shap_val = shap_values[0][i]
-            abs_val = abs(shap_values[0][i])
+            shap_val = shap_values[i]
+            abs_val = abs(shap_values[i])
             entry = (feat, shap_val, abs_val)
             importances.append(entry)
             abs_values.append(abs_val)
@@ -218,12 +201,226 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
         else:
             bins = pd.cut(abs_values, 4, duplicates = "drop", retbins = True)[-1]
             q1_min = bins[-2]
-            rel_feat = [feat for feat in importances if feat[2] > q1_min]
+            rel_feat = [feat for feat in importances if feat[2] >= q1_min]
             rel_exp.append(rel_feat)
         
     return exp, rel_exp
 
+def get_acv_features(explainer, instance, cls, X_train, y_train, exp_iter):
+    instance = instance.reshape(1, -1)
+    y = cls.predict(instance)
+    
+    t=np.var(y_train)
+
+    feats = []
+    feat_imp = []
+
+    for i in range(exp_iter):
+        sufficient_expl, sdp_expl, sdp_global = explainer.sufficient_expl_rf(instance, y, X_train, y_train,
+                                                                                 t=t, pi_level=0.8)
+        clean_expl = sufficient_expl.copy()
+        clean_expl = clean_expl[0]
+        clean_expl = [sublist for sublist in clean_expl if sum(n<0 for n in sublist)==0 ]
+
+        clean_sdp = sdp_expl[0].copy()
+        clean_sdp = [sdp for sdp in clean_sdp if sdp > 0]
+        
+        lximp = explainer.compute_local_sdp(X_train.shape[1], clean_expl)
+        feat_imp.append(lximp)
+        
+        if len(clean_expl)==0 or len(clean_expl[0])==0:
+            print("No explamation meets pi level")
+        else:
+            lens = [len(i) for i in clean_expl]
+            me_loc = [i for i in range(len(lens)) if lens[i]==min(lens)]
+            mse_loc = np.argmax(np.array(clean_sdp)[me_loc])
+            mse = np.array(clean_expl)[me_loc][mse_loc]
+            feats.extend(mse)
+
+    if len(feats)==0:
+        feat_pos = []
+    else:
+        feat_pos = set(feats)
+    
+      
+    feat_imp = np.mean(feat_imp, axis=0)
+    
+    return feat_imp, feat_pos
+
+def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, percentile):
+    label_lst = ["Negative", "Positive"]
+    
+    feat_pos = []
+    lkhoods = []
+    
+    save_to = os.path.join(PATH, dataset, cls_method, method_name)+"/"
+    
+    for i in range(exp_iter):
+        [bn, inference, infoBN] = generate_BN_explanations(instance, label_lst, feat_list, "Result", 
+                                                           None, scaler, cls, save_to, dataset, show_in_notebook = False,
+                                                           samples=round(len(feat_list)*2))
+        
+        ie = pyAgrum.LazyPropagation(bn)
+        result_posterior = ie.posterior(bn.idFromName("Result")).topandas()
+        if len(result_posterior.shape)==1:
+            result_proba = result_posterior.values[0]
+        else:
+            result_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]        
+        row = instance['original_vector']
+        #print(row)
+
+        likelihood = [0]*len(feat_list)
+
+        for j in range(len(feat_list)):
+            var_labels = bn.variable(feat_list[j]).labels()
+            str_bins = list(var_labels)
+            bins = []
+
+            for disc_bin in str_bins:
+                disc_bin = disc_bin.strip('"(]')
+                cat = [float(val) for val in disc_bin.split(',')]
+                bins.append(cat)
+
+            feat_bin = None
+            val = row[j]
+            
+            #Find appropriate bin, if higher or lower than bins,
+            #use first or last bin
+            for k in range(len(bins)):
+                if k == 0 and val <= bins[k][0]:
+                    feat_bin = str_bins[k]
+                elif k == len(bins)-1 and val >= bins[k][1]:
+                    feat_bin = str_bins[k]
+                elif val > bins[k][0] and val <= bins[k][1]:
+                    feat_bin = str_bins[k]
+
+            #If the value doesn't fit into any bin,
+            #pick the nearest
+            if feat_bin == None: 
+                bins_diff = np.array(bins) - val
+                inds = np.unravel_index(np.abs(bins_diff).argmin(axis=None), bins_diff.shape)
+                k = inds[0]
+                feat_bin = str_bins[k]
+            
+            result_posterior = ie.posterior(bn.idFromName("Result")).topandas()
+            if len(result_posterior.shape)==1:
+                new_proba = result_posterior.values[0]
+            else:
+                new_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]
+            #print(result_proba, new_proba)
+            proba_change = result_proba-new_proba
+            likelihood[j] = abs(proba_change)
+
+        lkhoods.append(likelihood)
+        
+    min_coef = min( np.mean(lkhoods, axis=0))
+    max_coef = max( np.mean(lkhoods, axis=0))
+    
+    k = (max_coef-min_coef)*percentile
+    q1_min = max_coef - k
+
+    #If fixing all features produces the same result for the class,
+    #return all features
+    if len(set(np.mean(lkhoods, axis=0)))==1:
+        feat_pos.extend(range(len(feat_list)))
+    else:
+        feat_pos.extend(list(np.where(np.mean(lkhoods, axis=0) >= q1_min)[0]))
+
+    feat_pos = set(feat_pos)
+        
+    return np.mean(lkhoods, axis=0), feat_pos
+
+def shap_eval(instance):
+
+    #ensure data is right shape
+    instance = instance.reshape(1, -1)
+    pred = cls.predict(instance)
+
+    #Get Tree SHAP explanations for instance
+    exp, rel_exp = create_samples(shap_explainer, exp_iter, instance, feat_list, pred, scaler = scaler)
+
+    feat_pres = []
+    feat_weights = []
+
+    for iteration in rel_exp:
+        #print("Computing feature presence for iteration", rel_exp.index(iteration))
+
+        presence_list = [0]*len(feat_list)
+
+        for each in feat_list:
+            list_idx = feat_list.index(each)
+
+            for explanation in iteration:
+                if each in explanation[0]:
+                    presence_list[list_idx] = 1
+
+        feat_pres.append(presence_list)
+
+    for iteration in exp:
+        #print("Compiling feature weights for iteration", exp.index(iteration))
+
+        weights = [0]*len(feat_list)
+
+        for each in feat_list:
+            list_idx = feat_list.index(each)
+
+            for explanation in iteration:
+                if each in explanation[0]:
+
+                    weights[list_idx] = explanation[1]
+        feat_weights.append(weights)
+
+    stability = st.getStability(feat_pres)
+    
+    rel_var, second_var = dispersal(feat_weights, feat_list)
+    avg_dispersal = 1-np.mean(rel_var)
+    
+    adj_dispersal = 1-np.mean(second_var)
+    
+    return stability, avg_dispersal, adj_dispersal
+
+def lime_eval(instance):
+    #Get lime explanations for instance
+    feat_pres = []
+    feat_weights = []
+
+    for iteration in list(range(exp_iter)):
+
+        lime_exp = generate_lime_explanations(lime_explainer, instance, cls,
+                                              max_feat = len(feat_list), scaler = scaler)
+
+        all_weights = [exp[1] for exp in lime_exp.as_list()]
+        bins = pd.cut(all_weights, 4, duplicates = "drop", retbins = True)[-1]
+        q1_min = bins[-2]
+
+        presence_list = [0]*len(feat_list)
+        weights = [0]*len(feat_list)
+
+        for each in feat_list:
+            list_idx = feat_list.index(each)
+            #print ("Feature", list_idx)
+            for explanation in lime_exp.as_list():
+                if each in explanation[0]:
+                    if explanation[1] >= q1_min:
+                        presence_list[list_idx] = 1
+                    weights[list_idx] = explanation[1]
+
+        feat_pres.append(presence_list)
+        feat_weights.append(weights)
+
+    stability = st.getStability(feat_pres)
+
+    rel_var, second_var = dispersal(feat_weights, feat_list)
+    avg_dispersal = 1-np.mean(rel_var)
+
+    adj_dispersal = 1-np.mean(second_var)
+
+    return stability, avg_dispersal, adj_dispersal
+
+
 dataset_ref = sys.argv[1]
+params_dir = PATH + "params"
+results_dir = "results"
 bucket_method = sys.argv[2]
 cls_encoding = sys.argv[3]
 cls_method = sys.argv[4]
@@ -232,13 +429,15 @@ gap = 1
 n_iter = 1
 
 method_name = "%s_%s"%(bucket_method, cls_encoding)
+save_to = os.path.join(PATH, dataset_ref, cls_method, method_name)
 
 xai_method = sys.argv[5]
 
 sample_size = 2
-exp_iter = 10
+exp_iter = 5
 max_feat = 10
 max_prefix = 20
+random_state = 22
 
 dataset_ref_to_datasets = {
     "bpic2012" : ["bpic2012_accepted"],
@@ -251,70 +450,7 @@ dataset_ref_to_datasets = {
 
 datasets = [dataset_ref] if dataset_ref not in dataset_ref_to_datasets else dataset_ref_to_datasets[dataset_ref]
 
-for dataset_name in datasets:
-
-    min_prefix_length = 1
-
-    dataset_manager = DatasetManager(dataset_name)
-    data = dataset_manager.read_dataset()
-
-    print("reading dataset")
-
-    all_pipelines = []
-    all_cls = []
-    all_encoders = []
-    all_scalers = []
-    all_train = []
-    all_samples = []
-    all_results = []
-    
-    for ii in range(n_iter):
-        num_buckets = len([name for name in os.listdir(os.path.join(PATH,'%s/%s/%s/pipelines'% (dataset_ref, cls_method, method_name)))])
-        print(num_buckets)
-
-        for bucket in tqdm(range(num_buckets)):
-            bucketID = bucket+1
-            print ('Bucket', bucketID)
-
-            #import everything needed to sort and predict
-            pipeline_path = os.path.join(PATH, "%s/%s/%s/pipelines/pipeline_bucket_%s.joblib" % 
-                                         (dataset_ref, cls_method, method_name, bucketID))
-            pipeline = joblib.load(pipeline_path)
-            feature_combiner = pipeline['encoder']
-            if 'scaler' in pipeline.named_steps:
-                scaler = pipeline['scaler']
-            else:
-                scaler = None
-            cls = pipeline['cls']
-            
-            all_cls.append(cls)
-            all_encoders.append(feature_combiner)
-            all_scalers.append(scaler)
-            all_pipelines.append(pipeline)
-
-            #find relevant samples for bucket
-            bucket_sample = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
-                                      (dataset_ref, cls_method, method_name, bucketID))).values
-            results_template = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
-                                      (dataset_ref, cls_method, method_name, bucketID)))
-    
-            if scaler != None:
-                bucket_sample = scaler.transform(bucket_sample)
-            bucket_results = results_template
-            
-            feat_names = feature_combiner.get_feature_names()
-            feat_list = [feat.replace(" ", "_") for feat in feat_names]
-            
-            all_samples.append(bucket_sample)
-            all_results.append(bucket_results)
-            
-            #import training data for bucket
-            train_data = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/train_data_bucket_%s.csv" % 
-                                                          (dataset_ref, cls_method, method_name, bucketID))).values
-            if scaler != None:
-                train_data = scaler.transform(train_data)
-            
-            all_train.append(train_data)
+all_results = []
 
 if xai_method=="SHAP":
 
@@ -324,17 +460,39 @@ if xai_method=="SHAP":
             num_buckets = len([name for name in os.listdir(os.path.join(PATH,'%s/%s/%s/pipelines'% 
                                                                         (dataset_ref, cls_method, method_name)))])
             
-            for bucket in tqdm(range(15,num_buckets)):
+            for bucket in tqdm_notebook(range(num_buckets)):
                 bucketID = bucket+1
                 print ('Bucket', bucketID)
-
-                cls = all_cls[bucket]
-                feature_combiner = all_encoders[bucket]
-                scaler = all_scalers[bucket]
-                trainingdata = all_train[bucket]
-                sample_instances = all_samples[bucket]
-                results = all_results[bucket]
                 
+                #import everything needed to sort and predict
+                pipeline_path = os.path.join(PATH, save_to, "pipelines/pipeline_bucket_%s.joblib" % 
+                                             (bucketID))
+                pipeline = joblib.load(pipeline_path)
+                feature_combiner = pipeline['encoder']
+                if 'scaler' in pipeline.named_steps:
+                    scaler = pipeline['scaler']
+                else:
+                    scaler = None
+                cls = pipeline['cls']
+                
+                #import training data for bucket
+                trainingdata = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/train_data_bucket_%s.csv" % 
+                                                              (dataset_ref, cls_method, method_name, bucketID))).values
+                targets = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/y_train_bucket_%s.csv" % 
+                                                              (dataset_ref, cls_method, method_name, bucketID))).values
+                if scaler != None:
+                    trainingdata = scaler.transform(trainingdata)
+                    
+                #find relevant samples for bucket
+                sample_instances = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
+                                          (dataset_ref, cls_method, method_name, bucketID))).values
+                results = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
+                                          (dataset_ref, cls_method, method_name, bucketID)), sep=";")
+                
+                if scaler != None:
+                    sample_instances = scaler.transform(sample_instances)
+                
+                #create explanation mechanism
                 if cls_method == "xgboost" or cls_method == "decision_tree":
                     shap_explainer = shap.Explainer(cls)
                 elif cls_method == "nb":
@@ -343,73 +501,31 @@ if xai_method=="SHAP":
                     shap_explainer = shap.Explainer(cls, trainingdata)
                 print(type(shap_explainer))
                 
+                #Identify feature names
                 feat_list = [feat.replace(" ", "_") for feat in feature_combiner.get_feature_names()]
                 
-                subset_stability = []
-                weight_stability = []
-                adjusted_weight_stability = []
-                    
                 #explain the chosen instances and find the stability score
-                instance_no = 0
-                for instance in tqdm(sample_instances):
-                    instance_no += 1    
-                    print("Testing", instance_no, "of", len(sample_instances), ".")
+                pool = mp.Pool(mp.cpu_count())
+                start = time.time()
+                stability, avg_dispersal, adj_dispersal = zip(*pool.map(shap_eval, [instance for instance in sample_instances[:10]]))
+                print(time.time()-start, "seconds")
                     
-                    #if cls_method == "xgboost":
-                    instance = instance.reshape(1, -1)
-                    pred = cls.predict(instance)
-
-                    #Get Tree SHAP explanations for instance
-                    exp, rel_exp = create_samples(shap_explainer, exp_iter, instance, feat_list, pred, scaler = scaler)
-
-                    feat_pres = []
-                    feat_weights = []
-
-                    for iteration in rel_exp:
-                        #print("Computing feature presence for iteration", rel_exp.index(iteration))
-
-                        presence_list = [0]*len(feat_list)
-
-                        for each in feat_list:
-                            list_idx = feat_list.index(each)
-
-                            for explanation in iteration:
-                                if each in explanation[0]:
-                                    presence_list[list_idx] = 1
-
-                        feat_pres.append(presence_list)
-
-                    for iteration in exp:
-                        #print("Compiling feature weights for iteration", exp.index(iteration))
-
-                        weights = [0]*len(feat_list)
-
-                        for each in feat_list:
-                            list_idx = feat_list.index(each)
-
-                            for explanation in iteration:
-                                if each in explanation[0]:
-
-                                    weights[list_idx] = explanation[1]
-                        feat_weights.append(weights)
-
-                    stability = st.getStability(feat_pres)
-                    print ("Stability:", round(stability,2))
-                    subset_stability.append(stability)
-
-                    rel_var, second_var = dispersal(feat_weights, feat_list)
-                    avg_dispersal = 1-np.mean(rel_var)
-                    print ("Dispersal of feature importance:", round(avg_dispersal, 2))
-                    weight_stability.append(avg_dispersal)
-                    adj_dispersal = 1-np.mean(second_var)
-                    print ("Dispersal with no outliers:", round(adj_dispersal, 2))
-                    adjusted_weight_stability.append(adj_dispersal)
+                subset_stability = list(stability)
+                weight_stability = list(avg_dispersal)
+                adjusted_weight_stability = list(adj_dispersal)
+                
+                print("Average Stability by Subset:", np.mean(subset_stability))
+                print("Average Stability by Weight:", np.mean(weight_stability))
+                print("Average Stability by Weight (no outliers):", np.mean(adjusted_weight_stability))
                     
                 results["SHAP Subset Stability"] = subset_stability
                 results["SHAP Weight Stability"] = weight_stability
                 results["SHAP Adjusted Weight Stability"] = adjusted_weight_stability
-                all_results[bucket] = results
-        
+                results.to_csv(os.path.join(PATH,"%s/%s/%s/samples/results_bucket_%s.csv") % 
+                               (dataset_ref, cls_method, method_name, bucketID), sep=";", index=False)
+                
+                all_results.append(results)
+
 if xai_method=="LIME":
 
     for dataset_name in datasets:
@@ -418,17 +534,37 @@ if xai_method=="LIME":
                                                                     (dataset_ref, cls_method, method_name)))])
         dataset_manager = DatasetManager(dataset_name)
 
-        for bucket in tqdm(range(num_buckets)):
+        for bucket in tqdm_notebook(range(num_buckets)):
             bucketID = bucket+1
             print ('Bucket', bucketID)
             
-            cls = all_cls[bucket]
-            feature_combiner = all_encoders[bucket]
-            scaler = all_scalers[bucket]
-            trainingdata = all_train[bucket]
-            sample_instances = all_samples[bucket]
-            results = all_results[bucket]
-            pipeline = all_pipelines[bucket]            
+           #import everything needed to sort and predict
+            pipeline_path = os.path.join(PATH, save_to, "pipelines/pipeline_bucket_%s.joblib" % 
+                                         (bucketID))
+            pipeline = joblib.load(pipeline_path)
+            feature_combiner = pipeline['encoder']
+            if 'scaler' in pipeline.named_steps:
+                scaler = pipeline['scaler']
+            else:
+                scaler = None
+            cls = pipeline['cls']
+
+            #import training data for bucket
+            trainingdata = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/train_data_bucket_%s.csv" % 
+                                                          (dataset_ref, cls_method, method_name, bucketID))).values
+            targets = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/y_train_bucket_%s.csv" % 
+                                                          (dataset_ref, cls_method, method_name, bucketID))).values
+            if scaler != None:
+                trainingdata = scaler.transform(trainingdata)
+
+            #find relevant samples for bucket
+            sample_instances = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
+                                      (dataset_ref, cls_method, method_name, bucketID))).values
+            results = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
+                                      (dataset_ref, cls_method, method_name, bucketID)), sep=";")
+            
+            if scaler != None:
+                sample_instances = scaler.transform(sample_instances)
 
             feat_list = [feat.replace(" ", "_") for feat in feature_combiner.get_feature_names()]
             class_names = ["Negative", "Positive"]
@@ -436,16 +572,91 @@ if xai_method=="LIME":
             cats = [feat for col in dataset_manager.dynamic_cat_cols+dataset_manager.static_cat_cols 
                     for feat in range(len(feat_list)) if col in feat_list[feat]]
 
+            #create explainer now that can be passed later
+            lime_explainer = lime.lime_tabular.LimeTabularExplainer(trainingdata,
+                                  feature_names = feat_list, class_names=class_names, categorical_features = cats)
+            
+            #explain the chosen instances and find the stability score
+            pool = mp.Pool(mp.cpu_count())
+            start = time.time()
+            stability, avg_dispersal, adj_dispersal = zip(*pool.map(lime_eval, [instance for instance in sample_instances[:10]]))
+            print(time.time()-start, "seconds")
+
+            subset_stability = list(stability)
+            weight_stability = list(avg_dispersal)
+            adjusted_weight_stability = list(adj_dispersal)
+            
+            print("Average Stability by Subset:", np.mean(subset_stability))
+            print("Average Stability by Weight:", np.mean(weight_stability))
+            print("Average Stability by Weight (no outliers):", np.mean(adjusted_weight_stability))
+
+            results["LIME Subset Stability"] = subset_stability
+            results["LIME Weight Stability"] = weight_stability
+            results["LIME Adjusted Weight Stability"] = adjusted_weight_stability
+            results.to_csv(os.path.join(PATH,"%s/%s/%s/samples/results_bucket_%s.csv") % 
+                               (dataset_ref, cls_method, method_name, bucketID), sep=";", index=False)
+                
+            all_results.append(results)
+
+if xai_method=="ACV":
+
+    for dataset_name in datasets:
+        
+        num_buckets = len([name for name in os.listdir(os.path.join(PATH,'%s/%s/%s/pipelines'% 
+                                                                    (dataset_ref, cls_method, method_name)))])
+        dataset_manager = DatasetManager(dataset_name)
+
+        for bucket in tqdm_notebook(range(num_buckets)):
+            bucketID = bucket+1
+            print ('Bucket', bucketID)
+            
+            #import everything needed to sort and predict
+            pipeline_path = os.path.join(PATH, save_to, "pipelines/pipeline_bucket_%s.joblib" % 
+                                         (bucketID))
+            pipeline = joblib.load(pipeline_path)
+            feature_combiner = pipeline['encoder']
+            if 'scaler' in pipeline.named_steps:
+                scaler = pipeline['scaler']
+            else:
+                scaler = None
+            cls = pipeline['cls']
+
+            #import training data for bucket
+            trainingdata = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/train_data_bucket_%s.csv" % 
+                                                          (dataset_ref, cls_method, method_name, bucketID))).values
+            targets = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/y_train_bucket_%s.csv" % 
+                                                          (dataset_ref, cls_method, method_name, bucketID))).values
+            if scaler != None:
+                trainingdata = scaler.transform(trainingdata)
+
+            #find relevant samples for bucket
+            sample_instances = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
+                                      (dataset_ref, cls_method, method_name, bucketID))).values
+            results = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
+                                      (dataset_ref, cls_method, method_name, bucketID)), sep=";")
+            
+            if scaler != None:
+                sample_instances = scaler.transform(sample_instances)
+            
+            acv_explainer = joblib.load(os.path.join(PATH,'%s/%s/%s/acv_surrogate/acv_explainer_bucket_%s.joblib'% 
+                                                                    (dataset_ref, cls_method, method_name, bucketID)))
+
+            feat_list = [feat.replace(" ", "_") for feat in feature_combiner.get_feature_names()]
+#             class_names = ["Negative", "Positive"]
+            
+#             cats = [feat for col in dataset_manager.dynamic_cat_cols+dataset_manager.static_cat_cols 
+#                     for feat in range(len(feat_list)) if col in feat_list[feat]]
+
             subset_stability = []
             weight_stability = []
             adjusted_weight_stability = []
 
             #create explainer now that can be passed later
-            lime_explainer = lime.lime_tabular.LimeTabularExplainer(trainingdata,
-                                  feature_names = feat_list, class_names=class_names, categorical_features = cats)
+#             lime_explainer = lime.lime_tabular.LimeTabularExplainer(trainingdata,
+#                                   feature_names = feat_list, class_names=class_names, categorical_features = cats)
             
             instance_no = 0
-            print(len(sample_instances))
+            print(len(sample_instances[:10]))
             #explain the chosen instances and find the stability score
             for instance in tqdm(sample_instances):
                 instance_no += 1
@@ -456,26 +667,17 @@ if xai_method=="LIME":
                 feat_pres = []
                 feat_weights = []
                 
+               
+                
                 for iteration in list(range(exp_iter)):
+                    weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, targets, 1)
+            #        print(weights)
+            #        print(feat_pos)
 
-                    lime_exp = generate_lime_explanations(lime_explainer, instance, cls,
-                                                          max_feat = len(feat_list), scaler = scaler)
+                    feat_pos = list(feat_pos)
 
-                    all_weights = [exp[1] for exp in lime_exp.as_list()]
-                    bins = pd.cut(all_weights, 4, duplicates = "drop", retbins = True)[-1]
-                    q1_min = bins[-2]
-
-                    presence_list = [0]*len(feat_list)
-                    weights = [0]*len(feat_list)
-
-                    for each in feat_list:
-                        list_idx = feat_list.index(each)
-                        #print ("Feature", list_idx)
-                        for explanation in lime_exp.as_list():
-                            if each in explanation[0]:
-                                if explanation[1] > q1_min:
-                                    presence_list[list_idx] = 1
-                                weights[list_idx] = explanation[1]
+                    presence_list = np.array([0]*len(feat_list))                    
+                    presence_list[feat_pos] = 1
 
                     feat_pres.append(presence_list)
                     feat_weights.append(weights)
@@ -492,9 +694,123 @@ if xai_method=="LIME":
                 print ("Dispersal with no outliers:", round(adj_dispersal, 2))
                 adjusted_weight_stability.append(adj_dispersal)
 
-            results["LIME Subset Stability"] = subset_stability
-            results["LIME Weight Stability"] = weight_stability
-            results["LIME Adjusted Weight Stability"] = adjusted_weight_stability
-            all_results[bucket] = results
+            results["ACV Subset Stability"] = subset_stability
+            results["ACV Weight Stability"] = weight_stability
+            results["ACV Adjusted Weight Stability"] = adjusted_weight_stability
+            results.to_csv(os.path.join(PATH,"%s/%s/%s/samples/results_bucket_%s.csv") % 
+                               (dataset_ref, cls_method, method_name, bucketID), sep=";", index=False)                
+            all_results.append(results)
 
-pd.concat(all_results).to_csv(os.path.join(PATH,"%s/%s/%s/samples/results.csv") % (dataset_ref, cls_method, method_name))
+if xai_method=="LINDA":
+
+    for dataset_name in datasets:
+        
+        num_buckets = len([name for name in os.listdir(os.path.join(PATH,'%s/%s/%s/pipelines'% 
+                                                                    (dataset_ref, cls_method, method_name)))])
+        dataset_manager = DatasetManager(dataset_name)
+
+        for bucket in tqdm(range(num_buckets)):
+            bucketID = bucket+1
+            print ('Bucket', bucketID)
+            
+            #import everything needed to sort and predict
+            pipeline_path = os.path.join(PATH, save_to, "pipelines/pipeline_bucket_%s.joblib" % 
+                                         (bucketID))
+            pipeline = joblib.load(pipeline_path)
+            feature_combiner = pipeline['encoder']
+            if 'scaler' in pipeline.named_steps:
+                scaler = pipeline['scaler']
+            else:
+                scaler = None
+            cls = pipeline['cls']
+
+            #import training data for bucket
+            trainingdata = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/train_data_bucket_%s.csv" % 
+                                                          (dataset_ref, cls_method, method_name, bucketID))).values
+            targets = pd.read_csv(os.path.join(PATH, "%s/%s/%s/train_data/y_train_bucket_%s.csv" % 
+                                                          (dataset_ref, cls_method, method_name, bucketID))).values
+            if scaler != None:
+                trainingdata = scaler.transform(trainingdata)
+
+            #find relevant samples for bucket
+            sample_instances = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/test_sample_bucket_%s.csv" % 
+                                      (dataset_ref, cls_method, method_name, bucketID))).values
+            results = pd.read_csv(os.path.join(PATH, "%s/%s/%s/samples/results_bucket_%s.csv" % 
+                                      (dataset_ref, cls_method, method_name, bucketID)), sep=";")
+            
+            if scaler != None:
+                sample_instances = scaler.transform(sample_instances)
+
+            test_dict = generate_local_predictions( sample_instances, results["Actual"], cls, scaler, None )
+
+            feat_list = [feat.replace(" ", "_") for feat in feature_combiner.get_feature_names()]
+#             class_names = ["Negative", "Positive"]
+            
+#             cats = [feat for col in dataset_manager.dynamic_cat_cols+dataset_manager.static_cat_cols 
+#                     for feat in range(len(feat_list)) if col in feat_list[feat]]
+
+            subset_stability = []
+            weight_stability = []
+            adjusted_weight_stability = []
+
+            #create explainer now that can be passed later
+#             lime_explainer = lime.lime_tabular.LimeTabularExplainer(trainingdata,
+#                                   feature_names = feat_list, class_names=class_names, categorical_features = cats)
+            
+            instance_no = 0
+            print(len(sample_instances[:10]))
+            #explain the chosen instances and find the stability score
+            for instance in tqdm(test_dict):
+                instance_no += 1
+
+                print("Testing", instance_no, "of", len(sample_instances), ".")
+
+                #Get lime explanations for instance
+                feat_pres = []
+                feat_weights = []
+                
+               
+                
+                for iteration in list(range(exp_iter)):
+                    weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
+                    #print(weights)
+                    #print(feat_pos)
+                    
+                    feat_pos = list(feat_pos)
+                    
+                    bins = pd.cut(weights, 4, duplicates = "drop", retbins = True)[-1]
+                    q1_min = bins[-2]
+
+                    presence_list = np.array([0]*len(feat_list))                    
+
+                    for n in range(len(feat_list)):
+                        if weights[n] >= q1_min:
+                            presence_list[n] = 1
+
+                    feat_pres.append(presence_list)
+                    feat_weights.append(weights)
+                
+                #print(feat_pres)
+                #print(feat_weights)
+                
+                stability = st.getStability(feat_pres)
+                print ("Stability:", round(stability,2))
+                subset_stability.append(stability)
+
+                rel_var, second_var = dispersal(feat_weights, feat_list)
+                avg_dispersal = 1-np.mean(rel_var)
+                print ("Dispersal of feature importance:", round(avg_dispersal, 2))
+                weight_stability.append(avg_dispersal)
+                adj_dispersal = 1-np.mean(second_var)
+                print ("Dispersal with no outliers:", round(adj_dispersal, 2))
+                adjusted_weight_stability.append(adj_dispersal)
+
+            results["LINDA Subset Stability"] = subset_stability
+            results["LINDA Weight Stability"] = weight_stability
+            results["LINDA Adjusted Weight Stability"] = adjusted_weight_stability
+            results.to_csv(os.path.join(PATH,"%s/%s/%s/samples/results_bucket_%s.csv") % 
+                               (dataset_ref, cls_method, method_name, bucketID), sep=";", index=False)                
+            all_results.append(results)
+
+pd.concat(all_results).to_csv(os.path.join(PATH,"%s/%s/%s/samples/results.csv") % (dataset_ref, cls_method, method_name), 
+                               sep=";", index=False)
