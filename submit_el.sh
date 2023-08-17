@@ -4,7 +4,7 @@
 #PBS -l ngpus=0
 #PBS -l mem=160gb
 #PBS -l cpuarch=avx512
-#PBS -l walltime=500:00:00
+#PBS -l walltime=168:00:00
 
 cd $PBS_O_WORKDIR
 echo "queue started"

@@ -35,7 +35,7 @@ python -c "import sys; print('Executable path', sys.executable)"
 #python -m pip freeze > requirements.txt
 
 echo "starting test"
-python3 acv_el_surrgoate.py $dataset $bucketing $encoding $model
+python3 acv_el_surrogate.py $dataset $bucketing $encoding $model
 echo "test ended"
 echo $dataset $model $bucketing $encoding
 

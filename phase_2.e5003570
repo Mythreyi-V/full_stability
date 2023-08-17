@@ -1,0 +1,6 @@
+WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+Traceback (most recent call last):
+  File "acv_el_surrogate.py", line 21, in <module>
+    from hyperopt import fmin, tpe, hp, Trials, rand, early_stop
+ImportError: cannot import name 'early_stop' from 'hyperopt' (/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/hyperopt/__init__.py)

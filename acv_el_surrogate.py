@@ -18,7 +18,7 @@ import random
 
 from tqdm import tqdm_notebook
 
-from hyperopt import fmin, tpe, hp, Trials, rand, early_stop
+from hyperopt import fmin, tpe, hp, Trials, rand#, early_stop
 from hyperopt.pyll import scope
 
 from DatasetManager import DatasetManager
@@ -162,7 +162,7 @@ for bucket in tqdm_notebook(range(num_buckets)):
         return -score
 
     best = fmin(acv_classifier_optimisation, verbose=0, space = space, algo=rand.suggest, max_evals = 50, trials=trials, 
-                rstate=np.random.default_rng(random_state), early_stop_fn=early_stop.no_progress_loss(3))
+                rstate=np.random.default_rng(random_state))#, early_stop_fn=early_stop.no_progress_loss(3))
     explainer = ACXplainer(classifier = True, n_estimators = int(best['n_estimators']), 
                            max_depth = int(best['max_depth']), sample_fraction = best['sample_fraction'])
     explainer.fit(full_train_x, full_train_y)
