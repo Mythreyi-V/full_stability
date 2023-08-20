@@ -1,0 +1,67 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+/mnt/home/n9455647/full_stability/hospital/nb/prefix_index
+/mnt/home/n9455647/full_stability/hospital/datasets
+prefix
+  0%|          | 0/14 [00:00<?, ?it/s]
+Bucket 1
+Training Score: 0.9510940744290051
+Testing Score: 0.9248773963441819
+Bucket 2
+Training Score: 0.9156328257678248
+Testing Score: 0.8726436781609195
+Bucket 3
+Training Score: 0.9669312169312169
+Testing Score: 0.9522024367385192
+Bucket 4
+Training Score: 0.9821322215604527
+Testing Score: 0.9356486210418795
+Bucket 5
+Training Score: 0.9627118644067797
+Testing Score: 0.8975155279503105
+Bucket 6
+Training Score: 0.9947722180731889
+Testing Score: 0.9900990099009902
+Bucket 7
+Training Score: 0.9404706968158745
+Testing Score: 0.5369863013698629
+Bucket 8
+Training Score: 0.8659549228944246
+Testing Score: 0.6231155778894473
+Bucket 9
+Training Score: 0.8365019011406843
+Testing Score: 0.39252336448598124
+Bucket 10
+Training Score: 0.7223719676549865
+Testing Score: 0.6595744680851064
+Bucket 11
+Training Score: 0.8297872340425533
+Testing Score: 0.0
+Bucket 12
+Training Score: 0.9614035087719298
+Testing Score: 0.9090909090909091
+Bucket 13
+Training Score: 0.5777777777777777
+Testing Score: 0.0
+Bucket 14
+Training Score: 0.8260869565217391
+Testing Score: 0.0
+All surrogate models created
+test ended
+hospital nb prefix index
+PBS Job 5031045.pbs
+CPU time  : 25:06:05
+Wall time : 17:20:23
+Mem usage : 15777988kb

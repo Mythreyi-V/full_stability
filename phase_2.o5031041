@@ -1,0 +1,67 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+/mnt/home/n9455647/full_stability/hospital/logit/prefix_agg
+/mnt/home/n9455647/full_stability/hospital/datasets
+prefix
+  0%|          | 0/14 [00:00<?, ?it/s]
+Bucket 1
+Training Score: 0.7798816568047336
+Testing Score: 0.7609853528628496
+Bucket 2
+Training Score: 0.9759704251386322
+Testing Score: 0.9613343442001516
+Bucket 3
+Training Score: 0.9339735894357744
+Testing Score: 0.9414519906323184
+Bucket 4
+Training Score: 0.559748427672956
+Testing Score: 0.0967741935483871
+Bucket 5
+Training Score: 0.6692307692307692
+Testing Score: 0.431924882629108
+Bucket 6
+Training Score: 0.8186157517899761
+Testing Score: 0.847457627118644
+Bucket 7
+Training Score: 0.8604316546762591
+Testing Score: 0.37383177570093457
+Bucket 8
+Training Score: 0.8493975903614458
+Testing Score: 0.41666666666666663
+Bucket 9
+Training Score: 0.8789808917197452
+Testing Score: 0.4905660377358491
+Bucket 10
+Training Score: 0.7999999999999999
+Testing Score: 0.761904761904762
+Bucket 11
+Training Score: 0.7619047619047619
+Testing Score: 0.0
+Bucket 12
+Training Score: 0.5454545454545454
+Testing Score: 0.0
+Bucket 13
+Training Score: 0.5660377358490567
+Testing Score: 0.0
+Bucket 14
+Training Score: 0.7916666666666666
+Testing Score: 0.0
+All surrogate models created
+test ended
+hospital logit prefix agg
+PBS Job 5031041.pbs
+CPU time  : 12:25:22
+Wall time : 09:12:25
+Mem usage : 7673348kb

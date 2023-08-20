@@ -1,0 +1,91 @@
+queue started
+modules purged
+Name: joblib
+Version: 1.2.0
+Summary: Lightweight pipelining with Python functions
+Home-page: https://joblib.readthedocs.io
+Author: Gael Varoquaux
+Author-email: gael.varoquaux@normalesup.org
+License: BSD
+Location: /mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages
+Requires: 
+Required-by: scikit-learn
+Executable path /home/n9455647/.conda/envs/conda_test/bin/python
+starting test
+  0%|          | 0/14 [00:00<?, ?it/s]
+Bucket 1
+108.46477055549622 seconds
+Average Stability by Subset: 0.5326839859723762
+Average Stability by Weight: 0.893414940152328
+Average Stability by Weight (no outliers): 0.893414940152328
+Bucket 2
+151.2057671546936 seconds
+Average Stability by Subset: 0.2767163569438287
+Average Stability by Weight: 0.3860992438571261
+Average Stability by Weight (no outliers): 0.3860992438571261
+Bucket 3
+157.27991151809692 seconds
+Average Stability by Subset: 0.3965380074191349
+Average Stability by Weight: 0.7147424433943437
+Average Stability by Weight (no outliers): 0.7147424433943437
+Bucket 4
+158.68812036514282 seconds
+Average Stability by Subset: 0.6388685915492784
+Average Stability by Weight: 0.865451348712696
+Average Stability by Weight (no outliers): 0.865451348712696
+Bucket 5
+157.8031313419342 seconds
+Average Stability by Subset: 0.12960153180733955
+Average Stability by Weight: 0.8530722378867954
+Average Stability by Weight (no outliers): 0.8530722378867954
+Bucket 6
+158.73351550102234 seconds
+Average Stability by Subset: 0.6849622555988876
+Average Stability by Weight: 0.912988619801337
+Average Stability by Weight (no outliers): 0.912988619801337
+Bucket 7
+145.8792746067047 seconds
+Average Stability by Subset: 0.3379753761559928
+Average Stability by Weight: 0.4379580956912433
+Average Stability by Weight (no outliers): 0.4379580956912433
+Bucket 8
+133.3869755268097 seconds
+Average Stability by Subset: 0.2931434285026313
+Average Stability by Weight: 0.6688766666889691
+Average Stability by Weight (no outliers): 0.6688766666889691
+Bucket 9
+134.14982390403748 seconds
+Average Stability by Subset: 0.37923111053614567
+Average Stability by Weight: 0.672045091472801
+Average Stability by Weight (no outliers): 0.672045091472801
+Bucket 10
+130.18495559692383 seconds
+Average Stability by Subset: 0.4190884195056711
+Average Stability by Weight: 0.25231234108672795
+Average Stability by Weight (no outliers): 0.25231234108672795
+Bucket 11
+125.89458274841309 seconds
+Average Stability by Subset: 0.5357644163309336
+Average Stability by Weight: 0.812940651506501
+Average Stability by Weight (no outliers): 0.812940651506501
+Bucket 12
+122.6029839515686 seconds
+Average Stability by Subset: 0.7237894046004553
+Average Stability by Weight: 0.5167495896554883
+Average Stability by Weight (no outliers): 0.5167495896554883
+Bucket 13
+119.12825965881348 seconds
+Average Stability by Subset: nan
+Average Stability by Weight: 1.0
+Average Stability by Weight (no outliers): 1.0
+Bucket 14
+121.04948663711548 seconds
+Average Stability by Subset: 0.72146486189461
+Average Stability by Weight: 0.8259741206476717
+Average Stability by Weight (no outliers): 0.8259741206476717
+test ended
+hospital logit LIME prefix agg
+PBS Job 5031052.pbs
+CPU time  : 07:12:45
+Wall time : 00:42:20
+Mem usage : 10955160kb
