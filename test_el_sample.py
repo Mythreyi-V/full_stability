@@ -434,13 +434,32 @@ def acv_eval(instance):
         feat_weights.append(weights)
 
     stability = st.getStability(feat_pres)
-    subset_stability.append(stability)
-
     rel_var, second_var = dispersal(feat_weights, feat_list)
     avg_dispersal = 1-np.mean(rel_var)
-    weight_stability.append(avg_dispersal)
     adj_dispersal = 1-np.mean(second_var)
-    adjusted_weight_stability.append(adj_dispersal)
+    
+    return stability, avg_dispersal, adj_dispersal
+
+
+def linda_eval(instance):
+    #Get lime explanations for instance
+    feat_pres = []
+    feat_weights = []
+
+    for iteration in list(range(exp_iter)):
+        weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
+        feat_pos = list(feat_pos)
+        presence_list = np.array([0]*len(feat_list))                    
+
+        presence_list[feat_pos] = 1
+
+        feat_pres.append(presence_list)
+        feat_weights.append(weights)
+
+    stability = st.getStability(feat_pres)
+    rel_var, second_var = dispersal(feat_weights, feat_list)
+    avg_dispersal = 1-np.mean(rel_var)
+    adj_dispersal = 1-np.mean(second_var)
     
     return stability, avg_dispersal, adj_dispersal
 
@@ -708,14 +727,14 @@ if xai_method=="ACV":
             all_results.append(results)
 
 if xai_method=="LINDA":
-
+    
     for dataset_name in datasets:
         
         num_buckets = len([name for name in os.listdir(os.path.join(PATH,'%s/%s/%s/pipelines'% 
                                                                     (dataset_ref, cls_method, method_name)))])
         dataset_manager = DatasetManager(dataset_name)
 
-        for bucket in tqdm(range(num_buckets)):
+        for bucket in tqdm_notebook(range(num_buckets)):
             bucketID = bucket+1
             print ('Bucket', bucketID)
             
@@ -764,59 +783,23 @@ if xai_method=="LINDA":
 #                                   feature_names = feat_list, class_names=class_names, categorical_features = cats)
             
             instance_no = 0
-            print(len(sample_instances[:10]))
+            print(len(sample_instances))
             #explain the chosen instances and find the stability score
-            for instance in tqdm(test_dict):
-                instance_no += 1
+            pool = mp.Pool(mp.cpu_count())
+            start = time.time()
+            stability, avg_dispersal, adj_dispersal = zip(*pool.map(linda_eval, [instance for instance in test_dict[:5]]))
+            print(time.time()-start, "seconds")
 
-                print("Testing", instance_no, "of", len(sample_instances), ".")
-
-                #Get lime explanations for instance
-                feat_pres = []
-                feat_weights = []
+            subset_stability = list(stability)
+            weight_stability = list(avg_dispersal)
+            adjusted_weight_stability = list(adj_dispersal)
                 
-               
-                
-                for iteration in list(range(exp_iter)):
-                    weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
-                    #print(weights)
-                    #print(feat_pos)
-                    
-                    feat_pos = list(feat_pos)
-                    
-                    bins = pd.cut(weights, 4, duplicates = "drop", retbins = True)[-1]
-                    q1_min = bins[-2]
-
-                    presence_list = np.array([0]*len(feat_list))                    
-
-                    for n in range(len(feat_list)):
-                        if weights[n] >= q1_min:
-                            presence_list[n] = 1
-
-                    feat_pres.append(presence_list)
-                    feat_weights.append(weights)
-                
-                #print(feat_pres)
-                #print(feat_weights)
-                
-                stability = st.getStability(feat_pres)
-                print ("Stability:", round(stability,2))
-                subset_stability.append(stability)
-
-                rel_var, second_var = dispersal(feat_weights, feat_list)
-                avg_dispersal = 1-np.mean(rel_var)
-                print ("Dispersal of feature importance:", round(avg_dispersal, 2))
-                weight_stability.append(avg_dispersal)
-                adj_dispersal = 1-np.mean(second_var)
-                print ("Dispersal with no outliers:", round(adj_dispersal, 2))
-                adjusted_weight_stability.append(adj_dispersal)
-
             results["LINDA Subset Stability"] = subset_stability
             results["LINDA Weight Stability"] = weight_stability
             results["LINDA Adjusted Weight Stability"] = adjusted_weight_stability
             results.to_csv(os.path.join(PATH,"%s/%s/%s/samples/results_bucket_%s.csv") % 
                                (dataset_ref, cls_method, method_name, bucketID), sep=";", index=False)                
             all_results.append(results)
-
+            
 pd.concat(all_results).to_csv(os.path.join(PATH,"%s/%s/%s/samples/results.csv") % (dataset_ref, cls_method, method_name), 
                                sep=";", index=False)
