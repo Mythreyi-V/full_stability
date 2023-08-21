@@ -417,6 +417,33 @@ def lime_eval(instance):
 
     return stability, avg_dispersal, adj_dispersal
 
+def acv_eval(instance):
+    #Get acv explanations for instance
+    feat_pres = []
+    feat_weights = []
+
+    for iteration in list(range(exp_iter)):
+        weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, targets, 1)
+        print(weights)
+        print(feat_pos)
+
+        presence_list = np.array([0]*len(feat_list))                    
+        presence_list[feat_pos] = 1
+
+        feat_pres.append(presence_list)
+        feat_weights.append(weights)
+
+    stability = st.getStability(feat_pres)
+    subset_stability.append(stability)
+
+    rel_var, second_var = dispersal(feat_weights, feat_list)
+    avg_dispersal = 1-np.mean(rel_var)
+    weight_stability.append(avg_dispersal)
+    adj_dispersal = 1-np.mean(second_var)
+    adjusted_weight_stability.append(adj_dispersal)
+    
+    return stability, avg_dispersal, adj_dispersal
+
 
 dataset_ref = sys.argv[1]
 params_dir = PATH + "params"
@@ -658,41 +685,20 @@ if xai_method=="ACV":
             instance_no = 0
             print(len(sample_instances[:10]))
             #explain the chosen instances and find the stability score
-            for instance in tqdm(sample_instances):
-                instance_no += 1
+            
+            #explain the chosen instances and find the stability score
+            pool = mp.Pool(mp.cpu_count())
+            start = time.time()
+            stability, avg_dispersal, adj_dispersal = zip(*pool.map(acv_eval, [instance for instance in sample_instances[:10]]))
+            print(time.time()-start, "seconds")
 
-                print("Testing", instance_no, "of", len(sample_instances), ".")
+            subset_stability = list(stability)
+            weight_stability = list(avg_dispersal)
+            adjusted_weight_stability = list(adj_dispersal)
 
-                #Get lime explanations for instance
-                feat_pres = []
-                feat_weights = []
-                
-               
-                
-                for iteration in list(range(exp_iter)):
-                    weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, targets, 1)
-            #        print(weights)
-            #        print(feat_pos)
-
-                    feat_pos = list(feat_pos)
-
-                    presence_list = np.array([0]*len(feat_list))                    
-                    presence_list[feat_pos] = 1
-
-                    feat_pres.append(presence_list)
-                    feat_weights.append(weights)
-
-                stability = st.getStability(feat_pres)
-                print ("Stability:", round(stability,2))
-                subset_stability.append(stability)
-
-                rel_var, second_var = dispersal(feat_weights, feat_list)
-                avg_dispersal = 1-np.mean(rel_var)
-                print ("Dispersal of feature importance:", round(avg_dispersal, 2))
-                weight_stability.append(avg_dispersal)
-                adj_dispersal = 1-np.mean(second_var)
-                print ("Dispersal with no outliers:", round(adj_dispersal, 2))
-                adjusted_weight_stability.append(adj_dispersal)
+            print("Average Stability by Subset:", np.mean(subset_stability))
+            print("Average Stability by Weight:", np.mean(weight_stability))
+            print("Average Stability by Weight (no outliers):", np.mean(adjusted_weight_stability))
 
             results["ACV Subset Stability"] = subset_stability
             results["ACV Weight Stability"] = weight_stability
