@@ -1,0 +1,42 @@
+WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
+/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
+  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
+  
+  warnings.warn("""
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+  0%|          | 0/14 [00:00<?, ?it/s]
+0it [00:00, ?it/s][A0it [307:51:39, ?it/s]
+  0%|          | 0/14 [307:51:40<?, ?it/s]
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "test_el_stability.py", line 450, in linda_eval
+    weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
+  File "test_el_stability.py", line 259, in get_linda_features
+    [bn, inference, infoBN] = generate_BN_explanations(instance, label_lst, feat_list, "Result",
+  File "/mnt/home/n9455647/full_stability/learning.py", line 691, in generate_BN_explanations
+    bn, infoBN, essencGraph = learnBN( path_to_permutations )
+  File "/mnt/home/n9455647/full_stability/learning.py", line 542, in learnBN
+    infoBN = gnb.getInformation( bn )
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py", line 698, in getInformation
+    return _reprInformation(bn, evs, size, cmap, asString=True)
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py", line 640, in _reprInformation
+    ie.makeInference()
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/pyAgrum.py", line 13476, in makeInference
+    return _pyAgrum.LazyPropagation_makeInference(self)
+Exception: std::bad_alloc
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "test_el_stability.py", line 790, in <module>
+    for result in tqdm(pool.imap(linda_eval, [instance for instance in test_dict])):
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/home/n9455647/.conda/envs/conda_test/lib/python3.8/multiprocessing/pool.py", line 868, in next
+    raise value
+Exception: std::bad_alloc
