@@ -424,8 +424,8 @@ def acv_eval(instance):
 
     for iteration in list(range(exp_iter)):
         weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, targets, 1)
-        print(weights)
-        print(feat_pos)
+        #print(weights)
+        #print(feat_pos)
 
         presence_list = np.array([0]*len(feat_list))                    
         presence_list[feat_pos] = 1
@@ -734,7 +734,7 @@ if xai_method=="LINDA":
                                                                     (dataset_ref, cls_method, method_name)))])
         dataset_manager = DatasetManager(dataset_name)
 
-        for bucket in tqdm_notebook(range(num_buckets)):
+        for bucket in tqdm(range(num_buckets)):
             bucketID = bucket+1
             print ('Bucket', bucketID)
             
@@ -787,12 +787,17 @@ if xai_method=="LINDA":
             #explain the chosen instances and find the stability score
             pool = mp.Pool(mp.cpu_count())
             start = time.time()
-            stability, avg_dispersal, adj_dispersal = zip(*pool.map(linda_eval, [instance for instance in test_dict]))
+            for result in tqdm(pool.imap(linda_eval, [instance for instance in test_dict])):
+                subset_stability.append(result[0])
+                weight_stability.append(result[1])
+                adjusted_weight_stability.append(result[2])
+
+            #stability, avg_dispersal, adj_dispersal = zip(*pool.map(linda_eval, [instance for instance in test_dict]))
             print(time.time()-start, "seconds")
 
-            subset_stability = list(stability)
-            weight_stability = list(avg_dispersal)
-            adjusted_weight_stability = list(adj_dispersal)
+            # subset_stability = list(stability)
+            # weight_stability = list(avg_dispersal)
+            # adjusted_weight_stability = list(adj_dispersal)
                 
             results["LINDA Subset Stability"] = subset_stability
             results["LINDA Weight Stability"] = weight_stability

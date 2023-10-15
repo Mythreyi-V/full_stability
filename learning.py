@@ -627,7 +627,7 @@ def generate_permutations( instance, labels_lst, feature_names, class_var, encod
         permutations_orig = scaler.inverse_transform( permutations )
     else:
         permutations_orig = np.copy(permutations)
-
+        
     if type(permutations)==list:
         permutations = np.array(permutations)
     
@@ -653,7 +653,7 @@ def generate_permutations( instance, labels_lst, feature_names, class_var, encod
     
 # GEBERATE_BN_EXPLANATIONS ------------------------------------------------------------
 #
-def generate_BN_explanations(instance, label_lst, feature_names, class_var, encoder, scaler, model, path, dataset_name, show_in_notebook = True, samples = 300 ):
+def generate_BN_explanations(instance, label_lst, feature_names, class_var, encoder, scaler, model, path, dataset_name, show_in_notebook = True, samples=300 ):
 
     # necessary for starting Numpy generated random numbers in an initial state
     np.random.seed(515)
@@ -677,11 +677,10 @@ def generate_BN_explanations(instance, label_lst, feature_names, class_var, enco
     try:
         original_umask = os.umask(0)
         if not os.path.isdir(folder_path_permutations):
-            os.makedirs(folder_path_permutations, mode=0o755)
+            os.makedirs(folder_path_permutations, mode=0o755, exist_ok=True)
     finally:
         os.umask(original_umask)
     path_to_permutations = folder_path_permutations + str(indx) + "_permutations.csv"
-
     df_discr.to_csv( path_to_permutations, index=False)
     
     # normalise dataframe
@@ -705,7 +704,7 @@ def generate_BN_explanations(instance, label_lst, feature_names, class_var, enco
     try:
         original_umask = os.umask(0)
         if not os.path.isdir(path_to_explanation):
-            os.makedirs(path_to_explanation, mode=0o755)
+            os.makedirs(path_to_explanation, mode=0o755, exist_ok=True)
     finally:
         os.umask(original_umask)
 #    gum.lib.bn2graph.dotize( bn , path_to_explanation + str(indx) + "_BN" )
@@ -740,7 +739,7 @@ def generate_BN_explanationsMB(instance, label_lst, feature_names, class_var, en
     try:
         original_umask = os.umask(0)
         if not os.path.isdir(folder_path_permutations):
-            os.makedirs(folder_path_permutations, mode=0o755)
+            os.makedirs(folder_path_permutations, mode=0o755, exist_ok=True)
     finally:
         os.umask(original_umask)
     path_to_permutations = folder_path_permutations + str(indx) + "_permutations.csv"
@@ -766,7 +765,7 @@ def generate_BN_explanationsMB(instance, label_lst, feature_names, class_var, en
 
     # save to file
     path_to_explanation = path + "explanations/" + dataset_name.replace(".csv", "") + "/BN/" + prediction_type + "/"
-    
+
     try:
         original_umask = os.umask(0)
         if not os.path.isdir(path_to_explanation):
@@ -789,6 +788,9 @@ def generate_local_predictions( X, Y, model, scaler, encoder ):
     # get original vector
     if scaler != None:
         orig_vec = np.round(scaler.inverse_transform(X),6)
+    #print(orig_vec.shape)
+    #print(orig_vec.shape[0])
+    #print(Y.shape)
     else:
         orig_vec = np.copy(X)
 
@@ -802,6 +804,7 @@ def generate_local_predictions( X, Y, model, scaler, encoder ):
         prediction_class = np.copy(predictions)
     local_data_dict = []
     for indx in range(0, orig_vec.shape[0]):
+        #print(indx)
 
         ground_truth = np.expand_dims(Y[indx], axis=0)
 
