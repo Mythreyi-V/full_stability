@@ -1,8 +1,0 @@
-WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages/pyAgrum/lib/notebook.py:1312: UserWarning: 
-  ** pyAgrum.lib.notebook has to be imported from an IPython's instance (mainly notebook).
-  
-  warnings.warn("""
-RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
-=>> PBS: job killed: walltime 302467 exceeded limit 302400

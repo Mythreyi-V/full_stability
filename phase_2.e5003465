@@ -1,8 +1,0 @@
-WARNING: Ignoring invalid distribution -erminado (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-WARNING: Ignoring invalid distribution -cipy (/mnt/home/n9455647/.conda/envs/conda_test/lib/python3.8/site-packages)
-Traceback (most recent call last):
-  File "acv_el_surrogate.py", line 58, in <module>
-    dataset_manager = DatasetManager(dataset_name)
-  File "/mnt/home/n9455647/full_stability/DatasetManager.py", line 19, in __init__
-    self.case_id_col = dataset_confs.case_id_col[self.dataset_name]
-KeyError: 'hospital'
