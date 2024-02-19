@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
+##GENERATE A SURROGATE MODEL USING ACV FOR TABULAR DATA
 
 import pandas as pd
 import numpy as np
@@ -27,10 +23,6 @@ from tqdm import tqdm_notebook
 from hyperopt import fmin, tpe, hp, Trials, rand, early_stop
 from hyperopt.pyll import scope
 
-
-# In[2]:
-
-
 # path to project folder
 # please change to your own
 PATH = os.getcwd()
@@ -44,10 +36,6 @@ exp_iter = 10
 save_to = "%s/%s/" % (PATH, dataset)
 dataset_folder = "%s/datasets/" % (save_to)
 final_folder = "%s/%s/" % (save_to, cls_method)
-
-
-# In[3]:
-
 
 #Get datasets
 X_train = pd.read_csv(dataset_folder+dataset+"_Xtrain.csv", index_col=False, sep = ";")
@@ -67,10 +55,6 @@ test_pred = cls.predict(test_x)
 
 #Set up hyperparameter optimisation
 kf = KFold(n_splits=5, shuffle = True, random_state=random_state)
-
-
-# In[4]:
-
 
 space = {"n_estimators": scope.int(hp.quniform('n_estimators', 1, 20, q=1)),
         "max_depth": scope.int(hp.quniform('max_depth', 1, 20, q=1)),
@@ -98,16 +82,14 @@ def acv_classifier_optimisation(args, random_state = random_state, cv = kf, X = 
 
 best = fmin(acv_classifier_optimisation, verbose=0, space = space, algo=rand.suggest, max_evals = 50, trials=trials, 
                 rstate=np.random.default_rng(random_state), early_stop_fn=early_stop.no_progress_loss(3))
+
+#Train surrogate model using best parameters
 explainer = ACXplainer(classifier = True, verbose = 0, n_estimators = int(best['n_estimators']), 
                        max_depth = int(best['max_depth']), sample_fraction = best["sample_fraction"])
 explainer.fit(X_train, Y_pred)
 
 print("Training Accuracy:", f1_score(cls.predict(X_train.values), explainer.predict(X_train)))
 print("Testing Accuracy:", f1_score(cls.predict(test_x), explainer.predict(test_x)))
-
-
-# In[5]:
-
 
 #save surrogate model
 joblib.dump(explainer, save_to+cls_method+"/acv_explainer_test.joblib")

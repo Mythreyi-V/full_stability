@@ -1,3 +1,5 @@
+##GENERATE A SURROGATE MODEL USING ACV FOR EVENT LOGS
+
 import pandas as pd
 import numpy as np
 
@@ -59,6 +61,7 @@ datasets = [dataset] if dataset not in dataset_ref_to_datasets else dataset_ref_
 num_buckets = len([name for name in os.listdir(os.path.join(PATH,'%s/%s/%s/pipelines'% (dataset, cls_method, method_name)))])
 
 for dataset_name in datasets:
+    #Set up original datasets and models
     dataset_manager = DatasetManager(dataset_name)
     
     min_prefix_length = 1
@@ -163,6 +166,8 @@ for bucket in tqdm_notebook(range(num_buckets)):
 
     best = fmin(acv_classifier_optimisation, verbose=0, space = space, algo=rand.suggest, max_evals = 50, trials=trials, 
                 rstate=np.random.default_rng(random_state))#, early_stop_fn=early_stop.no_progress_loss(3))
+    
+    #train surrogate model with optimal hyperparameters
     explainer = ACXplainer(classifier = True, n_estimators = int(best['n_estimators']), 
                            max_depth = int(best['max_depth']), sample_fraction = best['sample_fraction'])
     explainer.fit(full_train_x, full_train_y)
@@ -170,6 +175,7 @@ for bucket in tqdm_notebook(range(num_buckets)):
     print("Training Score:", f1_score(cls.predict(full_train_x), explainer.predict(full_train_x)))
     print("Testing Score:", f1_score(cls.predict(test_x), explainer.predict(test_x)))
     
+    #save surrogate model
     joblib.dump(explainer, method_folder+"/acv_surrogate/acv_explainer_bucket_%s.joblib"%(bucketID))
     
     

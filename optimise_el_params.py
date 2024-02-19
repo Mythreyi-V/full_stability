@@ -1,8 +1,7 @@
-#from google.colab import drive
-#drive.mount('/content/drive')
+## HYPERPARAMETER OPTIMISATION FOR PPA MODELS
+
 import sys
 import os
-#PATH = '/content/drive/My Drive/PPM_Stability/'
 PATH = os.getcwd()
 sys.path.append(PATH)
 
@@ -26,23 +25,9 @@ from sys import argv
 import pickle
 from collections import defaultdict
 
-#from sklearn.ensemble import RandomForestClassifier
 import xgboost as xgb
 from sklearn.linear_model import LogisticRegression
-#from sklearn.svm import SVC, LinearSVC
 from sklearn.naive_bayes import GaussianNB
-#import catboost
-
-# from tensorflow.keras.backend import print_tensor
-# from tensorflow.keras.callbacks import ModelCheckpoint, EarlyStopping
-# from keras.layers.core import Dense, Activation, Dropout
-# from keras.preprocessing import sequence
-# from keras.models import Sequential, Model
-# from keras.layers import Dense, Embedding, Flatten, Input
-# from keras.layers import LSTM
-# from keras.optimizers import Nadam, RMSprop
-# from keras.layers.normalization import BatchNormalization
-
 
 from hyperopt import Trials, STATUS_OK, tpe, fmin, hp
 import hyperopt
@@ -107,21 +92,7 @@ def create_and_evaluate_model(args):
             elif cls_method == "nb":
                 cls = GaussianNB(var_smoothing=args["var_smoothing"])
 
-            pipeline = Pipeline([('encoder', feature_combiner), ('scaler', MinMaxScaler()), ('cls', cls)])
-            
-            #print(dt_train_bucket.shape)
-            #print(len(train_y))
-            #print(feature_combiner.fit_transform(dt_train_bucket).shape)
-            #print(feature_combiner.fit(dt_train_bucket))
-            
-#             if cls_method == "nb":
-#                 #train_enc = pipeline["encoder"].fit_transform(dt_train_bucket)
-#                 print(train_enc[0][0])
-#                 #print(train_enc.shape)
-#                 #for each in train_enc:
-#                 #    print(each.shape)
-#                 pipeline["cls"].fit(train_enc, train_y)
-            
+            pipeline = Pipeline([('encoder', feature_combiner), ('scaler', MinMaxScaler()), ('cls', cls)])            
             pipeline.fit(dt_train_bucket, train_y)
 
             preds = pipeline.predict(dt_test_bucket)
@@ -157,15 +128,12 @@ else:
 method_name = "%s_%s"%(bucket_method, cls_encoding)
 
 dataset_ref_to_datasets = {
-    "bpic2011": ["bpic2011_f1"],
+    "bpic2011": ["bpic2011_f%s"%formula for formula in range(1,5)],
     "bpic2015": ["bpic2015_%s_f2"%(municipality) for municipality in range(5,6)],
-    "bpic2017" : ["bpic2017_accepted"],
+    "insurance": ["insurance_activity", "insurance_followup"],
     "bpic2012" : ["bpic2012_accepted"],
-    #"insurance": ["insurance_activity", "insurance_followup"],
-    "sepsis_cases": ["sepsis_cases_1"],# "sepsis_cases_2", "sepsis_cases_4"]
-    "production" : ["production"],
-    "hospital": ["hospital_billing_2"],
-    "traffic": ["traffic_fines_1"]
+    "sepsis_cases": ["sepsis_cases_1"],#, "sepsis_cases_2", "sepsis_cases_4"],
+    "production": ["production"]
 }
 
 encoding_dict = {

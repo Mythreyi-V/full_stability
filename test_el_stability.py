@@ -1,36 +1,23 @@
+##TEST EXPLANATION STABILITY
+##USING EVENT LOG DATA
+
 import sys
 import os
-
-#Use if working on Colab
-#from google.colab import drive
-#drive.mount('/content/drive')
-#PATH = '/content/drive/My Drive/PPM_Stability/'
 
 #If working locally
 PATH = os.getcwd()
 sys.path.append(PATH)
 
-import EncoderFactory
-#from DatasetManager_for_colab import DatasetManager
 from DatasetManager import DatasetManager
-import BucketFactory
 import stability as st #Nogueira, Sechidis, Brown.
 
 import pandas as pd
 import numpy as np
 from scipy import stats
 
-from sklearn.metrics import roc_auc_score
-from sklearn.pipeline import FeatureUnion, Pipeline
-from sklearn.preprocessing import StandardScaler
-
 import time
 import os
 import sys
-from sys import argv
-import pickle
-from collections import defaultdict
-import random
 import joblib
 
 import multiprocessing as mp
@@ -42,9 +29,6 @@ from sklearn.svm import SVC
 
 import lime
 import lime.lime_tabular
-from lime import submodular_pick
-
-#from alibi.utils.data import gen_category_map
 
 from tqdm import tqdm_notebook, tqdm
 
@@ -57,8 +41,8 @@ import shap
 import warnings
 warnings.filterwarnings('ignore')
 
-from lime import submodular_pick
 
+#Generate LIME explanations
 def generate_lime_explanations(explainer,test_xi, cls, submod=False, test_all_data=None, max_feat = 10, scaler=None):
     
     def scale_predict_fn(X):
@@ -79,7 +63,8 @@ def generate_lime_explanations(explainer,test_xi, cls, submod=False, test_all_da
                                  scale_predict_fn, num_features=max_feat, labels=[0,1])
         
     return exp
-        
+
+#Calculate stability of feature weights        
 def dispersal(weights, features):
     
     feat_len = len(features)
@@ -131,6 +116,7 @@ def dispersal(weights, features):
 
     return dispersal, dispersal_no_outlier
 
+#Generate SHAP explanations
 def create_samples(shap_explainer, iterations, row, features, pred, top = None, scaler = None):
     length = len(features)
     
@@ -147,26 +133,16 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
         else:
             shap_values = shap_explainer(row.reshape(1, -1)).values
         
-        #print(exp.shape)
-        #print(exp)
-        #print(shap_values.shape)
-        #print(len(features))
         if shap_values.shape == (1, len(features), 2):
             shap_values = shap_values[0]
-            
-        #print(exp.shape)
-        
+                    
         if shap_values.shape == (len(features), 2):
             shap_values = np.array([feat[pred] for feat in shap_values]).reshape(len(features))
         elif shap_values.shape == (1, len(row)) or shap_values.shape == (len(features), 1):
             shap_values = shap_values.reshape(len(features))
-            
-        #print(np.array(exp).shape)
-        
+                    
         if scaler != None:
-            #print(shap_values)
             shap_values = scaler.inverse_transform(shap_values.reshape(1, -1))[0]
-            #print(shap_values.shape)
         
         #Map SHAP values to feature names
         importances = []
@@ -186,9 +162,7 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
         
         #Create list of all feature
         exp.append(importances)
-        
-        #print(exp[0])
-        
+                
         #Create list of most important features
         rel_feat = []
         if top != None:
@@ -206,6 +180,7 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
         
     return exp, rel_exp
 
+#Generate ACV explanations
 def get_acv_features(explainer, instance, cls, X_train, y_train, exp_iter):
     instance = instance.reshape(1, -1)
     y = cls.predict(instance)
@@ -247,6 +222,7 @@ def get_acv_features(explainer, instance, cls, X_train, y_train, exp_iter):
     
     return feat_imp, feat_pos
 
+#Generate LINDA-BN Explanations
 def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, percentile):
     label_lst = ["Negative", "Positive"]
     
@@ -307,7 +283,6 @@ def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, perc
                 new_proba = result_posterior.values[0]
             else:
                 new_proba = result_posterior.loc["Result", label_lst[instance['predictions']]]
-            #print(result_proba, new_proba)
             proba_change = result_proba-new_proba
             likelihood[j] = abs(proba_change)
 
@@ -330,6 +305,7 @@ def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, perc
         
     return np.mean(lkhoods, axis=0), feat_pos
 
+#Evaluate stability of SHAP explanations
 def shap_eval(instance):
 
     #ensure data is right shape
@@ -341,9 +317,9 @@ def shap_eval(instance):
 
     feat_pres = []
     feat_weights = []
-
+    
+    #Determine top features in explanation
     for iteration in rel_exp:
-        #print("Computing feature presence for iteration", rel_exp.index(iteration))
 
         presence_list = [0]*len(feat_list)
 
@@ -356,9 +332,8 @@ def shap_eval(instance):
 
         feat_pres.append(presence_list)
 
+    #Collate weights for each feature in each explanation
     for iteration in exp:
-        #print("Compiling feature weights for iteration", exp.index(iteration))
-
         weights = [0]*len(feat_list)
 
         for each in feat_list:
@@ -370,6 +345,7 @@ def shap_eval(instance):
                     weights[list_idx] = explanation[1]
         feat_weights.append(weights)
 
+    #evaluate stability
     stability = st.getStability(feat_pres)
     
     rel_var, second_var = dispersal(feat_weights, feat_list)
@@ -379,11 +355,13 @@ def shap_eval(instance):
     
     return stability, avg_dispersal, adj_dispersal
 
+#Evaluate stability of LIME explanations
 def lime_eval(instance):
     #Get lime explanations for instance
     feat_pres = []
     feat_weights = []
 
+    #Generate explanations, determine top features and collate weights
     for iteration in list(range(exp_iter)):
 
         lime_exp = generate_lime_explanations(lime_explainer, instance, cls,
@@ -408,6 +386,7 @@ def lime_eval(instance):
         feat_pres.append(presence_list)
         feat_weights.append(weights)
 
+    #Evaluate explanations
     stability = st.getStability(feat_pres)
 
     rel_var, second_var = dispersal(feat_weights, feat_list)
@@ -417,15 +396,15 @@ def lime_eval(instance):
 
     return stability, avg_dispersal, adj_dispersal
 
+#Evaluate stability of ACV explanations
 def acv_eval(instance):
     #Get acv explanations for instance
     feat_pres = []
     feat_weights = []
 
+    #Determine M-SE and LEI
     for iteration in list(range(exp_iter)):
         weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, targets, 1)
-        #print(weights)
-        #print(feat_pos)
 
         presence_list = np.array([0]*len(feat_list))                    
         presence_list[feat_pos] = 1
@@ -433,6 +412,7 @@ def acv_eval(instance):
         feat_pres.append(presence_list)
         feat_weights.append(weights)
 
+    #Evaluate
     stability = st.getStability(feat_pres)
     rel_var, second_var = dispersal(feat_weights, feat_list)
     avg_dispersal = 1-np.mean(rel_var)
@@ -440,12 +420,13 @@ def acv_eval(instance):
     
     return stability, avg_dispersal, adj_dispersal
 
-
+#Evaluate stability of LINDA-BN explanations
 def linda_eval(instance):
     #Get lime explanations for instance
     feat_pres = []
     feat_weights = []
 
+    #Determine weights and top features
     for iteration in list(range(exp_iter)):
         weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
         feat_pos = list(feat_pos)
@@ -456,6 +437,7 @@ def linda_eval(instance):
         feat_pres.append(presence_list)
         feat_weights.append(weights)
 
+    #Evaluate
     stability = st.getStability(feat_pres)
     rel_var, second_var = dispersal(feat_weights, feat_list)
     avg_dispersal = 1-np.mean(rel_var)
@@ -498,6 +480,8 @@ datasets = [dataset_ref] if dataset_ref not in dataset_ref_to_datasets else data
 
 all_results = []
 
+#Evaluation in separated by XAI technique
+#Some changes in explanation generation and necessary data
 if xai_method=="SHAP":
 
     for dataset_name in datasets:
@@ -552,9 +536,7 @@ if xai_method=="SHAP":
                 
                 #explain the chosen instances and find the stability score
                 pool = mp.Pool(mp.cpu_count())
-                start = time.time()
                 stability, avg_dispersal, adj_dispersal = zip(*pool.map(shap_eval, [instance for instance in sample_instances]))
-                print(time.time()-start, "seconds")
                     
                 subset_stability = list(stability)
                 weight_stability = list(avg_dispersal)
@@ -624,9 +606,7 @@ if xai_method=="LIME":
             
             #explain the chosen instances and find the stability score
             pool = mp.Pool(mp.cpu_count())
-            start = time.time()
             stability, avg_dispersal, adj_dispersal = zip(*pool.map(lime_eval, [instance for instance in sample_instances]))
-            print(time.time()-start, "seconds")
 
             subset_stability = list(stability)
             weight_stability = list(avg_dispersal)
@@ -688,28 +668,17 @@ if xai_method=="ACV":
                                                                     (dataset_ref, cls_method, method_name, bucketID)))
 
             feat_list = [feat.replace(" ", "_") for feat in feature_combiner.get_feature_names()]
-#             class_names = ["Negative", "Positive"]
-            
-#             cats = [feat for col in dataset_manager.dynamic_cat_cols+dataset_manager.static_cat_cols 
-#                     for feat in range(len(feat_list)) if col in feat_list[feat]]
 
             subset_stability = []
             weight_stability = []
             adjusted_weight_stability = []
 
-            #create explainer now that can be passed later
-#             lime_explainer = lime.lime_tabular.LimeTabularExplainer(trainingdata,
-#                                   feature_names = feat_list, class_names=class_names, categorical_features = cats)
-            
+
             instance_no = 0
-            print(len(sample_instances[:10]))
-            #explain the chosen instances and find the stability score
             
             #explain the chosen instances and find the stability score
             pool = mp.Pool(mp.cpu_count())
-            start = time.time()
             stability, avg_dispersal, adj_dispersal = zip(*pool.map(acv_eval, [instance for instance in sample_instances]))
-            print(time.time()-start, "seconds")
 
             subset_stability = list(stability)
             weight_stability = list(avg_dispersal)
@@ -769,35 +738,19 @@ if xai_method=="LINDA":
             test_dict = generate_local_predictions( sample_instances, results["Actual"], cls, scaler, None )
 
             feat_list = [feat.replace(" ", "_") for feat in feature_combiner.get_feature_names()]
-#             class_names = ["Negative", "Positive"]
-            
-#             cats = [feat for col in dataset_manager.dynamic_cat_cols+dataset_manager.static_cat_cols 
-#                     for feat in range(len(feat_list)) if col in feat_list[feat]]
 
             subset_stability = []
             weight_stability = []
             adjusted_weight_stability = []
 
-            #create explainer now that can be passed later
-#             lime_explainer = lime.lime_tabular.LimeTabularExplainer(trainingdata,
-#                                   feature_names = feat_list, class_names=class_names, categorical_features = cats)
-            
             instance_no = 0
-            print(len(sample_instances))
+                       
             #explain the chosen instances and find the stability score
             pool = mp.Pool(mp.cpu_count())
-            start = time.time()
             for result in tqdm(pool.imap(linda_eval, [instance for instance in test_dict])):
                 subset_stability.append(result[0])
                 weight_stability.append(result[1])
                 adjusted_weight_stability.append(result[2])
-
-            #stability, avg_dispersal, adj_dispersal = zip(*pool.map(linda_eval, [instance for instance in test_dict]))
-            print(time.time()-start, "seconds")
-
-            # subset_stability = list(stability)
-            # weight_stability = list(avg_dispersal)
-            # adjusted_weight_stability = list(adj_dispersal)
                 
             results["LINDA Subset Stability"] = subset_stability
             results["LINDA Weight Stability"] = weight_stability

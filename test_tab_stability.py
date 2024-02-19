@@ -1,3 +1,6 @@
+##TEST EXPLANATION STABILITY
+##USING TABULAR DATA
+
 import sys
 import os
 
@@ -45,6 +48,7 @@ warnings.filterwarnings('ignore')
 
 from lime import submodular_pick
 
+#Generate LIME explanations
 def generate_lime_explanations(explainer,test_xi, cls, submod=False, test_all_data=None, max_feat = 10, scaler=None):
     
     def scale_predict_fn(X):
@@ -65,7 +69,8 @@ def generate_lime_explanations(explainer,test_xi, cls, submod=False, test_all_da
                                  scale_predict_fn, num_features=max_feat, labels=[0,1])
         
     return exp
-        
+
+#Calculate stability of feature weights        
 def dispersal(weights, features):
     
     feat_len = len(features)
@@ -117,6 +122,7 @@ def dispersal(weights, features):
 
     return dispersal, dispersal_no_outlier
 
+#Generate SHAP Explanations
 def create_samples(shap_explainer, iterations, row, features, pred, top = None, scaler = None):
     length = len(features)
     
@@ -133,26 +139,16 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
         else:
             shap_values = shap_explainer(row.reshape(1, -1)).values
         
-        #print(exp.shape)
-        #print(exp)
-        #print(shap_values.shape)
-        #print(len(features))
         if shap_values.shape == (1, len(features), 2):
             shap_values = shap_values[0]
-            
-        #print(exp.shape)
-        
+                    
         if shap_values.shape == (len(features), 2):
             shap_values = np.array([feat[pred] for feat in shap_values]).reshape(len(features))
         elif shap_values.shape == (1, len(row)) or shap_values.shape == (len(features), 1):
             shap_values = shap_values.reshape(len(features))
-            
-        #print(np.array(exp).shape)
-        
+                    
         if scaler != None:
-            #print(shap_values)
             shap_values = scaler.inverse_transform(shap_values.reshape(1, -1))[0]
-            #print(shap_values.shape)
         
         #Map SHAP values to feature names
         importances = []
@@ -192,6 +188,7 @@ def create_samples(shap_explainer, iterations, row, features, pred, top = None, 
         
     return exp, rel_exp
 
+#Generate ACV explanations
 def get_acv_features(explainer, instance, cls, X_train, y_train, exp_iter):
     instance = instance.reshape(1, -1)
     y = cls.predict(instance)
@@ -233,6 +230,7 @@ def get_acv_features(explainer, instance, cls, X_train, y_train, exp_iter):
     
     return feat_imp, feat_pos
 
+#Generate LINDA-BN explanations
 def get_linda_features(instance, cls, scaler, dataset, exp_iter, feat_list, percentile):
     label_lst = ["Negative", "Positive"]
     
@@ -311,6 +309,7 @@ max_feat = 10
 
 dataset_path = os.path.join(PATH, dataset_ref)
 
+#Import datasets and models
 cls = joblib.load(os.path.join(dataset_path, cls_method, "cls.joblib"))
 scaler = joblib.load(os.path.join(dataset_path, "scaler.joblib"))
 
@@ -325,6 +324,8 @@ sample_instances = pd.read_csv((os.path.join(dataset_path, cls_method, "test_sam
 results = pd.read_csv((os.path.join(dataset_path, cls_method, "results.csv")), sep=";", index_col = False) 
 targets = results["Actual"]
 
+#Stability evaluation varies across XAI techniques, 
+#Explanation generation and formats are different
 if xai_method=="SHAP":
     
     if cls_method == "xgboost" or cls_method == "decision_tree":
@@ -442,7 +443,6 @@ if xai_method=="LIME":
 
             for each in feat_list:
                 list_idx = feat_list.index(each)
-                #print ("Feature", list_idx)
                 for explanation in lime_exp.as_list():
                     if each in explanation[0]:
                         if explanation[1] > q1_min:
@@ -493,8 +493,6 @@ if xai_method=="ACV":
 
         for iteration in list(range(exp_iter)):
             weights, feat_pos = get_acv_features(acv_explainer, instance, cls, trainingdata, y_train, 1)
-    #        print(weights)
-    #        print(feat_pos)
 
             presence_list = np.array([0]*len(feat_list))                    
             presence_list[feat_pos] = 1
@@ -542,8 +540,6 @@ if xai_method=="LINDA":
 
         for iteration in list(range(exp_iter)):
             weights, feat_pos = get_linda_features(instance, cls, scaler, dataset_ref, 1, feat_list, 1)
-            #print(weights)
-            #print(feat_pos)
 
             feat_pos = list(feat_pos)
 
@@ -558,9 +554,6 @@ if xai_method=="LINDA":
 
             feat_pres.append(presence_list)
             feat_weights.append(weights)
-
-        print(feat_pres)
-        print(feat_weights)
 
         stability = st.getStability(feat_pres)
         print ("Stability:", round(stability,2))
@@ -578,5 +571,6 @@ if xai_method=="LINDA":
     results["LINDA Weight Stability"] = weight_stability
     results["LINDA Adjusted Weight Stability"] = adjusted_weight_stability    
 
+#Save results
 results.to_csv(os.path.join(dataset_path, cls_method, "results.csv"), index=False, sep = ";")
 print("Results saved")
